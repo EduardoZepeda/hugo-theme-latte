@@ -1,0 +1,7 @@
+{{ $svg := . }}
+{{ $iconClass := print $svg "-icon" }}
+{{ $match := "<svg (.*)?>(.*)</svg>" }}
+{{ $replaceWith := printf `<svg class="social-icon %s" ${1}>${2}</svg>` $iconClass }}
+{{ $tag := (printf "themes/hugo-theme-latte/static/icons/%s.svg" $svg | readFile) }}
+{{ $svgIcon := (replaceRE $match $replaceWith $tag) | safeHTML}}
+{{ return $svgIcon }}

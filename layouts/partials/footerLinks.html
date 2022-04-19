@@ -1,0 +1,8 @@
+<div class="footer-links">
+    {{ range .Site.Menus.footer }}
+    <a class="footer-link" href="{{ .URL }}">
+        {{ $text := print .Name | safeHTML }}
+        {{ $text }}
+    </a>
+    {{ end }}
+</div>

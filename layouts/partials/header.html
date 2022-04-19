@@ -1,21 +1,21 @@
-<header class="header">
+<header id="header">
+    {{ partial "asideMenu.html" . }}
+
     <nav id="nav">
-        <div class="nav-burger">
-            x
+        <div id="burger-icon" class="nav-burger">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
         </div>
-        <div class="nav-menu">
-            {{ range .Site.Menus.main }}
-            <a class="nav-link" href="{{ .URL }}">
-                {{ $text := print .Name | safeHTML }}
-                {{ $text }}
-            </a>
-            {{ end }}
+        {{ partial "navMenu.html" . }}
+        <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
         </div>
     </nav>
     <div id="site-info">
         <div class="site-info-container">
             <p class="site-name">{{ .Site.Title }}</p>
             <h1 class="site-description">Blog de desarrollo web backend y frontend</h1>
+            {{ partial "socialIcons.html" . }}
         </div>
     </div>
 </header>

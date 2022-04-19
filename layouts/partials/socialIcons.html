@@ -1,0 +1,9 @@
+<div class="social-links">
+    {{ range .Site.Menus.social }}
+    <a class="social-link" href="{{ .URL }}">
+        {{ if .Pre }}
+        {{ partial "icon.html" .Pre }}
+        {{ end }}
+    </a>
+    {{ end }}
+</div>
