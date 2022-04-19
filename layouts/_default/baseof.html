@@ -3,12 +3,14 @@
 {{- partial "head.html" . -}}
 
 <body>
-    {{- partial "header.html" . -}}
-    <div id="content">
-        {{- block "main" . }}{{- end }}
+    <div id="hamburger-grid">
+        {{- partial "header.html" . -}}
+        <main id="main">
+            {{- block "main" . }}{{- end }}
+        </main>
+        {{- partial "footer.html" . -}}
+        {{- partial "script.html" . -}}
     </div>
-    {{- partial "footer.html" . -}}
-    {{- partial "script.html" . -}}
 </body>
 
 </html>

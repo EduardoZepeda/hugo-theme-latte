@@ -1,0 +1,10 @@
+<article>
+    <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</h3>
+    {{ partial "metadata.html" . }}
+    <picture>
+        <img class="featured-image" loading="lazy" src="{{ .RelPermalink }}/images/{{.Params.coverImage}}" alt="" />
+    </picture>
+    <p class="summary">{{ .Summary }}</p>
+    <button class="read-more">Leer más</button>
+    </a>
+</article>

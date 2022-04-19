@@ -9,6 +9,7 @@ homepage = "https://github.com/EduardoZepeda/hugo-theme-latte"
 tags = []
 features = []
 min_version = "0.41.0"
+paginate = 10
 
 [author]
   name = "Eduardo Zepeda"

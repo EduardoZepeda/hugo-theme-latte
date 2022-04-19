@@ -1,7 +1,8 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+<h1>{{ .Title }}</h1>
+{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
 {{ range $paginator.Pages }}
 {{ partial "post.html" . }}
-{{end}}
+{{ end }}
 {{ template "_internal/pagination.html" . }}
 {{ end }}

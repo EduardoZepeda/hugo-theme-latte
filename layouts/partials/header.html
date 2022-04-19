@@ -1,14 +1,21 @@
-<div class="container">
+<header class="header">
     <nav id="nav">
-        {{ range .Site.Menus.main }}
-        <a class="nav-link" href="{{ .URL }}">
-            {{ if .Pre }}
-            {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
-            {{ $icon }}
+        <div class="nav-burger">
+            x
+        </div>
+        <div class="nav-menu">
+            {{ range .Site.Menus.main }}
+            <a class="nav-link" href="{{ .URL }}">
+                {{ $text := print .Name | safeHTML }}
+                {{ $text }}
+            </a>
             {{ end }}
-            {{ $text := print .Name | safeHTML }}
-            {{ $text }}
-        </a>
-        {{ end }}
+        </div>
     </nav>
-</div>
+    <div id="site-info">
+        <div class="site-info-container">
+            <p class="site-name">{{ .Site.Title }}</p>
+            <h1 class="site-description">Blog de desarrollo web backend y frontend</h1>
+        </div>
+    </div>
+</header>
