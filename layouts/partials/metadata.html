@@ -1,12 +1,18 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+{{ $author := .Site.Params.author }}
+{{if .Params.author }} {{ $autor := .Params.author }}{{ end }}
 <div class="post-metadata">
-    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></div>
+    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> por
+        <strong>{{ $author }}</strong>
+    </div>
     <div class="reading-time">Tiempo de lectura: {{ .ReadingTime }} minutos</div>
 </div>
-{{ with .Params.tags }}
-{{ range . }}
-{{ $href := print (absURL "tags/") (urlize .) }}
-<a class="" href="{{ $href }}">{{ . }}</a>
-{{ end }}
+{{ with .Params.categories }}
+<div class="post-categories">
+    {{ range . }}
+    {{ $href := print (absURL "categories/") (urlize .) }}
+    <a class="post-category" href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+</div>
 {{ end }}

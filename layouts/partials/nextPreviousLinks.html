@@ -1,4 +1,4 @@
 <div class="next-prev-links">
-    <a href="{{with .Next}}{{.Permalink}}{{end}}"><button class="next-prev">Siguiente</button></a>
-    <a href="{{with .Prev}}{{.Permalink}}{{end}}"><button class="next-prev">Previo</button></a>
+    {{ if .Next}}<a href="{{with .Next}}{{.Permalink}}{{end}}"><button class="next-prev">Siguiente</button></a>{{ end }}
+    {{ if .Prev}}<a href="{{with .Prev}}{{.Permalink}}{{end}}"><button class="next-prev">Previo</button></a>{{ end }}
 </div>

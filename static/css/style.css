@@ -113,11 +113,23 @@ article {
     margin: var(--padding-2x) 0;
 }
 
+.post-categories {
+    margin-bottom: var(--margin-1x);
+    color: var(--white);
+}
+
+.post-category {
+    background-color: var(--blue);
+    font-size: var(--small-text);
+    padding: 0.5em;
+    border-radius: var(--border-radius);
+}
+
 .featured-image {
     object-fit: cover;
     width: 100%;
+    height: auto;
 }
-
 
 #site-info {
     display: flex;
@@ -133,6 +145,7 @@ article {
 .site-name {
     font-size: var(--text-3x);
     margin-bottom: 25px;
+    line-height: 1em;
 }
 
 .site-description {
@@ -361,6 +374,19 @@ article {
     transform: rotate(-45deg);
 }
 
+.scroll-up {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: var(--blue);
+    border-radius: var(--border-radius);
+    padding: var(--padding-1x);
+}
+
+.scroll-up.hidden {
+    visibility: hidden;
+}
+
 .categories {
     display: flex;
     flex-direction: row;
@@ -413,6 +439,16 @@ article {
 
 .linkedin-in-icon {
     fill: #0e76a8;
+}
+
+.codewars-icon {
+    fill: #b1361e;
+}
+
+.arrow-up-icon {
+    fill: #FFF;
+    display: block;
+    margin: auto;
 }
 
 .toggle-theme-icon {

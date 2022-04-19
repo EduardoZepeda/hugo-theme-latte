@@ -1,10 +1,17 @@
 <article>
-    <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</h3>
+    <a class="title" href="{{ .RelPermalink }}">
+        <h2>{{ .Title }}</h2>
+    </a>
     {{ partial "metadata.html" . }}
-    <picture>
-        <img class="featured-image" loading="lazy" src="{{ .RelPermalink }}/images/{{.Params.coverImage}}" alt="" />
-    </picture>
-    <p class="summary">{{ .Summary }}</p>
-    <button class="read-more">Leer más</button>
+    <a class="title" href="{{ .RelPermalink }}" aria-label="featured image">
+        <picture>
+            <img class="featured-image" loading="lazy" src="{{ .RelPermalink }}/images/{{.Params.coverImage}}" alt="" />
+        </picture>
+    </a>
+    <a class="title" href="{{ .RelPermalink }}" aria-label="summary">
+        <p class="summary">{{ .Summary }}</p>
+    </a>
+    <a class="title" href="{{ .RelPermalink }}" aria-label="read more">
+        <button class="read-more">Leer más</button>
     </a>
 </article>

@@ -1,6 +1,6 @@
-<div class="nav-menu">
+<div class="nav-menu" aria-label="navbar">
     {{ range .Site.Menus.main }}
-    <a class="nav-link" href="{{ .URL }}">
+    <a class="nav-link" href="{{ .URL }}" aria-label="{{ .Name }} menu">
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>

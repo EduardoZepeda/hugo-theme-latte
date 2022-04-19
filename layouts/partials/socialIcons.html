@@ -1,6 +1,7 @@
 <div class="social-links">
     {{ range .Site.Menus.social }}
-    <a class="social-link" href="{{ .URL }}">
+
+    <a class="social-link" href="{{ .URL }}" aria-label="Social {{ .Name }}">
         {{ if .Pre }}
         {{ partial "icon.html" .Pre }}
         {{ end }}
