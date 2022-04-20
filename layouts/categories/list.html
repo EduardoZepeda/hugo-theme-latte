@@ -1,11 +1,18 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 <div class="categories">
-    {{ range .Pages.ByPublishDate.Reverse }}
+    {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
+    {{ range $paginator.Pages }}
+    {{ if eq .Type "posts" }}
+    {{ partial "post.html" . }}
+    {{ else }}
     <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     <a class="summary" href="{{ .RelPermalink }}">
         <p>{{ .Summary }}</p>
     </a>
     {{ end }}
+    {{ end }}
 </div>
+{{ template "_internal/pagination.html" . }}
 {{ end }}
+

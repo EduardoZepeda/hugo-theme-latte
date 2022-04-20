@@ -2,11 +2,7 @@
     {{ partial "asideMenu.html" . }}
     {{ partial "scrollUpButton.html" . }}
     <nav id="nav" role="navigation" aria-label="Main menu">
-        <div id="burger-icon" class="nav-burger">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-        </div>
+        {{ partial "burgerIcon.html" }}
         {{ partial "navMenu.html" . }}
         <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
         </div>

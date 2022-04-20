@@ -6,6 +6,7 @@
     <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> por
         <strong>{{ $author }}</strong>
     </div>
+    <!-- ReadingTime is available in Hugo scope -->
     <div class="reading-time">Tiempo de lectura: {{ .ReadingTime }} minutos</div>
 </div>
 {{ with .Params.categories }}

@@ -64,7 +64,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 2rem;
-    font-family: "Nunito", sans;
+    font-family: "Nunito", "Arimo", sans;
     font-size: 1.1rem;
 }
 
@@ -86,12 +86,12 @@ img {
 }
 
 pre {
-    overflow: auto;
+    overflow-x: scroll;
     padding: var(--padding-2x) 0 var(--padding-2x) var(--padding-2x);
     font-size: var(--small-text);
     /* prevent code from overflowing in small screens */
     white-space: pre-wrap;
-    word-break: keep-all;
+    word-break: break-all;
 }
 
 #hamburger-grid {
@@ -396,6 +396,10 @@ article {
     gap: 0 var(--padding-1x);
 }
 
+#footer {
+    padding: var(--padding-2x);
+}
+
 .footer-links {
     display: flex;
     flex-direction: column;
@@ -414,6 +418,10 @@ article {
 
     .nav-burger {
         visibility: visible;
+    }
+    
+    body {
+        font-family: "Arimo", sans;
     }
 }
 
@@ -454,4 +462,8 @@ article {
 .toggle-theme-icon {
     width: 1rem;
     fill: #FFF;
+}
+
+.page-item.disabled{
+    display:none;
 }

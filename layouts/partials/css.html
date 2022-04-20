@@ -1,0 +1,2 @@
+{{ $style := resources.Get "css/style.css" | resources.PostCSS (dict "config" "./postcss.config.js") | resources.Minify | resources.Fingerprint "sha512" }}
+<link async rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">

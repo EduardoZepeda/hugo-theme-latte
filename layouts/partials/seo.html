@@ -1,5 +1,8 @@
+<!-- TODO set default image -->
 {{ $imageUrl := "" }}
+<!-- All images are inside their post's image folder -->
 {{ if .Params.CoverImage }}{{ $imageUrl := printf "%s/images/%s" .RelPermalink .Params.CoverImage }}{{ end }}
+<!-- if there is no summary, show optinal description at project config -->
 {{ $description := .Site.Params.description }}
 {{ if .Summary }}{{ $description := .Summary }}{{ end }}
 

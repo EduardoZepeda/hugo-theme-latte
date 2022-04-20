@@ -1,0 +1,10 @@
+<!-- This sizes are completely arbitrary -->
+{{ $image480 := .Resize "480x" }}
+{{ $image768 := .Resize "768x" }}
+{{ $image1200 := .Resize "1200x" }}
+<picture>
+    <source srcset={{$image480.RelPermalink}} media='(max-width: 480px)' />
+    <source srcset={{$image768.RelPermalink}} media='(max-width: 768px)' />
+    <source srcset={{$image1200.RelPermalink}} media='(max-width: 1200px)' />
+    <img class="featured-image" loading="lazy" src="{{ .RelPermalink }}" alt="" />
+</picture>

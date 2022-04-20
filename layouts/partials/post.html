@@ -4,9 +4,12 @@
     </a>
     {{ partial "metadata.html" . }}
     <a class="title" href="{{ .RelPermalink }}" aria-label="featured image">
-        <picture>
-            <img class="featured-image" loading="lazy" src="{{ .RelPermalink }}/images/{{.Params.coverImage}}" alt="" />
-        </picture>
+        <!-- Every post should have folder called images that contains its respective images -->
+        {{ $path := printf "images/%s" .Params.coverImage }}
+        <!-- GetMatch allows us to get a resource inside a post folder -->
+        {{ $image := .Resources.GetMatch $path }}
+        <!-- Create a responsive image based on srcset and picture tag -->
+        {{ partial "responsiveImage.html" $image }}
     </a>
     <a class="title" href="{{ .RelPermalink }}" aria-label="summary">
         <p class="summary">{{ .Summary }}</p>
