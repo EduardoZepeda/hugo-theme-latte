@@ -1,0 +1,22 @@
+{{ $related := .Site.RegularPages.Related . | first 6 }}
+{{ with $related }}
+<h3>Otros posts recomendados para ti</h3>
+<div class="related-content-container">
+    <ul class="related-content">
+        {{ range . }}
+        <!-- Every post should have folder called images that contains its respective images -->
+        {{ $path := printf "images/%s" .Params.coverImage }}
+        <!-- GetMatch allows us to get a resource inside a post folder -->
+        {{ $image := .Resources.GetMatch $path }}
+        <!-- Create a responsive image based on srcset and picture tag -->
+        <li class="related-content-item">
+            <a href="{{ .RelPermalink }}">
+                {{ partial "responsiveImage.html" $image }}
+                {{ .Title }}
+            </a>
+        </li>
+
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

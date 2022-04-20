@@ -1,9 +1,9 @@
 <article>
-    <a class="title" href="{{ .RelPermalink }}">
+    <a class="post-title" href="{{ .RelPermalink }}">
         <h2>{{ .Title }}</h2>
     </a>
     {{ partial "metadata.html" . }}
-    <a class="title" href="{{ .RelPermalink }}" aria-label="featured image">
+    <a class="post-featured-image" href="{{ .RelPermalink }}" aria-label="featured image">
         <!-- Every post should have folder called images that contains its respective images -->
         {{ $path := printf "images/%s" .Params.coverImage }}
         <!-- GetMatch allows us to get a resource inside a post folder -->
@@ -11,10 +11,11 @@
         <!-- Create a responsive image based on srcset and picture tag -->
         {{ partial "responsiveImage.html" $image }}
     </a>
-    <a class="title" href="{{ .RelPermalink }}" aria-label="summary">
+    <a class="post-summary" href="{{ .RelPermalink }}" aria-label="summary">
         <p class="summary">{{ .Summary }}</p>
     </a>
-    <a class="title" href="{{ .RelPermalink }}" aria-label="read more">
+    <a class="post-read-more" href="{{ .RelPermalink }}" aria-label="read more">
         <button class="read-more">Leer más</button>
     </a>
 </article>
+

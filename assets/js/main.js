@@ -1,10 +1,13 @@
 function addSwitchThemeListener(event) {
-    document.documentElement.setAttribute("data-theme", "dark")
     let themeSwitcher = document.getElementById("toggle-label")
+    let currentTheme = document.documentElement.getAttribute("data-theme")
+    let inputSwitch = document.getElementById("toggle-switch")
+    inputSwitch.checked = "dark" === currentTheme
     themeSwitcher.onclick = function () {
         let currentTheme = document.documentElement.getAttribute("data-theme");
         let switchToTheme = currentTheme === "dark" ? "light" : "dark"
-        document.documentElement.setAttribute("data-theme", switchToTheme);
+        inputSwitch.checked = "dark" === currentTheme
+        document.documentElement.setAttribute("data-theme", switchToTheme)
     }
 }
 
@@ -30,7 +33,6 @@ function addScrolltoTopListener(event) {
     const scrollUp = document.getElementById("scroll-up")
     let eventTimeout
     window?.addEventListener('scroll', setCurrentPosition)
-
     function setCurrentPosition() {
         if (!eventTimeout) {
             eventTimeout = setTimeout(() => {
@@ -63,5 +65,4 @@ function loadAllListeners(event) {
 }
 
 
-document.addEventListener("DOMContentLoaded", loadAllListeners);
-
+document.addEventListener("turbolinks:load", loadAllListeners)
