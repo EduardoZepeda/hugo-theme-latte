@@ -1,0 +1,6 @@
+{{ if .Destination }}
+<a class="markdown-link" href="{{ .Destination | safeURL }}"
+  {{ with .Title}} title="{{ . }}"{{ else }} title="{{ .Text | safeHTML }}" {{ end }}
+  {{ if strings.HasPrefix .Destination "http" }} target="_blank" {{ end }}>
+  {{ .Text | safeHTML }}</a>
+{{ end }}

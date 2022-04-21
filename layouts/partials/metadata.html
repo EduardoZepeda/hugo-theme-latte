@@ -12,7 +12,8 @@
 <div class="post-categories">
     {{ range . }}
     {{ $href := print (absURL "categories/") (urlize .) }}
-    <a class="post-category" href="{{ $href }}">{{ . }}</a>
+    <!-- replace removes the hyphens from the slugified text -->
+    <a class="post-category" href="{{ $href }}">{{replace . "-" " "}}</a>
     {{ end }}
 </div>
 {{ end }}

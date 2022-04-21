@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /tags/
 Disallow: /categories/
+Disallow: /pages/
 
-Sitemap: {{print .Site.BaseURL "index.xml"}}
+Sitemap: {{print .Site.BaseURL "sitemap.xml"}}

@@ -2,11 +2,11 @@
     --white: #FFF;
     --title: #161620;
     --dark: #111;
-    --blue: #467BF6;
+    --blue: #326DF5;
     --red: #B82019;
     --overlay: #181818DD;
     --background: var(--white);
-    --transparent-dark: #000000cc;
+    --transparent-dark: #151515ed;
     --main-text: #292a2a;
     --secondary-text: #696869;
     --text-background: var(--white);
@@ -30,11 +30,11 @@
 [data-theme="dark"] {
     --white: #FFF;
     --dark: #111;
-    --blue: #467BF6;
+    --blue: #326DF5;
     --red: #B82019;
     --title: var(--white);
     --background: #1c1c1c;
-    --transparent-dark: #000000cc;
+    --transparent-dark: #151515ed;
     --main-text: var(--white);
     --secondary-text: #A2A2A2;
     --text-background: var(--white);
@@ -114,6 +114,12 @@ pre {
 article {
     max-width: var(--max-char-width);
     margin: var(--padding-2x) 0;
+    /* this prevents posts with long urls and codes to overflow article div */
+    word-break: break-word;
+}
+
+a.markdown-link, a.markdown-link:visited {
+    color: var(--blue);
 }
 
 .post-categories {
@@ -121,20 +127,13 @@ article {
     color: var(--white);
 }
 
-.post-categories a {
-    color: inherit;
-}
-
-.post-category {
+a.post-category {
+    color: var(--white);
     background-color: var(--blue);
     font-size: var(--small-text);
     padding: 0.5rem;
     border-radius: var(--border-radius);
     margin-right: 0.5rem;
-}
-
-.content a {
-    color: var(--blue);
 }
 
 .featured-image {
@@ -173,7 +172,7 @@ article {
     display: flex;
     height: 200px;
     align-items: center;
-    color: var(--text-background);
+    color: var(--white);
     background-color: var(--footer);
     justify-content: space-around;
     flex-wrap: wrap;
@@ -204,8 +203,8 @@ article {
     margin: 0 var(--margin-1x);
 }
 
-.nav-link {
-    color: var(--main-text);
+
+a.nav-link {
     padding: var(--padding-1x);
 }
 
@@ -239,7 +238,7 @@ article {
     height: 60px;
 }
 
-.page-link {
+a.page-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,7 +257,9 @@ article {
 }
 
 .page-item.disabled{
-    display: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .read-more {
@@ -435,9 +436,9 @@ article {
     font-size: var(--small-text);
 }
 
-.footer-links a {
+a.footer-link {
     color: var(--white);
-}
+} 
 
 .related-content-container{
     max-width: var(--max-char-width);
