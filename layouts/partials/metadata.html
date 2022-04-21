@@ -8,7 +8,6 @@
     </div>
     <!-- ReadingTime is available in Hugo scope -->
     <div class="reading-time">Tiempo de lectura: {{ .ReadingTime }} minutos</div>
-</div>
 {{ with .Params.categories }}
 <div class="post-categories">
     {{ range . }}
@@ -17,3 +16,4 @@
     {{ end }}
 </div>
 {{ end }}
+</div>

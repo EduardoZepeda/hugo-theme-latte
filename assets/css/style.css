@@ -72,7 +72,7 @@ body {
 
 a,
 a:visited {
-    color: inherit;
+    color: var(--main-text);
     text-decoration: none;
 }
 
@@ -116,26 +116,25 @@ article {
     margin: var(--padding-2x) 0;
 }
 
-article a {
-    color: var(--blue);
-}
-
-.post-title, .post-summary, .post-read-more, .post-featured-image {
-    color: var(--main-text);
-}
-
-
 .post-categories {
-    margin-bottom: var(--margin-1x);
+    margin: var(--margin-1x) 0;
     color: var(--white);
+}
+
+.post-categories a {
+    color: inherit;
 }
 
 .post-category {
-    color: var(--white);
     background-color: var(--blue);
     font-size: var(--small-text);
-    padding: 0.5em;
+    padding: 0.5rem;
     border-radius: var(--border-radius);
+    margin-right: 0.5rem;
+}
+
+.content a {
+    color: var(--blue);
 }
 
 .featured-image {
@@ -195,7 +194,6 @@ article a {
 .nav-menu-sidebar {
     display: flex;
     flex-direction: column;
-    color: var(--white);
 }
 
 .nav-burger {
@@ -207,6 +205,7 @@ article a {
 }
 
 .nav-link {
+    color: var(--main-text);
     padding: var(--padding-1x);
 }
 
@@ -251,13 +250,11 @@ article a {
 
 .page-item:hover {
     background-color: var(--blue);
-    color: var(--white);
     opacity: 0.7;
 }
 
 .page-item.active {
     background-color: var(--blue);
-    color: var(--white);
 }
 
 .page-item.disabled{
@@ -423,6 +420,10 @@ article a {
     gap: 0 var(--padding-1x);
 }
 
+.category {
+    color: var(--main-text);
+}
+
 #footer {
     padding: var(--padding-2x);
 }
@@ -432,6 +433,10 @@ article a {
     flex-direction: column;
     gap: var(--padding-1x);
     font-size: var(--small-text);
+}
+
+.footer-links a {
+    color: var(--white);
 }
 
 .related-content-container{
@@ -450,6 +455,10 @@ article a {
 .related-content-item {
     margin: 2rem;
     width: 300px;
+}
+
+.related-content-link {
+    color: var(--main-text);
 }
 
 @media (max-width: 768px) {

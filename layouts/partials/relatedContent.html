@@ -10,7 +10,7 @@
         {{ $image := .Resources.GetMatch $path }}
         <!-- Create a responsive image based on srcset and picture tag -->
         <li class="related-content-item">
-            <a href="{{ .RelPermalink }}">
+            <a class="related-content-link" href="{{ .RelPermalink }}">
                 {{ partial "responsiveImage.html" $image }}
                 {{ .Title }}
             </a>
