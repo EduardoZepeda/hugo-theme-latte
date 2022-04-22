@@ -1,0 +1,10 @@
+<!-- Get the local lunr search functions in assets/js/search.js -->
+{{ $localSearch := resources.Get "js/search.js" }}
+{{ $lunrSearch := newScratch }}
+<!-- Get lunr library from node node_modules -->
+{{ $lunrSearch.Add "script" (readFile "themes/hugo-theme-latte/node_modules/lunr/lunr.min.js") }} 
+<!-- Add the local js content to lunrSearch -->
+{{ $lunrSearch.Add "script" $localSearch.Content }}
+
+{{ $lunarJs := $lunrSearch.Get "script" | resources.FromString "js/search.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $lunarJs.RelPermalink }}"></script>

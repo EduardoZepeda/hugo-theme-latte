@@ -6,5 +6,6 @@
 {{ $vendor.Add "script" (readFile "themes/hugo-theme-latte/node_modules/turbolinks/dist/turbolinks.js") }}
 <!-- Add the local js content to vendor -->
 {{ $vendor.Add "script" $local.Content }}
+
 {{ $js := $vendor.Get "script" | resources.FromString "js/main.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $js.RelPermalink }}"></script>

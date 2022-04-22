@@ -2,6 +2,6 @@
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 {{ range $paginator.Pages }}
 {{ partial "post.html" . }}
-{{end}}
+{{ end }}
 {{ template "_internal/pagination.html" .  }}
 {{ end }}
