@@ -1,5 +1,6 @@
 {{ define "main" }}
 <article class="post">
+    {{ partial "toc.html" . }}
     <h1>{{ .Title }}</h1>
     {{ partial "metadata.html" . }}
     <div class="content">{{ .Content }}</div>

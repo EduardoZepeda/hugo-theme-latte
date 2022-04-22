@@ -118,7 +118,8 @@ article {
     word-break: break-word;
 }
 
-a.markdown-link, a.markdown-link:visited {
+a.markdown-link,
+a.markdown-link:visited {
     color: var(--blue);
 }
 
@@ -157,6 +158,10 @@ a.post-category {
     font-size: var(--text-3x);
     margin-bottom: 25px;
     line-height: 1em;
+}
+
+.summary a {
+    color: var(--blue);
 }
 
 .site-description {
@@ -256,8 +261,8 @@ a.page-link {
     background-color: var(--blue);
 }
 
-.page-item.disabled{
-    display:flex;
+.page-item.disabled {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -438,9 +443,9 @@ a.page-link {
 
 a.footer-link {
     color: var(--white);
-} 
+}
 
-.related-content-container{
+.related-content-container {
     max-width: var(--max-char-width);
 }
 
