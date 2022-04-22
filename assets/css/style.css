@@ -6,7 +6,7 @@
     --red: #B82019;
     --overlay: #181818DD;
     --background: var(--white);
-    --transparent-dark: #151515ed;
+    --transparent-sidebar: #FFFFFFed;
     --main-text: #292a2a;
     --secondary-text: #696869;
     --text-background: var(--white);
@@ -34,7 +34,7 @@
     --red: #B82019;
     --title: var(--white);
     --background: #1c1c1c;
-    --transparent-dark: #151515ed;
+    --transparent-sidebar: #151515ed;
     --main-text: var(--white);
     --secondary-text: #A2A2A2;
     --text-background: var(--white);
@@ -210,7 +210,6 @@ a.post-category {
 
 
 a.nav-link {
-    color: var(--white);
     padding: var(--padding-1x);
 }
 
@@ -359,7 +358,7 @@ a.page-link {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--transparent-dark);
+    background-color: var(--transparent-sidebar);
     z-index: 2;
     display: flex;
     justify-content: center;
