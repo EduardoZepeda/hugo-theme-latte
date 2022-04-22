@@ -525,7 +525,7 @@ a.footer-link {
 #search-input {
     padding: 0.8rem;
     border-radius: var(--border-radius);
-    border: 0;
+    border: 1px solid var(--footer);
 }
 
 #search-input:focus{
