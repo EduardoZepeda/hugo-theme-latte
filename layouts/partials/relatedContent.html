@@ -1,6 +1,6 @@
 {{ $related := .Site.RegularPages.Related . | first 6 }}
 {{ with $related }}
-<h3>Otros posts recomendados para ti</h3>
+<h3>{{ i18n "relatedContent" }}</h3>
 <div class="related-content-container">
     <ul class="related-content">
         {{ range . }}

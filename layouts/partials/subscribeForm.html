@@ -1,20 +1,20 @@
 <div id='subscribe-form-container'>
     <form action={{$.Param "mailchimpurl" }} method='post' id='mc-embedded-subscribe-form'
         name='mc-embedded-subscribe-form' target='_blank'>
-        <h2>Únete</h2>
-        <p>✅ Más de 100 desarrolladores registrados. Tutoriales gratuitos cada semana directo en tu correo y cero spam
+        <h2>{{.Site.Params.latte.subscribetitle}}</h2>
+        <p>{{ .Site.Params.latte.subscribedescription }}
         </p>
-        <small><span class='asterisk'>*</span> Campo obligatorio</small>
+        <small><span class='asterisk'>*</span> {{ i18n "requiredField"}}</small>
         <div class="subscribe-input-container">
-            <label htmlFor='mce-EMAIL'>Email <span class='asterisk'>*</span>
+            <label htmlFor='mce-EMAIL'>{{ i18n "email"}} <span class='asterisk'>*</span>
             </label>
-            <input type='email' placeholder='Tu email' aria-label='Campo de email' value="" name='EMAIL'
+            <input type='email' placeholder='{{ i18n "emailPlaceholder"}}' aria-label='Campo de email' value="" name='EMAIL'
                 class='required email subscribe-input' required id='mce-EMAIL' required />
         </div>
         <div class="subscribe-input-container">
-            <label htmlFor='mce-FNAME'>Tu nombre <span class='asterisk'>*</span>
+            <label htmlFor='mce-FNAME'>{{ i18n "name"}} <span class='asterisk'>*</span>
             </label>
-            <input type='text' placeholder='Tu nombre' aria-label='Campo de nombre' value="" name='FNAME'
+            <input type='text' placeholder='{{ i18n "namePlaceholder"}}' aria-label='Campo de nombre' value="" name='FNAME'
                 class='required subscribe-input' id='mce-FNAME' required />
         </div>
         <div id='mce-responses' class='clear'>
@@ -25,7 +25,7 @@
             <input type='text' name={{$.Param "mailchimphiddenfield" }} tabIndex='-1' value='' />
         </div>
         <div class='clear'>
-            <button class='subscribe-button' type='submit' name='subscribe'>Quiero suscribirme</button>
+            <button class='subscribe-button' type='submit' name='subscribe'>{{ i18n "subscribe"}}</button>
         </div>
     </form>
 </div>

@@ -6,5 +6,5 @@
 <!-- Add the local js content to lunrSearch -->
 {{ $lunrSearch.Add "script" $localSearch.Content }}
 
-{{ $lunarJs := $lunrSearch.Get "script" | resources.FromString "js/search.js" | resources.Minify | resources.Fingerprint }}
+{{ $lunarJs := $lunrSearch.Get "script" | resources.FromString "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . |resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $lunarJs.RelPermalink }}"></script>

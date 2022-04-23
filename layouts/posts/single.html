@@ -6,6 +6,6 @@
     <div class="content">{{ .Content }}</div>
     {{ partial "nextPreviousLinks.html" . }}
 </article>
-{{ partial "subscribeForm.html" . }}
+{{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }} {{ partial "subscribeForm.html" . }}{{ end }}
 {{ partial "relatedContent.html" . }}
 {{ end }}

@@ -1,0 +1,48 @@
+[subscribe]
+other = "Quiero suscribirme"
+
+[next]
+other = "Siguiente"
+
+[previous]
+other = "Previo"
+
+[readMore]
+other = "Leer más"
+
+[readingTime]
+  one = 'Un minuto de lectura'
+  other = "Tiempo de lectura {{ .Count }} minutos"
+
+[tableOfContents]
+other = "Índice del contenido"
+
+[relatedContent]
+other = "Otros posts recomendados"
+
+[searchNotFound]
+other = "No se encontraron resultados"
+
+[searchInputPlaceholder]
+other = "Quiero leer sobre"
+
+[loadingSearchPlaceholder]
+other = "Cargando búsqueda"
+
+[author]
+other = "por {{ . }}"
+
+[requiredField]
+other = "Campo requerido"
+
+[name]
+other = "Tu nombre"
+
+[email]
+other = "Email"
+
+[namePlaceholder]
+other = "Tu nombre"
+
+[emailPlaceholder]
+other = "Tu email"

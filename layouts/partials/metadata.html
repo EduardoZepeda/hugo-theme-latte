@@ -1,14 +1,13 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
-{{ $author := .Site.Params.author }}
+{{ $author := .Site.Params.latte.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 {{if isset .Params "author" }} {{ $autor := .Params.author }}{{ end }}
 <div class="post-metadata">
-    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> por
-        <strong>{{ $author }}</strong>
+    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n "author" $author }}
     </div>
     <!-- ReadingTime is available in Hugo scope -->
-    <div class="reading-time">Tiempo de lectura: {{ .ReadingTime }} minutos</div>
+    <div class="reading-time">{{ i18n "readingTime" .ReadingTime }}</div>
 {{ with .Params.categories }}
 <div class="post-categories">
     {{ range . }}

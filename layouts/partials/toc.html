@@ -1,6 +1,6 @@
-{{ if and (gt .WordCount 300 ) (.Site.Params.toc) }}
+{{ if and (gt .WordCount 300 ) (.Site.Params.latte.toc) }}
 <details>
-    <summary>Índice del post</summary>
+    <summary>{{ i18n "tableOfContents"}}</summary>
     <p>{{.Title}}</p>
     <div class="summary">{{.TableOfContents }}</div>
 </details>

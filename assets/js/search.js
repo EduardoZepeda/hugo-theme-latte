@@ -44,7 +44,7 @@ function initializeLunrSearch(event) {
         searchInput.oninput = handleInput
         // set focus on search input and remove loading placeholder
         searchInput.focus()
-        searchInput.placeholder = 'Quiero leer sobre...'
+        searchInput.placeholder = '{{i18n "searchInputPlaceholder"}}'
         searchInput.disabled = false
     }
 
@@ -113,7 +113,7 @@ function initializeLunrSearch(event) {
         } else {
             removeAllChildren(searchResults)
             let notFound = document.createElement('p')
-            notFound.appendChild(document.createTextNode('No se encontraron resultados'))
+            notFound.appendChild(document.createTextNode('{{i18n "searchNotFound"}}'))
             searchResults.appendChild(notFound)
         }
     }
