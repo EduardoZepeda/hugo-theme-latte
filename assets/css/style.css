@@ -556,6 +556,7 @@ a.search-item-title {
 }
 
 #subscribe-form-container {
+    color: var(--white);
     padding: 2rem 4rem;
     background: rgb(3, 52, 95);
     background: -moz-linear-gradient(90deg, rgba(3, 52, 95, 1) 0%, rgb(44, 118, 176) 100%);
@@ -587,7 +588,9 @@ a.search-item-title {
     display: none;
 }
 
-.fiveThousand {
+.mailchimp-outside {
+    /* this is just to respect malchimp form original format
+    I don't agree on this */
     position: absolute;
     left: -5000px;
 }
