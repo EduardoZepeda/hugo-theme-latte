@@ -6,17 +6,11 @@ license = "MIT"
 licenselink = "https://github.com/EduardoZepeda/hugo-theme-latte/blob/master/LICENSE"
 description = ""
 homepage = "https://github.com/EduardoZepeda/hugo-theme-latte"
-tags = []
-features = []
-min_version = "0.41.0"
+tags = ["website", "starter", "responsive", "blog", "subscribe", "mailchimp", "search", "related content", "light dark theme"]
+features = ["posts", "search"]
+min_version = "0.84.0"
 paginate = 10
 
 [author]
   name = "Eduardo Zepeda"
   homepage = "https://eduardozepeda.dev"
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
