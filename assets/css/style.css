@@ -469,7 +469,7 @@ a.footer-link {
 }
 
 .related-content-item {
-    width: 300px;
+    max-width: 300px;
 }
 
 .related-content-link {
