@@ -3,7 +3,7 @@
 {{ $author := .Site.Params.latte.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 {{if isset .Params "author" }} {{ $autor := .Params.author }}{{ end }}
-<div class="post-metadata">
+<section class="post-metadata">
     <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n "author" $author }}
     </div>
     <!-- ReadingTime is available in Hugo scope -->
@@ -17,4 +17,4 @@
     {{ end }}
 </div>
 {{ end }}
-</div>
+</section>

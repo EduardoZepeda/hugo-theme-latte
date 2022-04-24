@@ -3,7 +3,7 @@ function initializeLunrSearch(event) {
     let searchResults = document.getElementById('search-results')
     let documents = []
     let idx
-    if(!searchInput || !searchResults){
+    if (!searchInput || !searchResults) {
         return
     }
 
@@ -75,10 +75,10 @@ function initializeLunrSearch(event) {
             if (results.length > 9) {
                 results = results.slice(0, 10)
             }
-    
+
             // empty search Results
             removeAllChildren(searchResults)
-    
+
             results.forEach(result => {
                 // append and article 
                 let article = document.createElement('article')
@@ -86,29 +86,29 @@ function initializeLunrSearch(event) {
                 let summaryLink = document.createElement('a')
                 let summary = document.createElement('p')
                 let heading = document.createElement('h3')
-    
+
                 // prepare title link
                 titleLink.href = summaryLink.href = result.ref
                 titleLink.classList.add("search-item-title")
-    
+
                 // prepare summary link
                 summaryLink.classList.add("search-item-summary")
-                summaryLink.appendChild(document.createTextNode(`${documents[result.ref].content.slice(0, 300)}...`))
-    
+                summaryLink.appendChild(document.createTextNode(`${documents[result.ref].content.slice(0, 200)}...`))
+
                 // create heading content
                 heading.appendChild(document.createTextNode(documents[result.ref].title))
-    
+
                 // add class to anchor
                 titleLink.appendChild(heading)
                 summary.appendChild(summaryLink)
-    
+
                 // append article components 
                 article.appendChild(titleLink)
                 article.appendChild(summary)
-    
+
                 searchResults.appendChild(article)
             })
-    
+
             // empty results
         } else {
             removeAllChildren(searchResults)

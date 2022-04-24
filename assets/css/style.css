@@ -4,7 +4,6 @@
     --dark: #111;
     --blue: #326DF5;
     --red: #B82019;
-    --overlay: #181818DD;
     --background: var(--white);
     --transparent-sidebar: #FFFFFFed;
     --main-text: #292a2a;
@@ -39,7 +38,6 @@
     --secondary-text: #A2A2A2;
     --text-background: var(--white);
     --footer: var(--dark);
-    --overlay: #181818DD;
     --blue-transparent: #071f37fa;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
@@ -104,6 +102,11 @@ button {
     border: 0;
 }
 
+* {
+    object-fit: contain;
+}
+
+
 #hamburger-grid {
     display: grid;
     grid-template-columns: 100%;
@@ -120,8 +123,6 @@ button {
 
 
 article {
-    max-width: var(--max-char-width);
-    margin: var(--padding-2x) 0;
     /* this prevents posts with long urls and codes to overflow article div */
     word-break: break-word;
 }
@@ -129,6 +130,11 @@ article {
 a.markdown-link,
 a.markdown-link:visited {
     color: var(--blue);
+}
+
+.content-container {
+    max-width: var(--max-char-width);
+    margin: var(--padding-2x) 0;
 }
 
 .post-categories {
@@ -145,7 +151,7 @@ a.post-category {
     margin-right: 0.5rem;
 }
 
-.featured-image {
+.responsive-image {
     object-fit: cover;
     width: 100%;
     height: auto;
@@ -183,13 +189,15 @@ a.post-category {
 
 #footer {
     display: flex;
-    height: 200px;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-top: var(--padding-2x);
+    padding: var(--padding-2x);
+    height: 200px;
     color: var(--white);
     background-color: var(--footer);
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: var(--padding-2x);
 }
 
 #nav {
@@ -197,6 +205,7 @@ a.post-category {
     padding: var(--padding-2x) var(--padding-1x);
     justify-content: space-between;
     align-items: center;
+    height: 50px;
 }
 
 .nav-menu {
@@ -292,7 +301,7 @@ a.page-link {
 }
 
 .next-prev {
-    margin-top: var(--margin-2x);
+    margin-bottom: var(--margin-2x);
     color: var(--main-text);
     background-color: var(--background);
     padding: var(--padding-1x) var(--padding-2x);
@@ -438,10 +447,6 @@ a.page-link {
     color: var(--main-text);
 }
 
-#footer {
-    padding: var(--padding-2x);
-}
-
 .footer-links {
     display: flex;
     flex-direction: column;
@@ -453,21 +458,17 @@ a.footer-link {
     color: var(--white);
 }
 
-.related-content-container {
-    max-width: var(--max-char-width);
-}
-
 .related-content {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
+    gap: var(--margin-2x);
 }
 
 .related-content-item {
-    margin: 2rem;
     width: 300px;
 }
 
@@ -533,6 +534,7 @@ a.footer-link {
     padding: 0.8rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--footer);
+    margin: var(--margin-2x) 0;
 }
 
 #search-input:focus {
@@ -564,7 +566,6 @@ a.search-item-title {
     background: linear-gradient(90deg, rgba(3, 52, 95, 1) 0%, rgb(44, 118, 176) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#03345f", endColorstr="#004275", GradientType=1);
     border-radius: var(--border-radius);
-    max-width: var(--max-char-width);
     margin: var(--margin-1x) 0;
 }
 
@@ -593,4 +594,15 @@ a.search-item-title {
     I don't agree on this */
     position: absolute;
     left: -5000px;
+}
+
+.credits {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+a.credits-link {
+    color: var(--white);
 }

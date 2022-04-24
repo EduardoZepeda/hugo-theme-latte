@@ -6,7 +6,9 @@
     <div id="hamburger-grid">
         {{- partial "header.html" . -}}
         <main id="main">
-            {{- block "main" . }}{{- end }}
+            <div class="content-container">
+                {{- block "main" . }}{{- end }}
+            </div>
         </main>
         {{- partial "footer.html" . -}}
     </div>

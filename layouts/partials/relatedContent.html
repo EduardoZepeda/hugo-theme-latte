@@ -1,7 +1,7 @@
 {{ $related := .Site.RegularPages.Related . | first 6 }}
 {{ with $related }}
 <h3>{{ i18n "relatedContent" }}</h3>
-<div class="related-content-container">
+<section class="related-content-container">
     <ul class="related-content">
         {{ range . }}
         <!-- Every post should have folder called images that contains its respective images -->
@@ -18,5 +18,5 @@
 
         {{ end }}
     </ul>
-</div>
+</section>
 {{ end }}
