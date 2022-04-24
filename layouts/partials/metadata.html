@@ -1,8 +1,7 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
-{{ $author := .Site.Params.latte.author }}
+{{ $author := .Params.author | default .Site.Params.latte.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
-{{if isset .Params "author" }} {{ $autor := .Params.author }}{{ end }}
 <section class="post-metadata">
     <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n "author" $author }}
     </div>
