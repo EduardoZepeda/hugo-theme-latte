@@ -6,7 +6,7 @@
         {{ partial "navMenu.html" . }}
         {{ if not .Site.Params.latte.disablesearch  }}
             <div>
-                <a href="/search/">{{ partial "icon.html" "search"}}</a>
+                <a href="/search/" aria-label="search">{{ partial "icon.html" "search"}}</a>
             </div>
         {{ end }}
         <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}

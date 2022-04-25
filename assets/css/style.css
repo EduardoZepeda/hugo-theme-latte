@@ -195,7 +195,6 @@ a.post-category {
     gap: 2rem;
     margin-top: var(--padding-2x);
     padding: var(--padding-2x);
-    height: 200px;
     color: var(--white);
     background-color: var(--footer);
 }
