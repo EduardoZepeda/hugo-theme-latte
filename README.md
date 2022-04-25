@@ -178,6 +178,14 @@ The following icons are available
 - whatsapp
 - youtube
 
+## Add a cover Image
+
+If you want a cover image between the title and the summary, add the following params to your post.
+
+```bash
+coverImage: "image_location.jpg"
+coverImageCredits: "Optional credits"
+```
 
 ## Show your support
 
