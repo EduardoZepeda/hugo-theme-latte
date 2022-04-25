@@ -10,6 +10,7 @@ tags = ["website", "starter", "responsive", "blog", "subscribe", "mailchimp", "s
 features = ["posts", "search"]
 min_version = "0.84.0"
 paginate = 10
+demosite = "https://coffeebytes.dev"
 
 [author]
   name = "Eduardo Zepeda"

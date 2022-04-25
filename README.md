@@ -177,3 +177,8 @@ The following icons are available
 - twitter
 - whatsapp
 - youtube
+
+
+## Show your support
+
+Please give a star if this project helped you!

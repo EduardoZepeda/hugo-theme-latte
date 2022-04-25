@@ -390,7 +390,6 @@ a.page-link {
 }
 
 .close {
-    color: var(--white);
     position: absolute;
     right: 32px;
     top: 32px;
@@ -410,7 +409,7 @@ a.page-link {
     content: ' ';
     height: 2rem;
     width: 2px;
-    background-color: var(--white)
+    background-color: var(--main-text);
 }
 
 .close:before {
