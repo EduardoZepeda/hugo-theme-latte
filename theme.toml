@@ -6,8 +6,21 @@ license = "MIT"
 licenselink = "https://github.com/EduardoZepeda/hugo-theme-latte/blob/master/LICENSE"
 description = ""
 homepage = "https://github.com/EduardoZepeda/hugo-theme-latte"
-tags = ["website", "starter", "responsive", "blog", "subscribe", "mailchimp", "search", "related content", "light dark theme"]
-features = ["posts", "search"]
+tags = ["blog", "responsive", "light", "dark", "dark mode", "light mode", "mailchimp", "search", "related content"]
+features = [
+  "responsive",
+  "single-column",
+  "blog",
+  "cover-image",
+  "table-of-contents",
+  "social-icons",
+  "social-icons",
+  "minified-assets",
+  "theme-toggle",
+  "scroll-to-top",
+  "search"
+]
+
 min_version = "0.84.0"
 paginate = 10
 demosite = "https://coffeebytes.dev"
