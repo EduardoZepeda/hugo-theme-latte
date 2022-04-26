@@ -2,23 +2,23 @@
 
 An elegant and responsive hugo theme. Here is a [demo](https://coffeebytes.dev). It has the following features out of the box:
 
+- SPA feel like, using live reload functionality by [turbolinks](https://github.com/turbolinks/turbolinks)
+
+- mailchimp newsletter form
+
+- search based on [lunr](https://lunrjs.com/)
+
 - scroll up button
 
 - dark and light theme
-
-- search based on [lunr](https://lunrjs.com/)
 
 - table of contents
 
 - related content at bottom
 
-- mailchimp newsletter form
-
 - social media icons obtained from Font Awesome
 
-- SPA feel like, using live reload functionality by [turbolinks](https://github.com/turbolinks/turbolinks)
 
-  
 ## Installation
 
 To install the theme follow the basic hugo instructions for any theme. I summarize them below.
@@ -43,18 +43,11 @@ git clone https://github.com/EduardoZepeda/hugo-theme-latte themes/hugo-theme-la
 
 In case you don't know how to use git, just unzip the code directly in *<your-project>/themes/hugo-theme-latte*
 
-### Download the required javascript files
-
-As stated before, this theme relies on turbolinks for the page refresh functionality and lunr to construct and process the search index. Therefore, after installing the theme, make sure to install the required libraries, at the root of the theme, using npm.
+### Add the theme to your config.toml
 
 ```bash
-cd themes/hugo-theme-latte/
-npm install
+theme = "hugo-theme-latte"
 ```
-
-Remember to return to your project's root directory afterwards.
-
-And... that's all. 
 
 ## Theme configuration
 
@@ -93,14 +86,14 @@ author: "this author has preference"
 
 If true, renders a table of contents before each post, remember that the toc can be customized using hugo default configuration.
 
-### disable search
+### Enable search
 
 Search is disabled by default, when set to false, renders a magnifier glass at the top right of the screen. For it to work, you'll need two things: 
 
 * Create a section called search, and its corresponding *_index.md* file
 * Enable JSON output
 
-#### Creating a markdown file
+#### Creating a search markdown file
 
 Create a custom section in your project, with a file called *_index.md* place there all the content you want to appear at the search screen as if it was a normal markdown file.
 

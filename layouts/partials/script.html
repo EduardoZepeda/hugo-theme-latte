@@ -1,11 +1,3 @@
-<!-- Get the local js in assets/js/main.js -->
-{{ $local := resources.Get "js/main.js" }}
-{{ $vendor := newScratch }}
-<!-- turbolinks allows to turn a basic HTML into a SPA -->
-<!-- Replacing the body with the server response using javascript. Refer to docs for more info. -->
-{{ $vendor.Add "script" (readFile "themes/hugo-theme-latte/node_modules/turbolinks/dist/turbolinks.js") }}
-<!-- Add the local js content to vendor -->
-{{ $vendor.Add "script" $local.Content }}
-
-{{ $js := $vendor.Get "script" | resources.FromString "js/main.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $js.RelPermalink }}"></script>
+<!-- Concat mainjs and turbolinks third-party js file, all in a bundle.js file, minify and fingerprint it -->
+{{- $mainJs := slice (resources.Get "js/main.js") (resources.Get "js/turbolinks.min.js") | resources.Concat "js/bundle.js" | minify | fingerprint -}}
+<script defer src="{{ $mainJs.RelPermalink }}"></script>
