@@ -17,7 +17,8 @@ function initializeLunrSearch(event) {
             // index document
             idx = lunr(function () {
                 this.ref('url')
-                this.field('title')
+                // More weight to title field
+                this.field('title', { 'boost': 'fieldBoost' })
                 this.field('content')
                 res.forEach(function (doc) {
                     this.add(doc)
@@ -56,7 +57,7 @@ function initializeLunrSearch(event) {
             // get input value
             let searchTerm = event.target.value
             // fuzzy search
-            let results = idx.search(encodeURIComponent(searchTerm) + '*')
+            let results = idx.search(searchTerm + '*')
             // render results
             renderSearchResults(results)
         }
@@ -120,4 +121,4 @@ function initializeLunrSearch(event) {
 }
 
 
-document.addEventListener("turbolinks:load", initializeLunrSearch);
+document.addEventListener("turbolinks:load", initializeLunrSearch)
