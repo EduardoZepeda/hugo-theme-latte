@@ -29,7 +29,7 @@
 [data-theme="dark"] {
     --white: #FFF;
     --dark: #111;
-    --blue: #326DF5;
+    --blue: #80A5F9;
     --red: #B82019;
     --title: var(--white);
     --background: #1c1c1c;
@@ -89,9 +89,11 @@ pre {
     overflow-x: auto;
     padding: var(--padding-2x) 0 var(--padding-2x) var(--padding-2x);
     font-size: var(--small-text);
-    /* prevent code from overflowing in small screens */
+    /* prevent code from overflowing in small screens in Firefox */
+    overflow-wrap: break-word;
     white-space: pre-wrap;
-    word-break: break-all;
+    /* For chrome */
+    word-wrap: break-word;
 }
 
 input:focus {
@@ -129,7 +131,15 @@ article {
 
 a.markdown-link,
 a.markdown-link:visited {
+    transition: var(--transition);
     color: var(--blue);
+    border-bottom: 1px solid var(--blue);
+}
+
+a.markdown-link:hover {
+    color: var(--background);
+    background-color: var(--blue);
+    transition: var(--transition);
 }
 
 .content-container {
@@ -143,7 +153,7 @@ a.markdown-link:visited {
 }
 
 a.post-category {
-    color: var(--white);
+    color: var(--background);
     background-color: var(--blue);
     font-size: var(--small-text);
     padding: 0.5rem;
