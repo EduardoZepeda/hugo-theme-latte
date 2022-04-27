@@ -3,14 +3,12 @@
     --title: #161620;
     --dark: #111;
     --blue: #326DF5;
-    --red: #B82019;
     --background: var(--white);
     --transparent-sidebar: #FFFFFFed;
     --main-text: #292a2a;
     --secondary-text: #696869;
-    --text-background: var(--white);
     --footer: var(--dark);
-    --blue-transparent: #071f37fa;
+    --post-category: var(--blue);
     --padding-2x: 2rem;
     --padding-1x: 1rem;
     --padding-xs: 0.5rem;
@@ -30,15 +28,13 @@
     --white: #FFF;
     --dark: #111;
     --blue: #80A5F9;
-    --red: #B82019;
     --title: var(--white);
-    --background: #1c1c1c;
+    --background: #212121;
     --transparent-sidebar: #151515ed;
     --main-text: var(--white);
     --secondary-text: #A2A2A2;
-    --text-background: var(--white);
     --footer: var(--dark);
-    --blue-transparent: #071f37fa;
+    --post-category: #bb86fc;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
     --padding-xs: 0.5rem;
@@ -149,16 +145,16 @@ a.markdown-link:hover {
 
 .post-categories {
     margin: var(--margin-1x) 0;
-    color: var(--white);
 }
 
 a.post-category {
     color: var(--background);
-    background-color: var(--blue);
+    background-color: var(--post-category);
     font-size: var(--small-text);
-    padding: 0.5rem;
+    padding: var(--padding-xs);
     border-radius: var(--border-radius);
-    margin-right: 0.5rem;
+    margin-right: var(--padding-xs);
+    letter-spacing: 1px;
 }
 
 .responsive-image {
@@ -374,7 +370,7 @@ a.page-link {
     border-radius: var(--border-radius);
     background-color: var(--main-text);
     height: 3px;
-    margin: 0.5rem;
+    margin: var(--padding-xs);
 }
 
 #sidebar {
