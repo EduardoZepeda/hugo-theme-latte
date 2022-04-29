@@ -5,7 +5,7 @@
     {{ partial "metadata.html" . }}
     <a class="post-featured-image" href="{{ .RelPermalink }}" aria-label="featured image">
         <!-- Every post should have folder called images that contains its respective images -->
-        {{ $path := printf "images/%s" .Params.coverImage }}
+        {{ $path := .Params.coverImage }}
         <!-- GetMatch allows us to get a resource inside a post folder -->
         {{ $image := .Resources.GetMatch $path }}
         <!-- Create a responsive image based on srcset and picture tag -->

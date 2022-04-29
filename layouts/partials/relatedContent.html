@@ -4,10 +4,8 @@
 <section class="related-content-container">
     <ul class="related-content">
         {{ range . }}
-        <!-- Every post should have folder called images that contains its respective images -->
-        {{ $path := printf "images/%s" .Params.coverImage }}
         <!-- GetMatch allows us to get a resource inside a post folder -->
-        {{ $image := .Resources.GetMatch $path }}
+        {{ $image := .Resources.GetMatch .Params.coverImage }}
         <!-- Create a responsive image based on srcset and picture tag -->
         <li class="related-content-item">
             <a class="related-content-link" href="{{ .RelPermalink }}">
@@ -15,7 +13,6 @@
                 {{ .Title }}
             </a>
         </li>
-
         {{ end }}
     </ul>
 </section>
