@@ -1,23 +1,25 @@
 <!-- TODO set default image -->
-<!-- All images are inside their post's image folder -->
-{{ $imageUrl := .Params.coverImage }}
-<!-- The description in the SEO has the following priority: description in content, summary (as default), site description -->
+<!-- All images are inside their own post's image folder -->
+{{ $imageUrl := (printf "%s%s" .RelPermalink .Params.coverImage ) | absURL }}
+<!-- The description in the SEO has the following priority: description in content -> summary (as default) -> site description -->
 {{ $entryDescription := .Description | default .Summary }}
 {{ $description := $entryDescription | default .Site.Params.latte.seodescription }}
 
-<meta name="title" content="{{ .Title }}">
-<meta name="description" content="{{ $description }}">
+<meta name="title" content="{{ .Title }}"/>
+<meta name="description" content="{{ $description }}"/>
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ .RelPermalink | absURL }}">
-<meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ $description}}">
-<meta property="og:image" content="{{ $imageUrl | absURL  }}">
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{ .RelPermalink | absURL }}"/>
+<meta property="og:title" content="{{ .Title }}"/>
+<meta property="og:description" content="{{ $description}}"/>
+<!-- if a coverImage doesn't exist, don't render meta image tag -->
+{{ with .Params.coverImage }}<meta property="og:image" content="{{ $imageUrl }}"/>{{ end }}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ .RelPermalink | absURL }}">
-<meta property="twitter:title" content="{{ .Title }}">
-<meta property="twitter:description" content="{{ $description }}">
-<meta property="twitter:image" content="{{ $imageUrl | absURL }}">
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:url" content="{{ .RelPermalink | absURL }}"/>
+<meta property="twitter:title" content="{{ .Title }}"/>
+<meta property="twitter:description" content="{{ $description }}"/>
+{{ with .Params.coverImage }}<meta property="twitter:image" content="{{ $imageUrl }}"/>{{ end }}
+
