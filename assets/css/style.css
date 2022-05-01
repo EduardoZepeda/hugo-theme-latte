@@ -121,6 +121,7 @@ button {
 
 
 article {
+    margin: 4rem 0;
     /* this prevents posts with long urls and codes to overflow article div */
     word-break: break-word;
 }
@@ -161,6 +162,7 @@ a.post-category {
     object-fit: cover;
     width: 100%;
     height: auto;
+    border-radius: var(--border-radius);
 }
 
 #site-info {
