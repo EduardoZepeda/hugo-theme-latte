@@ -14,7 +14,7 @@
     </nav>
     <div id="site-info">
         <section class="site-info-container">
-            <p class="site-name">{{ .Site.Title }}</p>
+            <p class="site-name"><a href="/" aria-label="title">{{ .Site.Title }}</a></p>
             <h1 class="site-description">{{ .Site.Params.latte.description }}</h1>
             {{ partial "socialIcons.html" . }}
         </section>

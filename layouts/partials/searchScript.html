@@ -3,4 +3,4 @@
 <!-- Parse the template so translations can be used as variables in assets/js/search.js
 one language, at least for now -->
 {{- $mainJs := slice ($parsedSearch) (resources.Get "js/lunr.min.js") | resources.Concat "js/searchBundle.js" | minify | fingerprint -}}
-<script defer src="{{ $mainJs.RelPermalink }}"></script>
+<script async src="{{ $mainJs.RelPermalink }}"></script>

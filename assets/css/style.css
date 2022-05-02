@@ -434,10 +434,13 @@ a.page-link {
     background-color: var(--blue);
     border-radius: var(--border-radius);
     padding: var(--padding-1x);
+    transform: translateY(0);
+    transition: var(--transition);
 }
 
 .scroll-up.hidden {
     visibility: hidden;
+    transform: translateY(20px);
 }
 
 .categories {
