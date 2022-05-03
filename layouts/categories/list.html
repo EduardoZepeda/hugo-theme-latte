@@ -1,6 +1,6 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-<div class="categories">
+<section aria-label="category list" class="categories">
     {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
     {{ range $paginator.Pages }}
     {{ if eq .Type "posts" }}
@@ -9,7 +9,7 @@
     <h3><a class="category" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     {{ end }}
     {{ end }}
-</div>
+</section>
 {{ template "_internal/pagination.html" . }}
 {{ end }}
 

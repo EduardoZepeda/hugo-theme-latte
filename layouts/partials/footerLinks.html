@@ -1,4 +1,4 @@
-<section class="footer-links">
+<section aria-label="footer links" class="footer-links">
     {{ range .Site.Menus.footer }}
     <a class="footer-link" href="{{ .URL }}">
         {{ $text := print .Name | safeHTML }}

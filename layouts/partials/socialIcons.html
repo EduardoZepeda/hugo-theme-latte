@@ -1,4 +1,4 @@
-<div class="social-links">
+<section aria-label="social media links" class="social-links">
     {{ range .Site.Menus.social }}
     <a class="social-link" href="{{ .URL }}" aria-label="Social {{ .Name }}">
         {{ if .Pre }}
@@ -6,4 +6,4 @@
         {{ end }}
     </a>
     {{ end }}
-</div>
+</section>
