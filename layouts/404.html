@@ -1,7 +1,7 @@
 {{ define "main"}}
   <div>
-      <h2>No hay nada aquí</h2>
-      <p>Pero siempre puedes ir a las entradas más recientes</p>
-      <button class="read-more"><a href="{{ "/" | relURL }}">Ir a las entradas recientes</a></button>
+      <h2>{{ i18n "notFound404Title"}}</h2>
+      <p>{{ i18n "notFound404Description"}}</p>
+      <button class="read-more"><a href="{{ "/" | relURL }}">{{i18n "notFound404Button"}}</a></button>
   </div>
 {{ end }}

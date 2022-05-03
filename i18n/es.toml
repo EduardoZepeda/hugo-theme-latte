@@ -46,3 +46,12 @@ other = "Tu nombre"
 
 [emailPlaceholder]
 other = "Tu email"
+
+[notFound404Title]
+other = "No hay nada aquí"
+
+[notFound404Description]
+other = "Quizás te gustaría leer mis posts más recientes"
+
+[notFound404Button]
+other = "Ir a posts recientes"

@@ -46,3 +46,12 @@ other = "Your name"
 
 [emailPlaceholder]
 other = "Your email"
+
+[notFound404Title]
+other = "Not found"
+
+[notFound404Description]
+other = "We didn't found anything"
+
+[notFound404Button]
+other = "Return to home"
