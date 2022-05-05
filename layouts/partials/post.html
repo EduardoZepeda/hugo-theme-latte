@@ -1,31 +1,6 @@
 <article class="post-preview">
-    <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
-        <div class="cover-image-container">
-            <!-- Every post should have folder called images that contains its respective images -->
-            {{ $path := .Params.coverImage }}
-            <!-- GetMatch allows us to get a resource inside a post folder -->
-            {{ $image := .Resources.GetMatch $path }}
-            <!-- Create a responsive image based on srcset and picture tag -->
-            {{ partial "responsiveImage.html" $image }}
-        </div>
-        <div class="post-info">
-            <h2>{{ .Title }}</h2>
-            <div class="post-metadata-container">
-                {{ partial "metadata.html" . }}
-            </div>
-            <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
-                <div class="cover-image-container between-post">
-                    <!-- Every post should have folder called images that contains its respective images -->
-                    {{ $path := .Params.coverImage }}
-                    <!-- GetMatch allows us to get a resource inside a post folder -->
-                    {{ $image := .Resources.GetMatch $path }}
-                    <!-- Create a responsive image based on srcset and picture tag -->
-                    {{ partial "responsiveImage.html" $image }}
-                </div>
-            </a>
-            {{ partial "coverImageCredit.html" . }}
-        </div>
-        <p class="post-summary">{{ .Summary }}</p>
-        <button class="read-more">{{ i18n "readMore"}}</button>
-    </a>
+    <!-- hidden in desktop -->
+    {{ partial "postPreviewMobile.html" . }}
+    <!-- hidden in mobile -->
+    {{ partial "postPreviewDesktop.html" . }}
 </article>

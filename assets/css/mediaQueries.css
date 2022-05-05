@@ -28,12 +28,8 @@
         width: 100%;
     }
 
-    .cover-image-container {
-        display: none;
-    }
-
-    .cover-image-container.between-post {
-        display: block;
+    .post-preview-desktop {
+        display: none
     }
 }
 
@@ -47,6 +43,10 @@
     }
 
     .post-summary {
+        display: none;
+    }
+
+    .post-preview-mobile {
         display: none;
     }
 }

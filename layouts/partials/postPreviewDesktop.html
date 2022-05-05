@@ -1,0 +1,21 @@
+<div class="post-preview-desktop">
+    <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
+        <div class="cover-image-container">
+            {{ $path := .Params.coverImage }}
+            {{ $image := .Resources.GetMatch $path }}
+            <!-- Create a responsive image based on srcset and picture tag -->
+            {{ partial "responsiveImage.html" $image }}
+        </div>
+    </a>
+    <div class="post-info">
+        <h2>
+            <a class="post-info-link" aria-label="post link" href="{{.RelPermalink }}">
+                {{ .Title }}
+            </a>
+        </h2>
+        <div class="post-metadata-container">
+            {{ partial "metadata.html" . }}
+        </div>
+        {{ partial "coverImageCredit.html" . }}
+    </div>
+</div>

@@ -3,17 +3,18 @@
 {{ $author := .Params.author | default .Site.Params.latte.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 <section aria-label="Post metadata" class="post-metadata">
-    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n "author" $author }}
+    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n
+        "author" $author }}
     </div>
     <!-- ReadingTime is available in Hugo scope -->
     <div class="reading-time">{{ i18n "readingTime" .ReadingTime }}</div>
-{{ with .Params.categories }}
-<div class="post-categories">
-    {{ range . }}
-    {{ $href := print (absURL "categories/") (urlize .) }}
-    <!-- replace removes the hyphens from the slugified text -->
-    <a class="post-category" href="{{ $href }}">{{replace . "-" " "}}</a>
+    {{ with .Params.categories }}
+    <div class="post-categories">
+        {{ range . }}
+        {{ $href := print (absURL "categories/") (urlize .) }}
+        <!-- replace removes the hyphens from the slugified text -->
+        <a class="post-category" href="{{ $href }}">{{replace . "-" " "}}</a>
+        {{ end }}
+    </div>
     {{ end }}
-</div>
-{{ end }}
 </section>

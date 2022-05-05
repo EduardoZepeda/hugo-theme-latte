@@ -96,10 +96,6 @@ a.post-category {
     width: 100%;
 }
 
-.cover-image-container.between-post {
-    display: none;
-}
-
 .read-more {
     color: var(--main-text);
     background-color: var(--background);
