@@ -1,5 +1,5 @@
 <article class="post-preview">
-    <a class href="{{.RelPermalink }}">
+    <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
         <div class="cover-image-container">
             <!-- Every post should have folder called images that contains its respective images -->
             {{ $path := .Params.coverImage }}
@@ -14,7 +14,7 @@
                 {{ partial "metadata.html" . }}
                 {{ partial "coverImageCredit.html" . }}
             </div>
-            <a class href="{{.RelPermalink }}">
+            <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
                 <div class="cover-image-container between-post">
                     <!-- Every post should have folder called images that contains its respective images -->
                     {{ $path := .Params.coverImage }}
