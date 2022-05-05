@@ -1,0 +1,120 @@
+:root {
+    --white: #FFF;
+    --title: #161620;
+    --dark: #111;
+    --blue: #326DF5;
+    --background: var(--white);
+    --transparent-sidebar: #FFFFFFed;
+    --post-preview-background: #FFFFFFbb;
+    --main-text: #292a2a;
+    --secondary-text: #696869;
+    --footer: var(--dark);
+    --post-category: var(--blue);
+    --padding-2x: 2rem;
+    --padding-1x: 1rem;
+    --padding-xs: 0.5rem;
+    --margin-1x: 1rem;
+    --margin-2x: 2rem;
+    --border-radius: 4px;
+    --text-2x: 1.5rem;
+    --text-3x: 3rem;
+    --text-1x: 1rem;
+    --small-text: 0.9rem;
+    --icon-size: 1.5rem;
+    --max-char-width: 64ch;
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+[data-theme="dark"] {
+    --white: #FFF;
+    --dark: #111;
+    --blue: #80A5F9;
+    --title: var(--white);
+    --background: #212121;
+    --transparent-sidebar: #151515ed;
+    --post-preview-background: #181818bb;
+    --main-text: var(--white);
+    --secondary-text: #A2A2A2;
+    --footer: var(--dark);
+    --post-category: #bb86fc;
+    --padding-2x: 2rem;
+    --padding-1x: 1rem;
+    --padding-xs: 0.5rem;
+    --margin-1x: 1rem;
+    --margin-2x: 2rem;
+    --border-radius: 4px;
+    --text-2x: 1.5rem;
+    --text-3x: 3rem;
+    --small-text: 0.9rem;
+    --icon-size: 1.5rem;
+    --max-char-width: 64ch;
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/Nunito.woff2') format('woff2');
+    font-display: fallback;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", "Arimo", sans;
+    line-height: 2rem;
+    font-size: 1.1rem;
+}
+
+a,
+a:visited {
+    color: var(--main-text);
+    text-decoration: none;
+}
+
+article {
+    margin: 4rem 0;
+    /* this prevents posts with long urls and codes to overflow article div */
+    word-break: break-word;
+}
+
+img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+pre {
+    overflow-x: auto;
+    padding: var(--padding-2x) 0 var(--padding-2x) var(--padding-2x);
+    font-size: var(--small-text);
+    /* prevent code from overflowing in small screens in Firefox */
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    /* For chrome */
+    word-wrap: break-word;
+}
+
+input:focus {
+    outline: 2px solid var(--blue);
+}
+
+button {
+    border: 0;
+}
+
+* {
+    object-fit: contain;
+}
+
+h2 {
+    margin: 0;
+}
+
+#hamburger-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    background-color: var(--background);
+    color: var(--main-text);
+}

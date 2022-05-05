@@ -1,0 +1,41 @@
+@media (max-width: 768px) {
+    #main {
+        padding: var(--padding-1x);
+    }
+
+    .nav-menu {
+        visibility: hidden;
+    }
+
+    .nav-burger {
+        visibility: visible;
+    }
+
+    body {
+        font-family: "Arimo", sans;
+    }
+    .post-preview {
+        width: 100%;
+        height: auto;
+    }
+    .post-info {
+        background-color: transparent;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .cover-image-container{
+        display:none;
+    }
+    .cover-image-container.between-post{
+        display:block;
+    }
+}
+
+@media (min-width: 768px) {
+    #sidebar {
+        transform: translateX(100vw);
+    }
+}
+

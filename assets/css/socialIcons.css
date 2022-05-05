@@ -1,0 +1,21 @@
+.social-icon {
+    width: var(--icon-size);
+    padding-right: var(--padding-1x);
+    padding-top: var(--padding-1x);
+}
+
+.twitter-icon {
+    fill: #00acee;
+}
+
+.instagram-icon {
+    fill: #C13584;
+}
+
+.linkedin-in-icon {
+    fill: #0e76a8;
+}
+
+.codewars-icon {
+    fill: #b1361e;
+}

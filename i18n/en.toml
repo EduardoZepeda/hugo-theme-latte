@@ -7,9 +7,6 @@ other = "Next"
 [previous]
 other = "Previous"
 
-[readMore]
-other = "Read more"
-
 [readingTime]
   one = 'One minute reading time'
   other = "Reading time: {{ .Count }} minutes"

@@ -1,0 +1,52 @@
+#sidebar {
+    position: fixed;
+    width: 60vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--transparent-sidebar);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    visibility: visible;
+    transition: var(--transition);
+}
+
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: var(--margin-1x);
+    content: ' ';
+    height: 2rem;
+    width: 2px;
+    background-color: var(--main-text);
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.sidebarHidden {
+    transform: translateX(100vw);
+}
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+}
