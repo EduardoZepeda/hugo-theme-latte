@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
-{{ range $paginator.Pages }}
+{{ range $index, $page := $paginator.Pages }}
+{{ .Scratch.Set "listIndex" $index }}
 {{ partial "post.html" . }}
 {{ end }}
 {{ template "_internal/pagination.html" .  }}
