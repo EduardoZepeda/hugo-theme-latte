@@ -52,3 +52,6 @@ other = "Quizás te gustaría leer mis posts más recientes"
 
 [notFound404Button]
 other = "Ir a posts recientes"
+
+[readMore]
+other = "Leer más"

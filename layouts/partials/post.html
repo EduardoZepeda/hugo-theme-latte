@@ -12,7 +12,6 @@
             <h2>{{ .Title }}</h2>
             <div class="post-metadata-container">
                 {{ partial "metadata.html" . }}
-                {{ partial "coverImageCredit.html" . }}
             </div>
             <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
                 <div class="cover-image-container between-post">
@@ -24,7 +23,9 @@
                     {{ partial "responsiveImage.html" $image }}
                 </div>
             </a>
+            {{ partial "coverImageCredit.html" . }}
         </div>
         <p class="post-summary">{{ .Summary }}</p>
+        <button class="read-more">{{ i18n "readMore"}}</button>
     </a>
 </article>

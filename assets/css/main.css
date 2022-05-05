@@ -96,7 +96,16 @@ a.post-category {
     width: 100%;
 }
 
-.cover-image-container.between-post{
+.cover-image-container.between-post {
     display: none;
 }
 
+.read-more {
+    color: var(--main-text);
+    background-color: var(--background);
+    padding: var(--padding-1x) var(--padding-2x);
+    border: 1px solid var(--main-text);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--text-1x);
+}

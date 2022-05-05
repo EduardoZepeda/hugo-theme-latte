@@ -52,3 +52,6 @@ other = "We didn't found anything"
 
 [notFound404Button]
 other = "Return to home"
+
+[readMore]
+other = "Read more"

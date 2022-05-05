@@ -14,10 +14,12 @@
     body {
         font-family: "Arimo", sans;
     }
+
     .post-preview {
         width: 100%;
         height: auto;
     }
+
     .post-info {
         background-color: transparent;
         position: relative;
@@ -25,11 +27,13 @@
         padding: 0;
         width: 100%;
     }
-    .cover-image-container{
-        display:none;
+
+    .cover-image-container {
+        display: none;
     }
-    .cover-image-container.between-post{
-        display:block;
+
+    .cover-image-container.between-post {
+        display: block;
     }
 }
 
@@ -37,5 +41,12 @@
     #sidebar {
         transform: translateX(100vw);
     }
-}
 
+    .read-more {
+        display: none;
+    }
+
+    .post-summary {
+        display: none;
+    }
+}
