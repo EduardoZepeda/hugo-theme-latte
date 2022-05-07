@@ -25,11 +25,13 @@ a.page-link {
 }
 
 .page-item:hover {
+    color: var(--white);
     background-color: var(--blue);
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .page-item.active {
+    color: var(--white);
     background-color: var(--blue);
 }
 

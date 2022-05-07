@@ -68,7 +68,7 @@ body {
 
 a,
 a:visited {
-    color: var(--main-text);
+    color: inherit;
     text-decoration: none;
 }
 

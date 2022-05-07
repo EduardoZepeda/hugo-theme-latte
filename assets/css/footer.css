@@ -28,7 +28,8 @@ a.footer-link {
     color: var(--secondary-text);
 }
 
-a.credits-link {
+a.credits-link,
+a.credits-link:visited {
     color: var(--white);
 }
 
