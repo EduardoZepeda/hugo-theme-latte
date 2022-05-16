@@ -92,6 +92,8 @@ pre {
     white-space: pre-wrap;
     /* For chrome */
     word-wrap: break-word;
+    border-top: 1px solid var(--post-category);
+    border-bottom: 1px solid var(--post-category)
 }
 
 input:focus {
