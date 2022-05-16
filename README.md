@@ -4,6 +4,10 @@ An elegant and responsive hugo theme. Here is a [demo](https://coffeebytes.dev).
 
 - SPA feel like, using live reload functionality by [turbolinks](https://github.com/turbolinks/turbolinks)
 
+- Seo friendly
+
+- Multilanguage (en, es)
+
 - mailchimp newsletter form
 
 - search based on [lunr](https://lunrjs.com/)
@@ -17,6 +21,7 @@ An elegant and responsive hugo theme. Here is a [demo](https://coffeebytes.dev).
 - related content at bottom
 
 - social media icons obtained from Font Awesome
+
 
 
 ## Installation
@@ -123,6 +128,48 @@ Lunr uses Hugo's included JSON output to create a JSON index using posts, but we
 ```bash
 [outputs]
     section = ["JSON", "HTML"]
+```
+
+### SEO 
+
+Meta tags are added to every post and homepage by default. You can add the following SEO parameters
+
+#### url, og:url and twitter:url
+
+These are generated automatically converting *RelPermalink* to its absolute URL form
+
+#### title, og:title and twitter:title
+
+Title is taken automatically from *title* on markdown file.
+
+#### description, og:description, twitter:description
+
+This paramater is taken from the *description* option on markdown file, if there is no description it will use *.Summary*, if there is no summary it will take *Site.Params.latte.seodescription* value in config.toml
+
+```bash
+---
+description: "This description goes into meta tag description and og:description tag" 
+---
+```
+
+#### author
+
+This paramater is taken from the *author* option on markdown file, if there is no atuthor it will use *.Site.Params.latte.author* value in config.toml
+
+```bash
+---
+author: "If this field is empty, it will take the author in config.toml"
+---
+```
+
+#### og: type
+
+You can specifiy an open graph type setting type in markdown.
+
+```bash
+---
+type: "website"
+---
 ```
 
 ### mailchimp susbscribe form
