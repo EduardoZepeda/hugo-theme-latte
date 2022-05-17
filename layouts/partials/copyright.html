@@ -1,0 +1,7 @@
+<p><small>
+    {{ if .Site.Params.latte.copyright }}
+        {{ .Site.Params.latte.copyright }}
+    {{ else }}
+        © {{ now.Format "2006"}}. All rights reserved. {{ .Site.Params.latte.author }}.
+    {{ end }}
+</small></p>

@@ -70,6 +70,7 @@ You can customize this theme setting some variables in your *config.toml* file.
     mailchimphiddenfield = "hidden_field"
     subscribedescription = "Mailchimp form description"
     subscribetitle = "Mailchimp form title"
+    copyright = "My copyright"
 ```
 
 ### description
@@ -195,6 +196,10 @@ Add as many social media menu items inside the menu directive.
     url = "https://linkedin.com/in/youruser"
     weight = 3
 ```
+
+### copyright
+
+The copyright legend at the bottom of the page. Default to: © `<current-year>`. All rights reserved `<author>`.
 
 #### Available icons
 
