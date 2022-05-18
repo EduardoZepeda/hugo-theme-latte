@@ -1,9 +1,7 @@
-{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
 {{ $author := .Params.author | default .Site.Params.latte.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 <section aria-label="Post metadata" class="post-metadata">
-    <div class="published-date"><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> {{ i18n
+    <div class="published-date"><time datetime="{{ time.Format "2006-01-02" .PublishDate }}">{{ time.Format ":date_full" .PublishDate }}</time> {{ i18n
         "author" $author }}
     </div>
     <!-- ReadingTime is available in Hugo scope -->
