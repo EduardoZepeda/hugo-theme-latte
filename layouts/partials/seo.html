@@ -3,7 +3,7 @@
 {{ $imageUrl := (printf "%s%s" .RelPermalink .Params.coverImage ) | absURL }}
 <!-- The description in the SEO has the following priority: description in content -> summary (as default) -> site description -->
 {{ $entryDescription := .Description | default .Summary }}
-{{ $description := $entryDescription | default .Site.Params.latte.seodescription }}
+{{ $description := $entryDescription | default $.Site.Params.description }}
 <!-- og requires ISO 8601 date format -->
 {{ $dateTime := .PublishDate.Format "2006-01-02T15:04:05Z0700" }}
 {{ $lastMod := .Lastmod.Format "2006-01-02T15:04:05Z0700" }}
