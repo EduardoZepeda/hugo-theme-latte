@@ -30,6 +30,7 @@ function initializeLunrSearch(event) {
             })
             // when data is registered, handle register 
             registerSearchHandler(searchInput)
+            searchInput.focus()
         }
     ).catch(
         err => {
@@ -44,7 +45,6 @@ function initializeLunrSearch(event) {
         // register on input event
         searchInput.oninput = handleInput
         // set focus on search input and remove loading placeholder
-        searchInput.focus()
         searchInput.placeholder = '{{i18n "searchInputPlaceholder"}}'
         searchInput.disabled = false
     }

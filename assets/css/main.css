@@ -96,7 +96,7 @@ a.post-category {
     width: 100%;
 }
 
-.read-more {
+.btn-info {
     color: var(--main-text);
     background-color: var(--background);
     padding: var(--padding-1x) var(--padding-2x);
