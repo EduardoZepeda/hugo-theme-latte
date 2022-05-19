@@ -15,7 +15,7 @@
     <div id="site-info">
         <section aria-label="Site's info" class="site-info-container">
             <p class="site-name"><a href="/" aria-label="title">{{ .Site.Title }}</a></p>
-            <h1 class="site-description">{{ .Site.Params.latte.description }}</h1>
+            <h1 class="site-description">{{ $.Site.Params.description }}</h1>
             {{ partial "socialIcons.html" . }}
         </section>
     </div>
