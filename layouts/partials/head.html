@@ -6,6 +6,7 @@
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
     {{- partial "seo.html" . -}}
+    {{- partial "rss.html" . -}}
     {{- partial "script.html" . -}}
     {{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
     {{ template "_internal/google_analytics_async.html" . }}
