@@ -71,17 +71,11 @@ a.post-category {
     border-radius: var(--border-radius);
 }
 
-.categories {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: var(--max-char-width);
-    padding: var(--padding-2x) var(--padding-1x);
-    gap: 0 var(--padding-1x);
-}
 
 .category {
     color: var(--main-text);
+    padding: var(--padding-2x) 0;
+    margin: var(--margin-2x) 0;
 }
 
 .responsive-image {
