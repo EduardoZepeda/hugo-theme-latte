@@ -4,12 +4,16 @@
 <section aria-label="Related content" class="related-content-container">
     <ul class="related-content">
         {{ range . }}
-        <!-- GetMatch allows us to get a resource inside a post folder -->
-        {{ $image := .Resources.GetMatch .Params.coverImage }}
         <!-- Create a responsive image based on srcset and picture tag -->
         <li class="related-content-item">
             <a class="related-content-link" href="{{ .RelPermalink }}">
-                {{ partial "responsiveImage.html" $image }}
+                {{ if .Params.coverImage }}
+                    <!-- GetMatch allows us to get a resource inside a post folder -->
+                    {{ $image := .Resources.GetMatch .Params.coverImage }}
+                    {{ partial "responsiveImage.html" $image }}
+                {{ else }}
+                    <div class="responsive-image">aaa</div>
+                {{ end }}
                 {{ .Title }}
             </a>
         </li>
