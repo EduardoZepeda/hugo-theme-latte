@@ -11,8 +11,6 @@
                     <!-- GetMatch allows us to get a resource inside a post folder -->
                     {{ $image := .Resources.GetMatch .Params.coverImage }}
                     {{ partial "responsiveImage.html" $image }}
-                {{ else }}
-                    <div class="responsive-image">aaa</div>
                 {{ end }}
                 {{ .Title }}
             </a>
