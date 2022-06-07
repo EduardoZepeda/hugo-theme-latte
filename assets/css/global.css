@@ -3,6 +3,7 @@
     --title: #161620;
     --dark: #111;
     --blue: #326DF5;
+    --transparent-blue: #326DF577;
     --background: var(--white);
     --transparent-sidebar: #FFFFFFed;
     --post-preview-background: #FFFFFFbb;
@@ -29,6 +30,7 @@
     --white: #FFF;
     --dark: #111;
     --blue: #80A5F9;
+    --transparent-blue: #80A5F977;
     --title: var(--white);
     --background: #212121;
     --transparent-sidebar: #151515ed;
