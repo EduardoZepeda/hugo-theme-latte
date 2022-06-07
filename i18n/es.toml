@@ -24,7 +24,7 @@ other = "No se encontraron resultados"
 other = "Quiero leer sobre"
 
 [loadingSearchPlaceholder]
-other = "Cargando búsqueda"
+other = "Cargando"
 
 [author]
 other = "por {{ . }}"

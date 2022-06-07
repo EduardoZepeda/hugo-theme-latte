@@ -17,6 +17,8 @@
     width: 100%;
     margin: var(--padding-1x) 0;
     text-indent: var(--padding-1x);
+    border-radius: var(--border-radius);
+    border: 0px;
 }
 
 .subscribe-button {
