@@ -122,7 +122,7 @@ figcaption {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--background);
     color: var(--main-text);
 }
