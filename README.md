@@ -8,7 +8,7 @@ An elegant and responsive hugo theme. Here is a [demo](https://coffeebytes.dev).
 
 - Multilanguage (en, es)
 
-- mailchimp newsletter form
+- Show up Mailchimp newsletter form
 
 - search based on [lunr](https://lunrjs.com/)
 
@@ -128,6 +128,7 @@ You can customize this theme setting some variables in your *config.toml* file.
     mailchimphiddenfield = "hidden_field"
     subscribedescription = "Mailchimp form description"
     subscribetitle = "Mailchimp form title"
+    subscribebannertext = "Show up modal subscription text"
 ```
 
 ### seodescription
@@ -178,6 +179,14 @@ Lunr uses Hugo's included JSON output to create a JSON index using posts, but we
 ```
 
 ### mailchimp susbscribe form
+
+Requires some text variables to be set
+
+* subscribebannertext (The banner at the bottom of the screen)
+* mailchimphiddenfield (Mailchimp hidden field, provided by mailchimp)
+* mailchimpurl (Mailchimp url, provided by mailchimp)
+* subscribetitle (The title of the subscription form)
+* subscribedescription (The subscription form description)
 
 For the mailchimp form to render, right after each post, you'll need at least the *mailchimphiddenfield* and *mailchimpurl* variables. If one of those is not set, the form won't render. 
 
