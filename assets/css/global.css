@@ -75,7 +75,7 @@ a:visited {
 }
 
 article {
-    margin: 4rem 0;
+    margin: var(--margin-2x) 0;
     /* this prevents posts with long urls and codes to overflow article div */
     word-break: break-word;
 }

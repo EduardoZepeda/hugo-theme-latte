@@ -5,10 +5,12 @@
 <body id="hamburger-grid">
     {{- partial "header.html" . -}}
     <main id="main">
-        <div class="content-container">
-            {{- block "main" . -}}{{ end }}
-        </div>
+        {{- block "main" . -}}{{ end }}
+        {{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }}
+        {{ partial "subscribeBanner.html" . }}
+        {{ end }}
     </main>
     {{- partial "footer.html" . -}}
 </body>
+
 </html>

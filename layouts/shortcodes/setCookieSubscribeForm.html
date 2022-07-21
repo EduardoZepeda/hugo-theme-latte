@@ -1,0 +1,12 @@
+<script>
+    function setCookie(name, value, days) {
+        let expires = ''
+        if (days) {
+            const date = new Date()
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
+            expires = '; path=/; expires=' + date.toUTCString()
+        }
+        document.cookie = name + '=' + (value || '') + expires + ';'
+    }
+    setCookie("mail_chimp_subscribe_shown", true, 365)
+</script>

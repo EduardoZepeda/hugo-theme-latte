@@ -1,11 +1,8 @@
-
-#subscribe-form-container {
+#mc-embedded-subscribe-form {
     color: var(--white);
-    padding: 2rem 4rem;
-    background: rgb(3, 52, 95);
-    background: -moz-linear-gradient(90deg, rgba(3, 52, 95, 1) 0%, rgb(44, 118, 176) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(3, 52, 95, 1) 0%, rgb(44, 118, 176) 100%);
-    background: linear-gradient(90deg, rgba(3, 52, 95, 1) 0%, rgb(44, 118, 176) 100%);
+    padding: var(--padding-1x) var(--padding-2x);
+    background: rgb(135, 1, 43);
+    background: linear-gradient(90deg, rgba(135, 1, 43, 1) 0%, rgba(207, 0, 19, 1) 85%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#03345f", endColorstr="#004275", GradientType=1);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
@@ -23,8 +20,8 @@
 
 .subscribe-button {
     padding: var(--padding-1x);
-    background-color: var(--blue);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--dark);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
 }
@@ -35,4 +32,31 @@
     I don't agree on this */
     position: absolute;
     left: -5000px;
+}
+
+.subscribe-banner {
+    width: 100%;
+    padding: 2rem 0;
+    font-size: var(--small-text);
+    position: sticky;
+    bottom: 0;
+    background: rgb(135, 1, 43);
+    background: linear-gradient(90deg, rgba(135, 1, 43, 1) 0%, rgba(207, 0, 19, 1) 85%);
+    z-index: 9;
+    color: var(--white);
+}
+
+.subscribe-input-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#subscribe-form-close-icon {
+    float: right;
+}
+
+#show-subscribe-form {
+    padding: 0 var(--padding-2x);
+    font-size: 1rem;
 }

@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: space-around;
     gap: 2rem;
-    margin-top: var(--padding-2x);
     padding: var(--padding-2x);
     color: var(--white);
     background-color: var(--footer);

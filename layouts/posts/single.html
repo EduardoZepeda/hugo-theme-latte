@@ -1,17 +1,16 @@
 {{ define "main" }}
-<section aria-label="table of contents" class="post-toc">
-    {{ partial "toc.html" . }}
-</section>
-<article class="post">
-    <h1>{{ .Title }}</h1>
-    {{ partial "metadata.html" . }}
-    <div class="content">{{ .Content }}</div>
-</article>
-<div class="after-post">
-    {{ partial "nextPreviousLinks.html" . }}
-    {{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }} {{
-    partial
-    "subscribeForm.html" . }}{{ end }}
-    {{ partial "relatedContent.html" . }}
+<div class="content-container">
+    <section aria-label="table of contents" class="post-toc">
+        {{ partial "toc.html" . }}
+    </section>
+    <article class="post">
+        <h1>{{ .Title }}</h1>
+        {{ partial "metadata.html" . }}
+        <div class="content">{{ .Content }}</div>
+    </article>
+    <div class="after-post">
+        {{ partial "nextPreviousLinks.html" . }}
+        {{ partial "relatedContent.html" . }}
+    </div>
 </div>
 {{ end }}

@@ -21,3 +21,8 @@
 a.search-item-title {
     color: var(--blue);
 }
+
+.search-results {
+    padding: var(--padding-1x);
+    max-width: var(--max-char-width);
+}

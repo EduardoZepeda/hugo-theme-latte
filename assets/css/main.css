@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 a.markdown-link,
@@ -37,6 +38,9 @@ a.markdown-link:hover {
     border-radius: var(--border-radius);
 }
 
+.post-preview-mobile {
+    padding: var(--padding-1x);
+}
 
 .post-info {
     position: absolute;
@@ -108,3 +112,4 @@ a.post-category {
     cursor: pointer;
     font-size: var(--text-1x);
 }
+
