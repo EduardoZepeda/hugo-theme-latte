@@ -102,7 +102,7 @@ function setSubscribeFormTimeout(event) {
     setTimeout(function () {
         const subscribeForm = document.getElementById("subscribe-form-modal")
         subscribeForm.classList.remove("display-none")
-    }, 7500)
+    }, 30000)
 }
 
 function loadAllListeners(event) {
