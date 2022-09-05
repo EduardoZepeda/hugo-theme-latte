@@ -1,3 +1,12 @@
+// Import Hugo params:
+// - modalcountdown
+import * as params from '@params'
+
+// Turbolinks needs to be imported and its start method be called for it to fire the listening events 
+import Turbolinks from './turbolinks.min'
+
+Turbolinks.start()
+
 function setCookie(name, value, days) {
     let expires = ''
     if (days) {
@@ -102,7 +111,7 @@ function setSubscribeFormTimeout(event) {
     setTimeout(function () {
         const subscribeForm = document.getElementById("subscribe-form-modal")
         subscribeForm.classList.remove("display-none")
-    }, 30000)
+    }, params.modalcountdown)
 }
 
 function loadAllListeners(event) {
@@ -110,7 +119,7 @@ function loadAllListeners(event) {
     addSideBarClickListener(event)
     addScrolltoTopListener(event)
     addSubscribeFormListener(event)
-    if (!getCookie("mail_chimp_subscribe_shown")) {
+    if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown>0) {
         setSubscribeFormTimeout(event)
     }
 }

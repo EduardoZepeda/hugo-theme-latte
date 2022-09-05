@@ -182,6 +182,7 @@ Lunr uses Hugo's included JSON output to create a JSON index using posts, but we
 
 Requires some text variables to be set
 
+* modalcountdown (The time in seconds for the banner to showup at the bottom of the screen). Set it to 0 to prevent it from showing up.
 * subscribebannertext (The banner at the bottom of the screen)
 * mailchimphiddenfield (Mailchimp hidden field, provided by mailchimp)
 * mailchimpurl (Mailchimp url, provided by mailchimp)

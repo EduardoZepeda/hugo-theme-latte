@@ -1,3 +1,4 @@
 <!-- Concat mainjs and turbolinks third-party js file, all in a bundle.js file, minify and fingerprint it -->
-{{- $mainJs := slice (resources.Get "js/main.js") (resources.Get "js/turbolinks.min.js") | resources.Concat "js/bundle.js" | minify | fingerprint -}}
-<script defer src="{{ $mainJs.RelPermalink }}"></script>
+{{ $modalcountdown := default 0 .Site.Params.latte.modalcountdown }}
+{{- $bundleJs := resources.Get "js/main.js" | js.Build (dict "minify" true "params" (dict "modalcountdown" (mul $modalcountdown 1000) )) | fingerprint }}
+<script defer src="{{ $bundleJs.RelPermalink }}"></script>
