@@ -27,16 +27,30 @@ function getCookie(name) {
     return null
 }
 
+function switchTheme(currentTheme){
+    nextThemeState =  currentTheme === "dark" ? "light" : "dark"
+    localStorage.setItem("coffee-byes-theme", nextThemeState)
+    document.documentElement.setAttribute("data-theme", nextThemeState)
+}
+
+function getOrSetCurrentTheme(){
+    if(!localStorage.getItem("coffee-byes-theme")){
+        localStorage.setItem("coffee-byes-theme", "dark")
+        // default value for theme is dark
+        return "dark"
+    }
+    return localStorage.getItem("coffee-byes-theme")
+}
+
 function addSwitchThemeListener(event) {
+    let currentTheme = getOrSetCurrentTheme()
+    document.documentElement.setAttribute("data-theme", currentTheme)
     let themeSwitcher = document.getElementById("toggle-label")
-    let currentTheme = document.documentElement.getAttribute("data-theme")
     let inputSwitch = document.getElementById("toggle-switch")
     inputSwitch.checked = "dark" === currentTheme
     themeSwitcher.onclick = function () {
-        let currentTheme = document.documentElement.getAttribute("data-theme");
-        let switchToTheme = currentTheme === "dark" ? "light" : "dark"
-        inputSwitch.checked = "dark" === currentTheme
-        document.documentElement.setAttribute("data-theme", switchToTheme)
+        switchTheme(getOrSetCurrentTheme())
+        inputSwitch.checked = "light" === localStorage.getItem("coffee-byes-theme")
     }
 }
 
