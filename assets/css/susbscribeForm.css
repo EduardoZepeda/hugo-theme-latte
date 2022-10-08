@@ -56,7 +56,27 @@
     float: right;
 }
 
-#show-subscribe-form {
-    padding: 0 var(--padding-2x);
-    font-size: 1.3rem;
+#subscribe-form-close-icon.close:after, #subscribe-form-close-icon.close:before {
+    /* overrides close icon background-color that changes with the theme */
+    background-color: var(--white);
 }
+
+.show-banner-text {
+    padding: 0 var(--padding-2x);
+    font-size: 1.2rem;
+}
+
+.subscribe-message-and-button{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.subscribe-banner-button{
+    padding: var(--padding-1x) var(--padding-2x);
+    border: 1px solid var(--white);
+    background-color: transparent;
+    color: var(--white);
+    border-radius: var(--border-radius);
+}
+
