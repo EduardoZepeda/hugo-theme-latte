@@ -1,5 +1,6 @@
 function initializeLunrSearch(event) {
     let searchInput = document.getElementById('search-input')
+    let searchLoader = document.getElementById('search-loader')
     let searchResults = document.getElementById('search-results')
     let documents = []
     let idx
@@ -47,6 +48,7 @@ function initializeLunrSearch(event) {
         // set focus on search input and remove loading placeholder
         searchInput.placeholder = '{{i18n "searchInputPlaceholder"}}'
         searchInput.disabled = false
+        searchLoader.classList.toggle('loader')
     }
 
     function handleInput(event) {
