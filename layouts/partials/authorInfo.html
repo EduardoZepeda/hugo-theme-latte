@@ -1,0 +1,19 @@
+{{ $author := .Params.author | default $.Site.Params.author }}
+{{ $authorDescription := .Params.authorDescription | default $.Site.Params.authorDescription }}
+{{ $authorImg := .Params.authorImg | default $.Site.Params.authorImg }}
+{{ if and $author $authorDescription }}
+<section class="author-info">
+    <div class="author-container">
+        <div class="author-name">
+            {{ if $authorImg }}<img class="author-picture" loading="lazy" src="{{$authorImg}}" alt="{{$author}} picture">{{ end }}
+            <h3>{{ $author }}</h3>
+        </div>
+        <div class="author-description">
+            <p>{{ $authorDescription }}</p>
+        </div>
+        <div class="author-social">
+            {{ partial "socialIcons.html" . }}
+        </div>
+    </div>
+</section>
+{{ end }}

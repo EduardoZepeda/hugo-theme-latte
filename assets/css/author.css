@@ -1,0 +1,17 @@
+.author-info {
+    width: 100%;
+    background-color: var(--author-info);
+    display: flex;
+    justify-content: center;
+}
+
+.author-container {
+    max-width: 64ch;
+    padding: 4rem;
+}
+
+.author-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}

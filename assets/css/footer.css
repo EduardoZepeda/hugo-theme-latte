@@ -7,6 +7,7 @@
     padding: var(--padding-2x);
     color: var(--white);
     background-color: var(--footer);
+    padding: 4rem 0;
 }
 
 .footer-links {
@@ -21,7 +22,6 @@ a.footer-link {
 }
 
 .credits {
-    width: 100%;
     text-align: center;
     font-size: 0.9rem;
     color: var(--secondary-text);

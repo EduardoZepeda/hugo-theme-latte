@@ -3,25 +3,15 @@
 An elegant and responsive hugo theme. Here is a [demo](https://coffeebytes.dev). It has the following features out of the box:
 
 - SPA feel like, using live reload functionality by [turbolinks](https://github.com/turbolinks/turbolinks)
-
 - Seo friendly
-
 - Multilanguage (en, es)
-
 - Show up Mailchimp newsletter form
-
 - search based on [lunr](https://lunrjs.com/)
-
 - scroll up button
-
 - dark and light theme
-
 - table of contents
-
 - related content at bottom
-
 - social media icons obtained from Font Awesome
-
 
 
 ## Installation
@@ -113,6 +103,19 @@ copyright = "Your copyright legend"
 ```
 
 Default to: © `<current-year>`. All rights reserved `<author>`.
+
+## Author banner
+
+A banner at the end of each post appears along with social media icons appears. At least *author and the author description are required* in params section. Those parameters can also be set inside each post, to override the site's values. 
+
+```bash
+[params]
+  author = "Your author name here"
+  authorDescription = "Your description here"
+  authorImg = "Profile image url"
+```
+
+Currently the site's social media icons will show in this banner. I have plans to customize this some time in the future.
 
 ## hugo-theme-latte configuration
 
