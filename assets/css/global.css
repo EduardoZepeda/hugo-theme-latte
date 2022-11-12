@@ -4,6 +4,7 @@
     --dark: #111;
     --blue: #326DF5;
     --author-info: #f3f7ff;
+    --yellow: #fac700;
     --background: var(--white);
     --transparent-sidebar: #FFFFFFed;
     --post-preview-background: #FFFFFFbb;
@@ -31,6 +32,7 @@
     --dark: #111;
     --blue: #80A5F9;
     --author-info: #1a1a1f;
+    --yellow: #fac700;
     --title: var(--white);
     --background: #212121;
     --transparent-sidebar: #151515ed;

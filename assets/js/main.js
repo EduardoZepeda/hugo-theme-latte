@@ -58,6 +58,7 @@ function addSideBarClickListener(event) {
     const sidebar = document.getElementById("sidebar")
     const burger = document.getElementById("burger-icon")
     const close = document.getElementById("close-icon")
+    
     function toggleSideBar() {
         if (sidebar.classList.contains("sidebarHidden")) {
             sidebar.classList.remove("sidebarHidden")
@@ -106,6 +107,7 @@ function addSubscribeFormListener(event) {
     const subscribeFormBody = document.getElementById("subscribe-form-body")
     const close = document.getElementById("subscribe-form-close-icon")
     const showFormButton = document.getElementById("show-subscribe-form")
+    const closeButton = document.getElementById("subscribe-close-button")
     function closeSubscribeForm() {
         subscribeForm.classList.add("display-none")
         setCookie("mail_chimp_subscribe_shown", true, 7)
@@ -117,6 +119,7 @@ function addSubscribeFormListener(event) {
             subscribeFormBody.classList.add("display-none")
         }
     }
+    closeButton.onclick = closeSubscribeForm
     close.onclick = closeSubscribeForm
     showFormButton.onclick = toggleSubscribeFormBody
 }

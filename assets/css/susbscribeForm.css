@@ -18,10 +18,20 @@
 
 .subscribe-button {
     padding: var(--padding-1x);
-    background-color: var(--white);
+    background-color: var(--yellow);
     color: var(--dark);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
+    width: 100%;
+}
+
+.subscribe-close-button {
+    padding: var(--padding-1x);
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: var(--border-radius);
+    margin: var(--margin-1x) 0;
+    background: transparent;
 }
 
 
