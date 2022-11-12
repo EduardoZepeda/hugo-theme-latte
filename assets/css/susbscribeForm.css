@@ -3,6 +3,7 @@
     padding: var(--padding-1x) var(--padding-2x);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
+    font-size: 1.2rem;
 }
 
 .subscribe-input {
@@ -70,6 +71,7 @@
 .show-banner-text {
     padding: 0 var(--padding-2x);
     font-size: 1.2rem;
+    font-family: heebo-bold;
 }
 
 .subscribe-message-and-button {
