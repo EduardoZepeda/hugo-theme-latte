@@ -1,9 +1,6 @@
 #mc-embedded-subscribe-form {
     color: var(--white);
     padding: var(--padding-1x) var(--padding-2x);
-    background: rgb(135, 1, 43);
-    background: linear-gradient(90deg, rgba(135, 1, 43, 1) 0%, rgba(207, 0, 19, 1) 85%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#03345f", endColorstr="#004275", GradientType=1);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
 }
@@ -40,8 +37,16 @@
     font-size: var(--small-text);
     position: sticky;
     bottom: 0;
-    background: rgb(135, 1, 43);
-    background: linear-gradient(90deg, rgba(135, 1, 43, 1) 0%, rgba(207, 0, 19, 1) 85%);
+    background:
+        linear-gradient(cyan,
+            transparent),
+        linear-gradient(-45deg,
+            magenta,
+            transparent),
+        linear-gradient(45deg,
+            yellow,
+            transparent);
+    background-blend-mode: multiply;
     z-index: 9;
     color: var(--white);
 }
@@ -56,7 +61,8 @@
     float: right;
 }
 
-#subscribe-form-close-icon.close:after, #subscribe-form-close-icon.close:before {
+#subscribe-form-close-icon.close:after,
+#subscribe-form-close-icon.close:before {
     /* overrides close icon background-color that changes with the theme */
     background-color: var(--white);
 }
@@ -66,14 +72,14 @@
     font-size: 1.2rem;
 }
 
-.subscribe-message-and-button{
+.subscribe-message-and-button {
     display: flex;
     align-items: center;
     justify-content: start;
     flex-wrap: wrap;
 }
 
-.subscribe-banner-button{
+.subscribe-banner-button {
     padding: var(--padding-1x) var(--padding-2x);
     border: 1px solid var(--white);
     background-color: transparent;
@@ -81,4 +87,3 @@
     border-radius: var(--border-radius);
     margin: var(--margin-2x);
 }
-
