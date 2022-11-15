@@ -50,13 +50,13 @@
     position: sticky;
     bottom: 0;
     background:
-        linear-gradient(cyan,
+        linear-gradient(yellow,
             transparent),
         linear-gradient(-45deg,
             magenta,
             transparent),
         linear-gradient(45deg,
-            yellow,
+            cyan,
             transparent);
     background-blend-mode: multiply;
     z-index: 9;
