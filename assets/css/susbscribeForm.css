@@ -16,21 +16,22 @@
     border: 0px;
 }
 
-.subscribe-button {
+.subscribe-btn {
     padding: var(--padding-1x);
-    background-color: var(--yellow);
-    color: var(--dark);
     border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
+    font-weight: bold;
     width: 100%;
 }
 
-.subscribe-close-button {
-    padding: var(--padding-1x);
+.subscribe-btn.send {
+    background-color: var(--yellow);
+    color: var(--dark);
+}
+
+
+.subscribe-btn.close-modal {
     color: var(--white);
-    border: 1px solid var(--white);
-    border-radius: var(--border-radius);
-    margin: var(--margin-1x) 0;
     background: transparent;
 }
 
@@ -98,4 +99,10 @@
     color: var(--white);
     border-radius: var(--border-radius);
     margin: var(--margin-2x);
+}
+
+.clear {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
