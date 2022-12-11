@@ -49,16 +49,7 @@
     font-size: var(--small-text);
     position: sticky;
     bottom: 0;
-    background:
-        linear-gradient(yellow,
-            transparent),
-        linear-gradient(-45deg,
-            magenta,
-            transparent),
-        linear-gradient(45deg,
-            cyan,
-            transparent);
-    background-blend-mode: multiply;
+    background: linear-gradient(to top left, magenta, rgba(255, 153, 150, 0), rgb(86, 192, 0)), linear-gradient(to top right, rgb(0, 142, 207), rgba(255, 153, 150, 0), red) rgba(255, 153, 150, 1);
     z-index: 9;
     color: var(--white);
 }
