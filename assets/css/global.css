@@ -149,6 +149,7 @@ table {
     margin: 25px 0;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: var(--dark);
 }
 
 table thead tr {
@@ -168,6 +169,10 @@ table tbody tr {
 }
 
 table tbody tr:nth-of-type(even) {
+    background-color: var(--white);
+}
+
+table tbody tr:nth-of-type(odd) {
     background-color: var(--white);
 }
 
