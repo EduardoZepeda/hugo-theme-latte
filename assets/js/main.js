@@ -1,7 +1,7 @@
 // Import Hugo params:
 // - modalcountdown
 import * as params from '@params'
-
+import './lightbox'
 // Turbolinks needs to be imported and its start method be called for it to fire the listening events 
 import Turbolinks from './turbolinks.min'
 

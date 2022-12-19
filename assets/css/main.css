@@ -1,3 +1,5 @@
+/* code obtained from: https://hugocodex.org/add-ons/lightbox/ */
+
 #main {
     display: flex;
     flex-direction: column;
@@ -60,30 +62,19 @@ a.markdown-link:hover {
 }
 
 a.post-category {
-    color: var(--background);
-    background-color: var(--post-category);
+    color: var(--post-category);
+    border: 2px solid var(--post-category);
     font-size: var(--small-text);
     padding: var(--padding-xs);
     border-radius: var(--border-radius);
     margin-right: var(--padding-xs);
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .page-name {
     font-size: var(--text-2x);
 }
-
-.post-metadata {
-    font-size: var(--small-text);
-}
-
-.reading-time {
-    display: inline-block;
-    border: 1px solid var(--secondary-text);
-    padding: 0 var(--padding-xs);
-    border-radius: var(--border-radius);
-}
-
 
 .category {
     color: var(--main-text);
@@ -111,4 +102,10 @@ a.post-category {
     border-radius: var(--border-radius);
     cursor: pointer;
     font-size: var(--text-1x);
+}
+
+::selection,
+::-moz-selection {
+    color: var(--dark);
+    background: var(--yellow);
 }

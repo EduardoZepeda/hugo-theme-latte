@@ -1,4 +1,12 @@
-.published-date,
+.post-metadata {
+    font-size: var(--small-text);
+}
+
 .reading-time {
+    display: inline-block;
     color: var(--secondary-text);
+}
+
+.published-date {
+    color: var(--main-text);
 }
