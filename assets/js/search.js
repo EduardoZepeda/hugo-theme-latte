@@ -19,7 +19,7 @@ function initializeLunrSearch(event) {
             idx = lunr(function () {
                 this.ref('url')
                 // More weight to title field
-                this.field('title', { 'boost': 'fieldBoost' })
+                this.field('title')
                 this.field('content')
                 res.forEach(function (doc) {
                     this.add(doc)
