@@ -1,5 +1,6 @@
 <div class="mermaid">
     {{- .Inner | safeHTML }}
 </div>
+  <!-- set hasMermaid variable so only pages with mermaid code download the library -->
   {{ .Page.Store.Set "hasMermaid" true }}
   

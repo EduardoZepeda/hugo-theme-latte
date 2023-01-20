@@ -10,4 +10,5 @@
     {{- partial "script.html" . -}}
     {{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
     {{ template "_internal/google_analytics_async.html" . }}
+    {{- partial "mermaid.html" . -}}
 </head>

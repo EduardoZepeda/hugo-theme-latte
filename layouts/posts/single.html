@@ -14,20 +14,4 @@
     </div>
 </div>
 {{ partial "authorInfo.html" . }}
-<!-- Enable mermaid diagrams -->
-{{ if .Page.Store.Get "hasMermaid" }}
-  <script>
-    // initialize mermaid after script has been downloaded
-    window.addEventListener('turbolinks:load', checkJSLoaded)
-    function checkJSLoaded() {
-        let script = document.createElement('script')
-        script.addEventListener('load', (event) => {
-          mermaid?.initialize({ startOnLoad: true })
-        })
-        script.src = 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'
-        document.body.appendChild(script)
-}
-  </script>
-{{ end }}
-<!-- End mermaid diagrams -->
 {{ end }}
