@@ -1,4 +1,10 @@
 @media (max-width: 768px) {
+
+    body {
+        font-family: Sans-Serif, "Arimo", sans;
+        font-size: 1rem;
+    }
+
     .content-container {
         padding: var(--padding-1x);
     }
@@ -11,9 +17,7 @@
         visibility: visible;
     }
 
-    body {
-        font-family: "Arimo", sans;
-    }
+
 
     .post-preview {
         width: 100%;
