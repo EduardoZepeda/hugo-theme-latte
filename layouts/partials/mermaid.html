@@ -3,5 +3,5 @@
     <!-- mermaid js needs to be initialized before using it init will render all the diagrams -->
     <!-- onload will make sure initialization occurs only after the library has been downloaded -->
     <!-- bind diagram parsing to turbolinks:load event -->
-    <script defer onload="mermaid.initialize({theme: 'neutral'});mermaid.init();document.addEventListener('turbolinks:load', function(){mermaid?.init()});" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"></script>
+    <script defer onload="mermaid.initialize({theme: 'neutral'});mermaid.init();document.addEventListener('turbolinks:load', function(){mermaid.initialize({theme: 'neutral'});mermaid?.init();});" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"></script>
 {{ end }}
