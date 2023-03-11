@@ -1,17 +1,33 @@
 {{ define "main" }}
 <div class="content-container">
-    <section aria-label="table of contents" class="post-toc">
-        {{ partial "toc.html" . }}
-    </section>
-    <article class="post">
-        <h1>{{ .Title }}</h1>
-        {{ partial "metadata.html" . }}
-        <div class="content">{{ .Content }}</div>
-    </article>
-    <div class="after-post">
-        {{ partial "nextPreviousLinks.html" . }}
-        {{ partial "relatedContent.html" . }}
+    <div class="left-panel"></div>
+    <div class="post-container">
+        <section aria-label="table-of-contents" class="post-toc">
+            {{ partial "toc.html" . }}
+        </section>
+        <article class="post">
+            <h1>{{ .Title }}</h1>
+            {{ partial "metadata.html" . }}
+            <div class="content">{{ .Content }}</div>
+        </article>
+        <div class="next-previous-links">
+            {{ partial "nextPreviousLinks.html" . }}
+            {{ partial "relatedContent.html" . }}
+        </div>
     </div>
+    <aside class="right-panel">
+        <div class="sticky">
+            {{ if .Site.Params.latte.affiliateHtml }}
+            <div class="affiliate-links-container">
+            <h4>{{ i18n "affiliateLinks" }}</h3>
+                {{ .Site.Params.latte.affiliateHtml | safeHTML }}
+            {{ end }}
+        </div>
+            <div class="related-content-right">
+                {{ partial "relatedContentText.html" . }}
+            </div>
+        </div>
+    </aside>
 </div>
 {{ partial "authorInfo.html" . }}
 {{ end }}

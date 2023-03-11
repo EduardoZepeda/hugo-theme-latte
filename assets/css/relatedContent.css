@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    gap: var(--margin-2x);
+    gap: var(--margin-1x);
 }
 
 .related-content-item {
@@ -15,4 +15,19 @@
 .related-content-link {
     display: block;
     color: var(--main-text);
+}
+
+.related-content-link {
+    font-size: 0.9rem;
+    font-weight: bold;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.affiliate-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-1x) 0;
 }

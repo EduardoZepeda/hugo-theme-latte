@@ -1,0 +1,16 @@
+{{ $related := .Site.RegularPages.Related . | first 4 }}
+{{ with $related }}
+<h4>{{ i18n "relatedContent" }}</h4>
+<section aria-label="Related content" class="related-content-container">
+    <ul class="related-content related-content-link">
+        {{ range . }}
+        <!-- Create a responsive image based on srcset and picture tag -->
+        <li class="related-content-item">
+            <a class="related-content-link" href="{{ .RelPermalink }}">
+                <strong>{{ .Title }}</strong>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

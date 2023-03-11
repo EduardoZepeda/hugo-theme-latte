@@ -6,6 +6,10 @@
     }
 
     .content-container {
+        margin: var(--padding-xs);
+        grid-template-areas:
+            "post-container post-container post-container";
+        grid-gap: var(--padding-1x);
         padding: var(--padding-1x);
     }
 
@@ -16,8 +20,6 @@
     .nav-burger {
         visibility: visible;
     }
-
-
 
     .post-preview {
         width: 100%;
@@ -51,6 +53,12 @@
     }
 
     .post-preview-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 967px) {
+    .sticky {
         display: none;
     }
 }
