@@ -131,7 +131,16 @@ function setSubscribeFormTimeout(event) {
     }, params.modalcountdown)
 }
 
+function sendEventToGA(event) {
+    // Make sure google analytics send data on turbolinks load
+    if(typeof ga == "function"){
+        ga("set", "location", event.data.url)
+        ga("send", "pageview")
+    }
+}
+
 function loadAllListeners(event) {
+    sendEventToGA(event)
     addSwitchThemeListener(event)
     addSideBarClickListener(event)
     addScrolltoTopListener(event)
