@@ -89,11 +89,10 @@ a.markdown-link:hover {
 }
 
 .post-categories {
-    margin: var(--margin-1x) 0;
     padding: var(--padding-1x) 0;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--padding-1x);
+    gap: 0 var(--padding-1x);
 }
 
 a.post-category {
