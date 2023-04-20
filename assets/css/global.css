@@ -194,3 +194,7 @@ table tbody tr:last-of-type {
     background-color: var(--background);
     color: var(--main-text);
 }
+
+blockquote {
+    font-size: 0.9rem;
+}
