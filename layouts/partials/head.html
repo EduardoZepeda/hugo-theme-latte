@@ -9,6 +9,9 @@
     {{- partial "feed.html" . -}}
     {{- partial "script.html" . -}}
     {{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
-    {{ template "_internal/google_analytics_async.html" . }}
+    <!-- this tag replaces the classic google analytics hugo template, let's wait for it to be officialy replaced  -->
+    {{ if .Site.Params.GoogleAnalyticsID }}
+        {{ partial "analytics-gtag.html" . }}
+    {{ end }}
     {{- partial "mermaid.html" . -}}
 </head>
