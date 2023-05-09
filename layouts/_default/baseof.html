@@ -3,6 +3,9 @@
 {{- partial "head.html" . -}}
 
 <body id="hamburger-grid">
+    {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
+    {{- partial "googleTagManagerNoScript.html" . -}}
+    {{ end }}
     {{- partial "header.html" . -}}
     <main id="main">
         {{- block "main" . -}}{{ end }}

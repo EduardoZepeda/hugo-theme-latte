@@ -9,6 +9,11 @@
     {{- partial "feed.html" . -}}
     {{- partial "script.html" . -}}
     {{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
+    {{ if hugo.IsProduction }}
     {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
     {{- partial "mermaid.html" . -}}
+    {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
+    {{- partial "googleTagManager.html" . -}}
+    {{ end }}
 </head>
