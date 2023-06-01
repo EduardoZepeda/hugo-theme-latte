@@ -7,7 +7,7 @@
     --author-info: #f3f7ff;
     --yellow: #fac700;
     --background: var(--white);
-    --transparent-sidebar: #FFFFFFed;
+    --transparent-sidebar: #FFFFFF;
     --post-preview-background: #FFFFFFbb;
     --main-text: #292a2a;
     --secondary-text: #6a6a6a;
@@ -36,7 +36,7 @@
     --yellow: #fac700;
     --title: var(--white);
     --background: #212121;
-    --transparent-sidebar: #151515ed;
+    --transparent-sidebar: #151515;
     --post-preview-background: #181818bb;
     --main-text: var(--white);
     --secondary-text: #A2A2A2;
