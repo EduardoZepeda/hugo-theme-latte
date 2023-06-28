@@ -1,0 +1,41 @@
+/*mermaid-diagrams*/
+/*use light background color (or dark in dark mode)*/
+body #editor .CodeMirror .mermaid-chart svg {
+    background-color: var(--grey-0);
+}
+
+body.dark #editor .CodeMirror .mermaid-chart svg {
+    background-color: var(--grey-6);
+}
+
+/* clusters are medium grey*/
+body #editor .CodeMirror .mermaid-chart * .cluster rect {
+    fill: var(--grey-1);
+    stroke-width: 0px;
+}
+
+body.dark #editor .CodeMirror .mermaid-chart * .cluster rect {
+    fill: var(--grey-5);
+    stroke-width: 0px;
+}
+
+/* all nodes are dark grey*/
+body #editor .CodeMirror .mermaid-chart * .node rect,
+body #editor .CodeMirror .mermaid-chart * .node circle {
+    fill: var(--grey-4);
+    stroke-width: 0px;
+}
+
+/*lighter text color*/
+body #editor .CodeMirror .mermaid-chart * .node .label {
+    color: var(--grey-0);
+}
+
+/*arrow lines and heads are green*/
+body #editor .CodeMirror .mermaid-chart * .flowchart-link {
+    stroke: var(--c-primary);
+}
+
+body #editor .CodeMirror .mermaid-chart * .marker {
+    fill: var(--c-primary);
+}
