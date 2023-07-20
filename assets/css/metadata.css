@@ -10,3 +10,19 @@
 .published-date {
     color: var(--main-text);
 }
+
+.author-miniature {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+}
+
+.author-item {
+    display: flex;
+}
+
+.author-metadata-image {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5rem;
+}

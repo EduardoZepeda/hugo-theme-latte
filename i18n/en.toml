@@ -8,8 +8,8 @@ other = "Next"
 other = "Previous"
 
 [readingTime]
-  one = 'One minute reading time'
-  other = "Reading time: {{ .Count }} minutes"
+one = 'One minute reading time'
+other = "Reading time: {{ .Count }} minutes"
 
 [tableOfContents]
 other = "Table of contents"
@@ -58,6 +58,15 @@ other = "Read more"
 
 [seeMore]
 other = "See more"
+
+[articles]
+other = "Articles"
+
+[authors]
+other = "Authors"
+
+[bio]
+other = "Bio"
 
 [close]
 other = "Close"

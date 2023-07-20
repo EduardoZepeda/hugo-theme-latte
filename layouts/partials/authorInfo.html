@@ -1,19 +1,18 @@
-{{ $author := .Params.author | default $.Site.Params.author }}
-{{ $authorDescription := .Params.authorDescription | default $.Site.Params.authorDescription }}
-{{ $authorImg := .Params.authorImg | default $.Site.Params.authorImg }}
-{{ if and $author $authorDescription }}
+{{ with .Params.authors }}
 <section class="author-info">
     <div class="author-container">
-        <div class="author-name">
-            {{ if $authorImg }}<img class="author-picture" loading="lazy" src="{{$authorImg}}" alt="{{$author}} picture">{{ end }}
-            <h3>{{ $author }}</h3>
-        </div>
-        <div class="author-description">
-            <p>{{ $authorDescription }}</p>
-        </div>
-        <div class="author-social">
-            {{ partial "socialIcons.html" . }}
-        </div>
+        {{- range . }}
+        {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+        <figure>
+            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }} picture"/>
+            <figcaption>
+            </figcaption>
+        </figure>
+        <a href="{{ .Permalink }}"><h3>{{ .Params.name }}</h3></a>
+        <div>{{ .Params.summary }}</div>
+        <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
+        {{ end }}
+        {{ end }}
     </div>
 </section>
 {{ end }}
