@@ -8,8 +8,8 @@
             <figcaption>
             </figcaption>
         </figure>
-        <a href="{{ .Permalink }}"><h3>{{ .Params.name }}</h3></a>
-        <div>{{ .Params.summary }}</div>
+        <a rel="author" href="{{ .Permalink }}"><h3>{{ .Params.name }}</h3></a>
+        <div class="author-summary">{{ .Params.summary }}</div>
         <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
         {{ end }}
         {{ end }}

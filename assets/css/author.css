@@ -34,4 +34,7 @@
     margin-bottom: var(--margin-2x);
 }
 
-.author-read-more {}
+.author-read-more {
+    padding: var(--padding-2x) 0;
+    text-decoration: underline;
+}
