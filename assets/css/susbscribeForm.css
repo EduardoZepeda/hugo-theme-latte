@@ -73,7 +73,7 @@
 .show-banner-text {
     padding: 0 var(--padding-2x);
     font-size: 1.2rem;
-    font-family: heebo-bold;
+    font-family: Nunito;
 }
 
 .subscribe-message-and-button {
