@@ -9,7 +9,7 @@
     --background: var(--white);
     --transparent-sidebar: #FFFFFF;
     --post-preview-background: #FFFFFFbb;
-    --main-text: #292a2a;
+    --main-text: #3F424A;
     --secondary-text: #6a6a6a;
     --footer: var(--dark);
     --post-category: var(--blue);
@@ -77,6 +77,7 @@ body {
     font-family: "Nunito", "Arimo", sans;
     line-height: 2rem;
     font-size: 1.1rem;
+    text-rendering: optimizeLegibility;
 }
 
 a,

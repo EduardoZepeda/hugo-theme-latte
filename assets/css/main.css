@@ -97,7 +97,7 @@ a.markdown-link:hover {
 
 a.post-category {
     color: var(--post-category);
-    border: 2px solid var(--post-category);
+    border: 1px solid var(--post-category);
     font-size: var(--small-text);
     padding: 0 var(--padding-xs);
     border-radius: var(--border-radius);
