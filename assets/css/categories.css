@@ -1,0 +1,20 @@
+.categoriesContainer {
+    margin: var(--margin-3x) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-2x);
+    padding: var(--padding-2x);
+    max-width: var(--max-char-width);
+}
+
+.categoryContainer {
+    margin: var(--margin-1x);
+}
+
+.categoryItem,
+.categoryItem:visited {
+    color: var(--main-text);
+    border: 1px solid var(--main-text);
+    padding: var(--padding-1x) var(--padding-1x);
+    border-radius: var(--border-radius);
+}

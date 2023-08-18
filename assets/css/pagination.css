@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     color: var(--blue);
     list-style: none;
+    margin: var(--margin-3x) 0;
 }
 
 .page-item {

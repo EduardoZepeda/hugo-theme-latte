@@ -3,6 +3,7 @@
     --title: #161620;
     --dark: #111;
     --blue: #326DF5;
+    --pale-blue: #3398FF;
     --green: #007c63;
     --author-info: #f3f7ff;
     --yellow: #fac700;
@@ -13,11 +14,13 @@
     --secondary-text: #6a6a6a;
     --footer: var(--dark);
     --post-category: var(--blue);
+    --padding-3x: 3rem;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
     --padding-xs: 0.5rem;
     --margin-1x: 1rem;
     --margin-2x: 2rem;
+    --margin-3x: 3rem;
     --border-radius: 4px;
     --text-2x: 1.5rem;
     --text-3x: 3rem;
