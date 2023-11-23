@@ -4,7 +4,7 @@
     {
         "url": "{{ .RelPermalink }}",
         "title": "{{ .Title }}",
-        "content": {{ .Content | plainify | jsonify }}
+        "content": {{ .Content | truncate 512 | plainify | jsonify }}
     }
     {{ end }}
 ]
