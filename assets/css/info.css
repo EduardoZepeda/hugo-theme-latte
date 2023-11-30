@@ -1,0 +1,9 @@
+.info {
+    border-left: 5px solid var(--blue);
+    padding: var(--padding-1x);
+    background-color: aliceblue;
+    border-radius: var(--border-radius);
+    margin: var(--margin-1x) 0;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
