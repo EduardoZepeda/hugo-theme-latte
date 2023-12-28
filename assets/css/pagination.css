@@ -2,14 +2,15 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    color: var(--blue);
+    color: var(--button-text);
     list-style: none;
     margin: var(--margin-3x) 0;
 }
 
 .page-item {
-    background-color: var(--background);
-    border: 1px solid var(--blue);
+    background-color: transparent;
+    color: var(--button);
+    border: 1px solid var(--button);
     margin: 8px;
     border-radius: var(--border-radius);
     width: 60px;
@@ -27,13 +28,13 @@ a.page-link {
 
 .page-item:hover {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--button);
     opacity: 0.8;
 }
 
 .page-item.active {
-    color: var(--white);
-    background-color: var(--blue);
+    color: var(--background);
+    background-color: var(--button);
 }
 
 .page-item.disabled {

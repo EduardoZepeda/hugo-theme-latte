@@ -14,6 +14,8 @@
     --secondary-text: #6a6a6a;
     --footer: var(--dark);
     --post-category: var(--blue);
+    --button: var(--blue);
+    --button-text: var(--background);
     --padding-3x: 3rem;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
@@ -35,17 +37,19 @@
 [data-theme="dark"] {
     --white: #FFF;
     --dark: #111;
-    --blue: #80A5F9;
-    --author-info: #1a1a1f;
+    --blue: #2ebbcb;
+    --author-info: #0b3049;
     --yellow: #fac700;
     --title: var(--white);
-    --background: #212121;
+    --background: #07263b;
     --transparent-sidebar: #151515;
     --post-preview-background: #181818bb;
     --main-text: var(--white);
     --secondary-text: #A2A2A2;
     --footer: var(--dark);
-    --post-category: #bb86fc;
+    --post-category: #e3e7a5;
+    --button: #2bcecf;
+    --button-text: var(--background);
     --padding-2x: 2rem;
     --padding-1x: 1rem;
     --padding-xs: 0.5rem;
