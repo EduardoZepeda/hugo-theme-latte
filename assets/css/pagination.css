@@ -5,6 +5,7 @@
     color: var(--button-text);
     list-style: none;
     margin: var(--margin-3x) 0;
+    width: 100%;
 }
 
 .page-item {

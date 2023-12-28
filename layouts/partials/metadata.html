@@ -1,33 +1,8 @@
 {{ $author := .Params.author | default $.Site.Params.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 <section aria-label="Post metadata" class="post-metadata">
-    <div class="published-date"><time datetime="{{ time.Format "2006-01-02" .PublishDate }}">{{ time.Format ":date_full" .PublishDate }}</time> 
-    </div>
-    <!--Authors-->
-    <div class="author-list">
-    {{- range .Params.authors }}
-    {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-        <div class="author-item">
-            <div class="author-link">
-                <a rel="author" title="{{.Params.name}}" href="{{ .Permalink }}">{{ .Params.name }}</a>
-            </div>
-            <div class="author-metadata-image">
-                <img class="author-miniature" src="{{ .Params.photo }}" alt=""/>
-            </div>
-        </div>
-    {{ end }}
-    {{ end }}
-    </div>
-    <!--End authors-->
-    <!-- ReadingTime is available in Hugo scope -->
-    <div class="reading-time">{{ i18n "readingTime" .ReadingTime }}</div>
-    {{ with .Params.categories }}
-    <div class="post-categories">
-        {{ range . }}
-        {{ $href := print (absURL "categories/") (urlize .) }}
-        <!-- replace removes the hyphens from the slugified text -->
-        <a class="post-category" href="{{ $href }}">{{replace . "-" " " | title}}</a>
-        {{ end }}
-    </div>
-    {{ end }}
+    {{ partial "publishedDate.html" . }}
+    {{ partial "authors.html" . }}
+    {{ partial "readingTime.html" . }}
+    {{ partial "categories.html" . }}
 </section>

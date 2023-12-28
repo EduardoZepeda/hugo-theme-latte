@@ -2,10 +2,10 @@
 
 #main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    position: relative;
+    flex-wrap: wrap;
+    gap: var(--padding-1x);
 }
 
 a.markdown-link,
@@ -59,40 +59,58 @@ a.markdown-link:hover {
 }
 
 .post-preview {
-    position: relative;
-    width: 761px;
-    height: 400px;
+    display: flex;
+    flex-direction: row;
+    width: 450px;
 }
 
-.post-preview-desktop {
-    /* default background when there is no cover image */
-    background-color: var(--blue);
+.post-card {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius);
+    border-radius: 40px;
+    box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
 }
 
-.post-preview-mobile {
-    padding: var(--padding-1x);
+.post-metadata-container {
+    background-color: var(--white);
+    padding: var(--padding-2x);
+    border-radius: 0 0 40px 40px;
+}
+
+.flexible {
+    flex-grow: 1;
+    background-color: var(--white);
 }
 
 .post-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 0.8rem;
-    padding: 2rem 2rem 1rem 2rem;
-    background-color: var(--post-preview-background);
-    margin: 2rem;
-    width: 70%;
-    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    color: var(--dark);
+    padding: var(--padding-2x);
+    padding-bottom: 0;
+}
+
+.post-card-metadata {
+    font-size: 0.95rem;
+    padding: var(--padding-2x);
+    background-color: var(--white);
+    color: var(--dark);
+    border-radius: 0 0 40px 40px;
+}
+
+.post-info h2 {
+    font-size: 1.3rem;
 }
 
 .post-categories {
     padding: var(--padding-1x) 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0 var(--padding-1x);
+    gap: var(--padding-1x);
 }
 
 a.post-category {
@@ -119,12 +137,11 @@ a.post-category {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: var(--border-radius);
+    border-radius: 40px 40px 0 0;
 }
 
 .cover-image-container {
-    height: 100%;
-    width: 100%;
+    display: flex;
 }
 
 .btn-info {

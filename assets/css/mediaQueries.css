@@ -21,22 +21,6 @@
         visibility: visible;
     }
 
-    .post-preview {
-        width: 100%;
-        height: auto;
-    }
-
-    .post-info {
-        background-color: transparent;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .post-preview-desktop {
-        display: none
-    }
 }
 
 @media (min-width: 768px) {
@@ -49,10 +33,6 @@
     }
 
     .post-summary {
-        display: none;
-    }
-
-    .post-preview-mobile {
         display: none;
     }
 }

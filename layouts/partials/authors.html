@@ -1,0 +1,14 @@
+<div class="author-list">
+    {{- range .Params.authors }}
+    {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+        <div class="author-item">
+            <div class="author-link">
+                <a rel="author" title="{{.Params.name}}" href="{{ .Permalink }}">{{ .Params.name }}</a>
+            </div>
+            <div class="author-metadata-image">
+                <img class="author-miniature" src="{{ .Params.photo }}" alt=""/>
+            </div>
+        </div>
+    {{ end }}
+    {{ end }}
+</div>

@@ -7,10 +7,6 @@
     color: var(--secondary-text);
 }
 
-.published-date {
-    color: var(--main-text);
-}
-
 .author-miniature {
     width: 25px;
     height: 25px;
