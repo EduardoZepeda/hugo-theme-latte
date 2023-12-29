@@ -5,8 +5,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--padding-1x);
-    padding: var(--padding-2x);
+    gap: var(--padding-2x);
 }
 
 a.markdown-link,
@@ -62,7 +61,7 @@ a.markdown-link:hover {
 .post-preview {
     display: flex;
     flex-direction: row;
-    width: 450px;
+    width: 500px;
 }
 
 .post-card {
