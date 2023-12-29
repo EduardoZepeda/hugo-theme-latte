@@ -6,6 +6,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--padding-1x);
+    padding: var(--padding-2x);
 }
 
 a.markdown-link,
