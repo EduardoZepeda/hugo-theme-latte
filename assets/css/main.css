@@ -142,6 +142,8 @@ a.post-category {
 
 .cover-image-container {
     display: flex;
+    /* This is the proportion from a image that's 1200x630 reduced to 500x(n). Set manually to prevent cumulative layout shift*/
+    min-height: 273.467px;
 }
 
 .btn-info {
