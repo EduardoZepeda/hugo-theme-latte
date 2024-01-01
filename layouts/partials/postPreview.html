@@ -3,7 +3,7 @@
     {{ $path := .Params.coverImage }}
     {{ $image := .Resources.GetMatch $path }}
     <div class="cover-image-container">
-        <a class="featured-img-link" aria-label="post link" href="{{.RelPermalink }}">
+        <a class="featured-img-link" aria-label="{{.Params.title}}" href="{{.RelPermalink }}">
                 <!-- Create a responsive image based on srcset and picture tag -->
                 {{ partial "responsiveImage.html" $image }}
         </a>
@@ -11,7 +11,7 @@
     {{ end }}
     <div class="post-info">
         <h2>
-            <a class="post-info-link" aria-label="post link" href="{{.RelPermalink }}">
+            <a class="post-info-link" aria-label="{{.Params.title}}" href="{{.RelPermalink }}">
                 {{ .Title }}
             </a>
         </h2>
