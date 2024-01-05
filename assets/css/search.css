@@ -16,7 +16,6 @@
 
 .search-content {
     max-width: var(--max-char-width);
-    text-align: center;
 }
 
 a.search-item-title {
