@@ -61,7 +61,7 @@ a.markdown-link:hover {
 .post-preview {
     display: flex;
     flex-direction: row;
-    width: 500px;
+    width: 450px;
 }
 
 .post-card {
