@@ -12,6 +12,7 @@
     --post-preview-background: #FFFFFFbb;
     --main-text: #3F424A;
     --secondary-text: #6a6a6a;
+    --credits: #adadad;
     --footer: var(--dark);
     --post-category: var(--blue);
     --button: var(--blue);
@@ -45,7 +46,8 @@
     --transparent-sidebar: #151515;
     --post-preview-background: #181818bb;
     --main-text: var(--white);
-    --secondary-text: #757575;
+    --secondary-text: #959595;
+    --credits: #adadad;
     --footer: var(--dark);
     --post-category: var(--blue);
     --button: #2bcecf;

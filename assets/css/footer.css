@@ -24,7 +24,7 @@ a.footer-link {
 .credits {
     text-align: center;
     font-size: 0.9rem;
-    color: var(--secondary-text);
+    color: var(--credits);
 }
 
 a.credits-link,
