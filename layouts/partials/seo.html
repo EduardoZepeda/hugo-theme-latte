@@ -10,6 +10,7 @@
 
 
 {{ $author := .Params.author | default $.Site.Params.author }}
+{{ $canonical := .Params.canonical | default (.RelPermalink | absURL) }}
 
 <meta name="title" content="{{ .Title }}"/>
 <meta name="description" content="{{ $description }}"/>
@@ -47,3 +48,5 @@
 <meta property="twitter:description" content="{{ $description }}"/>
 {{ with .Params.coverImage }}<meta property="twitter:image" content="{{ $imageUrl }}"/>{{ end }}
 
+<!-- Canonic url -->
+<link rel="canonical" href="{{ $canonical }}"/>

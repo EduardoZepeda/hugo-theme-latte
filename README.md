@@ -104,18 +104,41 @@ copyright = "Your copyright legend"
 
 Default to: © `<current-year>`. All rights reserved `<author>`.
 
-## Author banner
+### canonical
 
-A banner at the end of each post appears along with social media icons appears. At least *author and the author description are required* in params section. Those parameters can also be set inside each post, to override the site's values. 
+Canonical url used to populate tag
 
 ```bash
-[params]
-  author = "Your author name here"
-  authorDescription = "Your description here"
-  authorImg = "Profile image url"
+canonical = "https://some-url.com/post/my-post/"
 ```
 
-Currently the site's social media icons will show in this banner. I have plans to customize this some time in the future.
+If left empty it will point default to that post's absolute url.
+
+## Add an author page
+
+To add an author page create an *authors* directory inside the folder content.
+
+Then inside that directory, procede to create a folder with the author's name containing a file called *_index.md*
+
+And then inside you can create a normal markdown file:
+
+```bash
+---
+title: "Name"
+name: "Name"
+photo: 'https://some-url.com/user/profile.jpg'
+summary: 'Summary'
+twitter: "@x"
+codewars: "Username"
+instagram: "usarname"
+linkedin: "username"
+website: "https://my-site.me"
+---
+
+## Title...
+```
+
+The theme will add the summary, profile picture and a read more button at the end of every post written by that author.
 
 ## hugo-theme-latte configuration
 
