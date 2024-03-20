@@ -71,15 +71,11 @@ a.markdown-link:hover {
     flex-direction: column;
     width: 100%;
     border-radius: 40px;
-    box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -5px 4px 21px -7px rgba(0, 0, 0, 0.75);
 }
 
 .post-metadata-container {
     background-color: var(--white);
     padding: var(--padding-2x);
-    border-radius: 0 0 40px 40px;
 }
 
 .flexible {
@@ -90,18 +86,23 @@ a.markdown-link:hover {
 .post-info {
     display: flex;
     flex-direction: column;
-    background-color: var(--white);
-    color: var(--dark);
-    padding: var(--padding-2x);
-    padding-bottom: 0;
+    background-color: var(--background);
+    color: var(--main-text);
+    padding: 0 var(--padding-1x);
 }
 
 .post-card-metadata {
     font-size: 0.95rem;
-    padding: var(--padding-2x);
-    background-color: var(--white);
-    color: var(--dark);
-    border-radius: 0 0 40px 40px;
+    padding: var(--padding-1x);
+    background-color: var(--background);
+    color: var(--secondary-text);
+}
+
+.post-card-summary{
+    font-size: 0.95rem;
+    padding: var(--padding-1x);
+    color: var(--secondary-text);
+    background-color: var(--background);
 }
 
 .post-info h2 {
@@ -139,7 +140,7 @@ a.post-category {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 40px 40px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .cover-image-container {
