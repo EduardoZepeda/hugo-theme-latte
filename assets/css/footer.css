@@ -5,7 +5,7 @@
     justify-content: space-around;
     gap: 2rem;
     padding: var(--padding-2x);
-    color: var(--white);
+    color: var(--main-text);
     background-color: var(--footer);
     padding: 4rem 0;
 }
@@ -18,18 +18,18 @@
 }
 
 a.footer-link {
-    color: var(--white);
+    color: var(--main-text);
 }
 
 .credits {
     text-align: center;
     font-size: 0.9rem;
-    color: var(--credits);
+    color: var(--main-text);
 }
 
 a.credits-link,
 a.credits-link:visited {
-    color: var(--white);
+    color: var(--secondary-text);
 }
 
 .display-none {

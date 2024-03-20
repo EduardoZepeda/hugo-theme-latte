@@ -10,7 +10,7 @@
 
 .toggle-theme-icon {
     width: 1rem;
-    fill: var(--footer);
+    fill: var(--dark);
 }
 
 #toggle-switch:checked+label {
@@ -56,7 +56,7 @@
     position: absolute;
     width: 1.2rem;
     height: 1.2rem;
-    background-color: var(--footer);
+    background-color: var(--dark);
     border-radius: 50%;
     top: 3px;
     left: 3px;

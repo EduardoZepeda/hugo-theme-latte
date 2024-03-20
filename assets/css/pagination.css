@@ -11,9 +11,7 @@
 .page-item {
     background-color: transparent;
     color: var(--button);
-    border: 1px solid var(--button);
     margin: 8px;
-    border-radius: var(--border-radius);
     width: 60px;
     height: 60px;
 }
@@ -28,14 +26,14 @@ a.page-link {
 }
 
 .page-item:hover {
-    color: var(--white);
-    background-color: var(--button);
+    color: var(--blue);
+    border-bottom: 1px solid var(--button);
     opacity: 0.8;
 }
 
 .page-item.active {
-    color: var(--background);
-    background-color: var(--button);
+    color: var(--blue);
+    border-bottom: 1px solid var(--button);
 }
 
 .page-item.disabled {

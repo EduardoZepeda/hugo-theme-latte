@@ -3,7 +3,7 @@
   <article>
     <div class="author-intro">
       <h1>{{ .Params.name }}</h1>
-      <img class="author-picture" src="{{ .Params.photo }}" alt=""/>
+      <img class="author-picture" src="{{ .Params.photo }}" alt="" />
     </div>
     <div class="author-summary">
       <div>
@@ -12,42 +12,30 @@
     </div>
     <div class="author-social">
 
-    {{ with .Params.twitter }}
-      <a href="{{ printf "https://twitter.com/%s" . }}">{{ partial "icon.html" "twitter" }}</a>
-    {{ end }}
+      {{ with .Params.twitter }}
+      <a href="{{ printf " https://twitter.com/%s" . }}">{{ partial "icon.html" "twitter" }}</a>
+      {{ end }}
 
-    {{ with .Params.codewars }}
-      <a href="{{ printf "https://codewars.com/users/%s" . }}">{{ partial "icon.html" "codewars" }}</a>
-    {{ end }}
+      {{ with .Params.codewars }}
+      <a href="{{ printf " https://codewars.com/users/%s" . }}">{{ partial "icon.html" "codewars" }}</a>
+      {{ end }}
 
-    {{ with .Params.instagram }}
-      <a href="{{ printf "https://instagram.com/%s" . }}">{{ partial "icon.html" "instagram" }}</a>
-    {{ end }}
+      {{ with .Params.instagram }}
+      <a href="{{ printf " https://instagram.com/%s" . }}">{{ partial "icon.html" "instagram" }}</a>
+      {{ end }}
 
-    {{ with .Params.linkedin }}
-      <a href="{{ printf "https://linkedin.com/in/%s" . }}">{{ partial "icon.html" "linkedin-in" }}</a>
-    {{ end }}
+      {{ with .Params.linkedin }}
+      <a href="{{ printf " https://linkedin.com/in/%s" . }}">{{ partial "icon.html" "linkedin-in" }}</a>
+      {{ end }}
 
-    {{ with .Params.website }}
+      {{ with .Params.website }}
       <a href="{{.}}">{{ partial "icon.html" "message" }}</a>
-    {{ end }}
+      {{ end }}
 
     </div>
 
     {{ .Content }}
 
-    <h2>{{ i18n "articles" }}</h2>
-    <ul>
-    {{ range .Data.Pages }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
-    </ul>
   </article>
 </div>
 {{ end }}
-
-
-
-
-
-

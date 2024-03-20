@@ -13,7 +13,7 @@
     --main-text: #3F424A;
     --secondary-text: #6a6a6a;
     --credits: #adadad;
-    --footer: var(--dark);
+    --footer: var(--background);
     --post-category: var(--blue);
     --button: var(--blue);
     --button-text: var(--background);
@@ -48,7 +48,7 @@
     --main-text: var(--white);
     --secondary-text: #959595;
     --credits: #adadad;
-    --footer: var(--dark);
+    --footer: var(--background);
     --post-category: var(--blue);
     --button: #2bcecf;
     --button-text: var(--background);
