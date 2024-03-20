@@ -3,7 +3,7 @@
     {{ range . }}
     {{ $href := print (absURL "categories/") (urlize .) }}
     <!-- replace removes the hyphens from the slugified text -->
-    <a class="post-category" aria-label={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}}
+    <a class="post-category" title={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}}
         href="{{ $href }}">{{replace
         . "-" " " | title}}</a>
     {{ end }}

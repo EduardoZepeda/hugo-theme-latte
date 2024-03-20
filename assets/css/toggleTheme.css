@@ -3,7 +3,7 @@
 }
 
 .toggle-theme-icon.arrow-up-icon {
-    fill: #FFF;
+    fill: var(--blue);
     display: block;
     margin: auto;
 }

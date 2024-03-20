@@ -2,7 +2,6 @@
     position: fixed;
     bottom: 32px;
     right: 32px;
-    background-color: var(--button);
     color: var(--button-text);
     border-radius: var(--border-radius);
     padding: var(--padding-1x);

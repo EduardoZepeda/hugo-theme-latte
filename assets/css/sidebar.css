@@ -16,6 +16,7 @@
     box-shadow: -5px 0px 21px -4px rgba(0, 0, 0, 0.76);
     -webkit-box-shadow: -5px 0px 21px -4px rgba(0, 0, 0, 0.76);
     -moz-box-shadow: -5px 0px 21px -4px rgba(0, 0, 0, 0.76);
+    backdrop-filter: blur(10px);
 }
 
 

@@ -8,7 +8,7 @@
     --author-info: #f3f7ff;
     --yellow: #fac700;
     --background: var(--white);
-    --transparent-sidebar: #FFFFFF;
+    --transparent-sidebar: rgba(255,255,255,0.8);
     --post-preview-background: #FFFFFFbb;
     --main-text: #3F424A;
     --secondary-text: #6a6a6a;
@@ -43,7 +43,7 @@
     --yellow: #fac700;
     --title: var(--white);
     --background: #07263b;
-    --transparent-sidebar: #151515;
+    --transparent-sidebar: rgba(0,0,0,0.8);
     --post-preview-background: #181818bb;
     --main-text: var(--white);
     --secondary-text: #c0c0c0;
