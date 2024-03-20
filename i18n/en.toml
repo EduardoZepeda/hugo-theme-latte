@@ -73,3 +73,6 @@ other = "Close"
 
 [affiliateLinks]
 other = "Affiliate links"
+
+[categoryAriaLabel]
+other = "Category link to posts about: "

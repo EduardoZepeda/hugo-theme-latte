@@ -1,9 +1,11 @@
 {{ with .Params.categories }}
-    <div class="post-categories">
-        {{ range . }}
-        {{ $href := print (absURL "categories/") (urlize .) }}
-        <!-- replace removes the hyphens from the slugified text -->
-        <a class="post-category" href="{{ $href }}">{{replace . "-" " " | title}}</a>
-        {{ end }}
-    </div>
+<div class="post-categories">
+    {{ range . }}
+    {{ $href := print (absURL "categories/") (urlize .) }}
+    <!-- replace removes the hyphens from the slugified text -->
+    <a class="post-category" aria-label={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}}
+        href="{{ $href }}">{{replace
+        . "-" " " | title}}</a>
+    {{ end }}
+</div>
 {{ end }}

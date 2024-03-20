@@ -73,3 +73,6 @@ other = "Cerrar"
 
 [affiliateLinks]
 other = "Enlaces de afiliados"
+
+[categoryAriaLabel]
+other = "Enlace hacia la categoria: "
