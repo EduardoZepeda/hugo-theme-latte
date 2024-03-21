@@ -8,7 +8,9 @@
     transform: translateY(0);
     transition: var(--transition);
     z-index: 3;
+    cursor: pointer;
 }
+
 
 .scroll-up.hidden {
     visibility: hidden;

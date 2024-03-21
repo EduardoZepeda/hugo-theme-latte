@@ -9,6 +9,10 @@
     margin-bottom: var(--margin-3x);
 }
 
+.site-info-container{
+    max-width: 64ch;
+}
+
 a.markdown-link,
 a.markdown-link:visited {
     transition: var(--transition);

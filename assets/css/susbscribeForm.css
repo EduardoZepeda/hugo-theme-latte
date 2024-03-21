@@ -27,6 +27,11 @@
 .subscribe-btn.send {
     background-color: var(--yellow);
     color: var(--dark);
+    cursor: pointer;
+}
+
+.subscribe-btn:hover {
+    transform: translateY(-3px);
 }
 
 
@@ -49,9 +54,10 @@
     font-size: var(--small-text);
     position: sticky;
     bottom: 0;
-    background: linear-gradient(to top left, magenta, rgba(255, 153, 150, 0), rgb(86, 192, 0)), linear-gradient(to top right, rgb(0, 142, 207), rgba(255, 153, 150, 0), red) rgba(255, 153, 150, 1);
+    background: rgba(0,0,0,0.5);
     z-index: 9;
     color: var(--white);
+    backdrop-filter: blur(10px);
 }
 
 .subscribe-input-group {
