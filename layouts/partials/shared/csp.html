@@ -1,5 +1,5 @@
 <!-- Create a CSP using the [param.scp] from the config.toml file -->
 {{ with .Site.Params.csp }}
-<meta http-equiv="Content-Security-Policy" content="{{ range $key, $value := . }}{{ printf " %s" $key }}{{range $val
-    :=$value }}{{ printf " %s " $val }}{{ end }}{{ printf " ;" }}{{ end }}">
+<meta http-equiv="Content-Security-Policy" content="{{ range $key, $value := . }}{{ printf " %s " $key }}{{ delimit
+    $value " " }}{{ printf ";" }}{{ end }}">
 {{ end }}
