@@ -8,9 +8,9 @@
         <li class="related-content-item">
             <a class="related-content-link" href="{{ .RelPermalink }}">
                 {{ if .Params.coverImage }}
-                    <!-- GetMatch allows us to get a resource inside a post folder -->
-                    {{ $image := .Resources.GetMatch .Params.coverImage }}
-                    {{ partial "responsiveImage.html" $image }}
+                <!-- GetMatch allows us to get a resource inside a post folder -->
+                {{ $image := .Resources.GetMatch .Params.coverImage }}
+                {{ partial "responsiveImage.html" $image }}
                 {{ end }}
                 {{ .Title }}
             </a>

@@ -4,17 +4,18 @@
     <nav id="nav" role="navigation" aria-label="Main menu">
         {{ partial "burgerIcon.html" }}
         {{ partial "navMenu.html" . }}
-        {{ if not .Site.Params.latte.disablesearch  }}
-            <div>
-                <a href="/search/" aria-label="search">{{ partial "icon.html" "search"}}</a>
-            </div>
+        {{ if not .Site.Params.latte.disablesearch }}
+        <div>
+            <a href="{{ relLangURL "search"}}" aria-label="search">{{ partial "icon.html" "search"}}</a>
+        </div>
         {{ end }}
         <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
         </div>
     </nav>
     <div id="site-info">
         <section aria-label="Site's info" class="site-info-container">
-            <p class="site-name"><a href="/" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title }}</a></p>
+            <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
+                    }}</a></p>
             <h2 class="site-description">{{ $.Site.Params.description }}</h2>
             {{ partial "socialIcons.html" . }}
         </section>

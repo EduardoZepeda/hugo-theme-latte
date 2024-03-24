@@ -1,6 +1,7 @@
 <section aria-label="footer links" class="footer-links">
+    {{- $currentPage := . -}}
     {{ range .Site.Menus.footer }}
-    <a class="footer-link" href="{{ .URL }}">
+    <a class="footer-link {{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}">
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>

@@ -76,3 +76,9 @@ other = "Affiliate links"
 
 [categoryAriaLabel]
 other = "Category link to posts about: "
+
+[languageDropdown]
+other = "Languages"
+
+[i18nTranslations]
+other = "Translations"

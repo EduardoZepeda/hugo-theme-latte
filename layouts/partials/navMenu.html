@@ -1,6 +1,16 @@
 <section class="nav-menu" aria-label="navbar">
+<div class="dropdown nav-link">
+  <button class="dropbtn">{{ i18n "languageDropdown" }}</button>
+  <div class="dropdown-content">
+        {{ range $.Site.Home.AllTranslations }}
+            <a class="dropdown-menu-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+  </div>
+  </div>
+    {{- $currentPage := . -}}
     {{ range .Site.Menus.main }}
-    <a class="nav-link" href="{{ .URL }}" aria-label="{{ .Name }} menu">
+    <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }} nav-link" href="{{ .URL | absLangURL }}"
+        aria-label="{{ .Name }} menu">
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>

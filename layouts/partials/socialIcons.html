@@ -1,6 +1,8 @@
 <section aria-label="social media links" class="social-links">
+    {{- $currentPage := . -}}
     {{ range .Site.Menus.social }}
-    <a class="social-link" href="{{ .URL }}" aria-label="Social {{ .Name }}">
+    <a class="social-link {{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
+        aria-label="Social {{ .Name }}">
         {{ if .Pre }}
         {{ partial "icon.html" .Pre }}
         {{ end }}

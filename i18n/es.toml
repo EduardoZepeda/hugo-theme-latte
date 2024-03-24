@@ -76,3 +76,9 @@ other = "Enlaces de afiliados"
 
 [categoryAriaLabel]
 other = "Enlace hacia la categoria: "
+
+[languageDropdown]
+other = "Idiomas"
+
+[i18nTranslations]
+other = "Traducciones"

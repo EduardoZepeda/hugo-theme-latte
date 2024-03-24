@@ -1,7 +1,7 @@
 <div class="post-card">
     {{ if .Params.coverImage }}
     {{ $path := .Params.coverImage }}
-    {{ $image := .Resources.GetMatch $path }}
+    {{ $image := .Resources.Get $path }}
     <div class="cover-image-container">
         <a class="featured-img-link" aria-label="{{.Params.title}}" href="{{.RelPermalink }}">
             <!-- Create a responsive image based on srcset and picture tag -->
