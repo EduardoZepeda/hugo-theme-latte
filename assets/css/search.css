@@ -1,7 +1,7 @@
 #search-input {
     padding: 0.8rem;
     border-radius: var(--border-radius);
-    border: 1px solid var(--footer);
+    border: 1px solid var(--secondary-text);
     margin: var(--margin-2x) 0;
 }
 

@@ -8,8 +8,21 @@ function initializeLunrSearch(event) {
 		return;
 	}
 
+	function getLanguageFromURI() {
+		// Get the current URI
+		const uri = window.location.pathname;
+
+		// Split the URI by '/'
+		const parts = uri.split("/");
+
+		// Assuming the language code is the first part of the URI
+		const language = parts[1]; // Adjust index if needed
+
+		return language;
+	}
+
 	// request previously generated index
-	fetch("/posts/index.json", {
+	fetch(`/${getLanguageFromURI()}/posts/index.json`, {
 		method: "get",
 	})
 		.then((res) => res.json())
@@ -69,10 +82,11 @@ function initializeLunrSearch(event) {
 	}
 
 	function renderSearchResults(results) {
+		let firstTenResults;
 		if (results.length > 0) {
 			// Limit results to 10
 			if (results.length > 9) {
-				const firstTenResults = results.slice(0, 10);
+				firstTenResults = results.slice(0, 10);
 			}
 
 			// empty search Results
