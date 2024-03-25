@@ -9,15 +9,9 @@ function initializeLunrSearch(event) {
 	}
 
 	function getLanguageFromURI() {
-		// Get the current URI
 		const uri = window.location.pathname;
-
-		// Split the URI by '/'
 		const parts = uri.split("/");
-
-		// Assuming the language code is the first part of the URI
 		const language = parts[1]; // Adjust index if needed
-
 		return language;
 	}
 
@@ -83,12 +77,9 @@ function initializeLunrSearch(event) {
 
 	function renderSearchResults(results) {
 		let firstTenResults;
-		if (results.length > 0) {
+		if (results && results.length > 0) {
 			// Limit results to 10
-			if (results.length > 9) {
-				firstTenResults = results.slice(0, 10);
-			}
-
+			firstTenResults = results.slice(0, 15);
 			// empty search Results
 			removeAllChildren(searchResults);
 
