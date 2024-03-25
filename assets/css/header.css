@@ -24,6 +24,11 @@
     visibility: hidden;
 }
 
+div.nav-link {
+    padding: var(--padding-1x);
+    font-size: 1.1rem;
+}
+
 a.nav-link {
     padding: var(--padding-1x);
 }

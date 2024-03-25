@@ -1,4 +1,12 @@
 <div class="nav-menu-sidebar">
+    <div class="dropdown nav-link">
+        <button class="dropbtn">{{ i18n "languageDropdown" }}</button>
+        <div class="dropdown-content">
+            {{ range $.Site.Home.AllTranslations }}
+            <a class="dropdown-menu-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ end }}
+        </div>
+    </div>
     {{ range .Site.Menus.main }}
     <a class="nav-link" href="{{ .URL }}">
         {{ $text := print .Name | safeHTML }}
