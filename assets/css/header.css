@@ -18,6 +18,8 @@
 .nav-menu-sidebar {
     display: flex;
     flex-direction: column;
+    list-style: none;
+    gap: var(--margin-2x);
 }
 
 .nav-burger {
@@ -61,5 +63,7 @@ a.nav-link {
 }
 
 .social-links {
-    margin: var(--margin-1x) 0;
+    margin: var(--margin-2x) 0;
+    display: flex;
+    gap: var(--margin-1x);
 }

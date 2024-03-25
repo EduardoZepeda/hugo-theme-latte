@@ -1,18 +1,23 @@
-<div class="nav-menu-sidebar">
-    <div class="dropdown nav-link">
-        <button class="dropbtn">{{ i18n "languageDropdown" }}</button>
+<ul class="nav-menu-sidebar">
+    <li class="dropdown nav-link">
+        <button class="dropbtn">{{ partial "icon.html" "language-solid" }}{{ i18n "languageDropdown" }}</button>
         <div class="dropdown-content">
             {{ range $.Site.Home.AllTranslations }}
-            <a class="dropdown-menu-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            <a class="dropdown-menu-item" aria-label="Language: {{ .Language.LanguageName }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
             {{ end }}
         </div>
-    </div>
+    </li>
     {{- $currentPage := . -}}
     {{ range .Site.Menus.main }}
-    <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }} nav-link" href="{{ .URL | absLangURL }}"
+    <li class="nav-link">
+    <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
         aria-label="{{ .Name }} menu">
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>
+    </li>
     {{ end }}
-</div>
+    {{ if not .Site.Params.latte.disablesearch }}
+    <li class="nav-link"><a href="{{ relLangURL "search" }}" aria-label="search">{{ partial "icon.html" "search"}}</a></li>
+    {{ end }}
+</ul>

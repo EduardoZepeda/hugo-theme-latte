@@ -4,11 +4,6 @@
     <nav id="nav" role="navigation" aria-label="Main menu">
         {{ partial "burgerIcon.html" }}
         {{ partial "navMenu.html" . }}
-        {{ if not .Site.Params.latte.disablesearch }}
-        <div>
-            <a href="{{ relLangURL "search"}}" aria-label="search">{{ partial "icon.html" "search"}}</a>
-        </div>
-        {{ end }}
         <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
         </div>
     </nav>

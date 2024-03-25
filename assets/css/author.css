@@ -34,6 +34,7 @@
     flex-direction: row;
     justify-content: flex-end;
     margin-bottom: var(--margin-2x);
+    gap: var(--margin-1x);
 }
 
 .author-read-more {

@@ -1,18 +1,27 @@
 <section class="nav-menu" aria-label="navbar">
-    <div class="dropdown nav-link">
-        <button class="dropbtn">{{ i18n "languageDropdown" }}</button>
-        <div class="dropdown-content">
-            {{ range $.Site.Home.AllTranslations }}
-            <a class="dropdown-menu-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
-            {{ end }}
-        </div>
-    </div>
-    {{- $currentPage := . -}}
-    {{ range .Site.Menus.main }}
-    <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }} nav-link" href="{{ .URL | absLangURL }}"
-        aria-label="{{ .Name }} menu">
-        {{ $text := print .Name | safeHTML }}
-        {{ $text }}
-    </a>
-    {{ end }}
+    <ul class="nav-menu-ul">
+        <li class="dropdown nav-link">
+            <div class="dropbtn">{{ partial "icon.html" "language-solid" }}{{ i18n "languageDropdown" }}</div>
+            <div class="dropdown-content">
+                {{ range $.Site.Home.AllTranslations }}
+                <a class="dropdown-menu-item" aria-label="Language: {{ .Language.LanguageName }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                {{ end }}
+            </div>
+        </li>
+        {{- $currentPage := . -}}
+        {{ range .Site.Menus.main }}
+        <li>
+            <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
+                aria-label="{{ .Name }} menu">
+                {{ $text := print .Name | safeHTML }}
+                {{ $text }}
+            </a>
+        </li>
+        {{ end }}
+        {{ if not .Site.Params.latte.disablesearch }}
+        <li>
+            <a href="{{ relLangURL "search"}}" aria-label="search">{{ partial "icon.html" "search"}}</a>
+        </li>
+        {{ end }}
+    </ul>
 </section>

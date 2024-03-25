@@ -167,3 +167,9 @@ a.post-category {
     color: var(--dark);
     background: var(--yellow);
 }
+
+.nav-menu-ul {
+    display:flex;
+    gap: 1rem;
+    list-style: none;
+}

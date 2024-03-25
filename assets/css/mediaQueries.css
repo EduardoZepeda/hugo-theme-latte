@@ -14,7 +14,7 @@
     }
 
     .nav-menu {
-        visibility: hidden;
+        display: none;
     }
 
     .nav-burger {

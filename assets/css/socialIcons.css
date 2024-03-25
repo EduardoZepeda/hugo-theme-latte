@@ -1,7 +1,5 @@
 .social-icon {
     width: var(--icon-size);
-    padding-right: var(--padding-1x);
-    padding-top: var(--padding-1x);
 }
 
 .twitter-icon {
