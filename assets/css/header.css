@@ -59,3 +59,7 @@ a.nav-link {
     padding: var(--padding-1x);
     margin-bottom: var(--margin-3x);
 }
+
+.social-links {
+    margin: var(--margin-1x) 0;
+}
