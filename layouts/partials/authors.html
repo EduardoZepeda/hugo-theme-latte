@@ -6,7 +6,7 @@
             <img class="author-miniature" src="{{ .Params.photo }}" alt="" />
         </div>
         <div class="author-link">
-            <a rel="author" title="{{.Params.name}}" href="{{ .Permalink }}">{{ .Params.name }}</a>
+            <a rel="author" title="{{.Params.name}}" href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>
         </div>
     </div>
     {{ end }}
