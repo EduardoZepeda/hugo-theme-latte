@@ -9,6 +9,7 @@
     --yellow: #fac700;
     --background: var(--white);
     --transparent-sidebar: rgba(255,255,255,0.8);
+    --i18n-button: var(--white);
     --post-preview-background: #FFFFFFbb;
     --main-text: #3F424A;
     --secondary-text: #6a6a6a;
@@ -44,6 +45,7 @@
     --title: var(--white);
     --background: #07263b;
     --transparent-sidebar: rgba(0,0,0,0.8);
+    --i18n-button: var(--sidebar-transparent);
     --post-preview-background: #181818bb;
     --main-text: var(--white);
     --secondary-text: #c0c0c0;

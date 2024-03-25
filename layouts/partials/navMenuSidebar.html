@@ -7,8 +7,10 @@
             {{ end }}
         </div>
     </div>
+    {{- $currentPage := . -}}
     {{ range .Site.Menus.main }}
-    <a class="nav-link" href="{{ .URL }}">
+    <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }} nav-link" href="{{ .URL | absLangURL }}"
+        aria-label="{{ .Name }} menu">
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>

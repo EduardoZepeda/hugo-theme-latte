@@ -137,12 +137,21 @@ function sendEventToGA(event) {
 	}
 }
 
+function updateLangTag(event) {
+	// by default turbolinks doesn't change the html lang attribute
+	// so it must be done manually
+	const meta = document.querySelector("meta[name=language]");
+	const language = meta.getAttribute("content");
+	document.documentElement.setAttribute("lang", language);
+}
+
 function loadAllListeners(event) {
 	sendEventToGA(event);
 	addSwitchThemeListener(event);
 	addSideBarClickListener(event);
 	addScrolltoTopListener(event);
 	addSubscribeFormListener(event);
+	updateLangTag(event);
 	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
 		setSubscribeFormTimeout(event);
 	}

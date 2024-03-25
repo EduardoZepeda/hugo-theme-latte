@@ -12,8 +12,8 @@
 {{ $author := .Params.author | default $.Site.Params.author }}
 {{ $canonical := .Params.canonical | default (.RelPermalink | absURL) }}
 
-<meta name="title" content="{{ .Title }}"/>
-<meta name="description" content="{{ $description }}"/>
+<meta name="title" content="{{ .Title }}" />
+<meta name="description" content="{{ $description }}" />
 <meta name="author" content="{{ $author }}" />
 
 <!-- Open Graph / Facebook -->
@@ -27,26 +27,29 @@
 {{ $ogType = "website" }}
 {{ end }}
 
-<meta property="og:type" content="{{ $ogType }}"/>
+<meta property="og:type" content="{{ $ogType }}" />
 {{ if eq $ogType "article" }}
 <meta property="article:author" content="{{ $author }}">
 <meta property="article:published_time" content="{{ $dateTime }}">
 <meta property="article:modified_time" content="{{ $lastMod }}">
 {{ end }}
 
+<meta http-equiv="content-language" name="language" content="{{ .Site.Language.Lang }}">
 <meta property="og:locale" content="{{ .Site.Language.Lang }}">
-<meta property="og:url" content="{{ .RelPermalink | absURL }}"/>
-<meta property="og:title" content="{{ .Title }}"/>
-<meta property="og:description" content="{{ $description}}"/>
+<meta property="og:url" content="{{ .RelPermalink | absURL }}" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ $description}}" />
 <!-- if a coverImage doesn't exist, don't render meta image tag -->
-{{ with .Params.coverImage }}<meta property="og:image" content="{{ $imageUrl }}"/>{{ end }}
+{{ with .Params.coverImage }}
+<meta property="og:image" content="{{ $imageUrl }}" />{{ end }}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:url" content="{{ .RelPermalink | absURL }}"/>
-<meta property="twitter:title" content="{{ .Title }}"/>
-<meta property="twitter:description" content="{{ $description }}"/>
-{{ with .Params.coverImage }}<meta property="twitter:image" content="{{ $imageUrl }}"/>{{ end }}
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="{{ .RelPermalink | absURL }}" />
+<meta property="twitter:title" content="{{ .Title }}" />
+<meta property="twitter:description" content="{{ $description }}" />
+{{ with .Params.coverImage }}
+<meta property="twitter:image" content="{{ $imageUrl }}" />{{ end }}
 
 <!-- Canonic url -->
-<link rel="canonical" href="{{ $canonical }}"/>
+<link rel="canonical" href="{{ $canonical }}" />
