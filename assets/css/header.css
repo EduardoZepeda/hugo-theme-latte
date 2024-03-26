@@ -5,7 +5,7 @@
 
 #nav {
     display: flex;
-    margin: var(--margin-2x) var(--150rem);
+    margin: var(--margin-2x) var(--padding-1-5rem);
     justify-content: space-between;
     align-items: center;
     height: 50px;
@@ -58,7 +58,7 @@ a.nav-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 var(--150rem);
+    margin: 0 var(--padding-1-5rem);
     margin-bottom: var(--margin-3x);
 }
 

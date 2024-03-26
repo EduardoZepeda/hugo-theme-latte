@@ -5,14 +5,6 @@
         font-size: 1rem;
     }
 
-    .content-container {
-        margin: var(--150rem);
-        grid-template-areas:
-            "post-container post-container post-container";
-        grid-gap: var(--padding-1x);
-        padding: var(--padding-1x) 0;
-    }
-
     .nav-menu {
         display: none;
     }
@@ -22,7 +14,7 @@
     }
 
     .author-container {
-        padding: 4rem var(--150rem);
+        padding: 4rem var(--padding-1-5rem);
     }
 
 }

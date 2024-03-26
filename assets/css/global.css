@@ -18,7 +18,7 @@
     --post-category: var(--blue);
     --button: var(--blue);
     --button-text: var(--background);
-    --150rem: 1.5rem;
+    --padding-1-5rem: 1.5rem;
     --padding-3x: 3rem;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
@@ -55,7 +55,7 @@
     --post-category: var(--blue);
     --button: #2bcecf;
     --button-text: var(--background);
-    --150rem: 1.5rem;
+    --padding-1-5rem: 1.5rem;
     --padding-2x: 2rem;
     --padding-1x: 1rem;
     --padding-xs: 0.5rem;
@@ -88,7 +88,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Nunito", "Arimo", sans;
-    line-height: 2rem;
+    line-height: 2.0;
     font-size: 1.1rem;
     text-rendering: optimizeLegibility;
 }

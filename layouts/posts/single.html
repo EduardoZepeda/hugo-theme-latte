@@ -1,6 +1,5 @@
 {{ define "main" }}
-<div class="content-container">
-    <div class="left-panel"></div>
+<div class="page-content-container">
     <div class="post-container">
         <section aria-label="table-of-contents" class="post-toc">
             {{ partial "toc.html" . }}
@@ -15,8 +14,6 @@
             {{ partial "relatedContent.html" . }}
         </div>
     </div>
-    <aside class="right-panel">
-    </aside>
 </div>
 {{ partial "authorInfo.html" . }}
 {{ end }}

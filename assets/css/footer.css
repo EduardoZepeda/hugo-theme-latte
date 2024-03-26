@@ -7,7 +7,7 @@
     padding: var(--padding-2x);
     color: var(--main-text);
     background-color: var(--footer);
-    padding: 4rem var(--150rem);
+    padding: 4rem var(--padding-1-5rem);
 }
 
 .footer-links {

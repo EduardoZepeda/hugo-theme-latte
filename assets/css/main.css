@@ -30,18 +30,9 @@ a.markdown-link:hover {
     display: grid;
     place-content: center;
     max-width: var(--max-char-width);
-    margin: var(--margin-1x);
+    margin: var(--padding-1-5rem);
 }
 
-.content-container {
-    margin: var(--margin-1x)0;
-    display: grid;
-    width: 100%;
-    grid-template-areas:
-        "left-panel post-container right-panel";
-    grid-template-columns: 1fr minmax(0, var(--max-char-width)) 1fr;
-    grid-gap: 2rem;
-}
 
 .post-container {
     grid-area: post-container;
