@@ -6,11 +6,11 @@
     }
 
     .content-container {
-        margin: var(--padding-xs);
+        margin: var(--150rem);
         grid-template-areas:
             "post-container post-container post-container";
         grid-gap: var(--padding-1x);
-        padding: var(--padding-1x);
+        padding: var(--padding-1x) 0;
     }
 
     .nav-menu {
@@ -19,6 +19,10 @@
 
     .nav-burger {
         visibility: visible;
+    }
+
+    .author-container {
+        padding: 4rem var(--150rem);
     }
 
 }

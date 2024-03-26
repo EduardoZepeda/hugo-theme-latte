@@ -1,9 +1,9 @@
 {{ $author := .Params.author | default $.Site.Params.author }}
 <!-- default author is set in the config file, if the post has an author associated, it is used instead -->
 <section aria-label="Post metadata" class="post-metadata">
-    {{ partial "i18nList.html" . }}
-    {{ partial "publishedDate.html" . }}
     {{ partial "authors.html" . }}
+    {{ partial "publishedDate.html" . }}
+    {{ partial "i18nList.html" . }}
     {{ partial "readingTime.html" . }}
     {{ partial "categories.html" . }}
 </section>

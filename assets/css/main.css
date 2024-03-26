@@ -44,7 +44,6 @@ a.markdown-link:hover {
 }
 
 .post-container {
-    margin: var(--margin-1x);
     grid-area: post-container;
 }
 
@@ -66,7 +65,7 @@ a.markdown-link:hover {
 .post-preview {
     display: flex;
     flex-direction: row;
-    width: 450px;
+    max-width: 450px;
     margin: var(--margin-1x);
 }
 
@@ -143,7 +142,7 @@ a.post-category {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
 }
 
 .cover-image-container {
@@ -173,3 +172,4 @@ a.post-category {
     gap: 1rem;
     list-style: none;
 }
+

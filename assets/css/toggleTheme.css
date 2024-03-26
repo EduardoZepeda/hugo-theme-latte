@@ -19,7 +19,7 @@
 
 #toggle-switch:checked+label:before {
     box-sizing: border-box;
-    transform: translateX(1.5rem);
+    transform: translateX(var(--150rem));
     background-color: var(--background);
 }
 
@@ -30,7 +30,7 @@
 #toggle-label {
     display: flex;
     width: 3rem;
-    height: 1.5rem;
+    height: var(--150rem);
     border: 2px solid var(--title);
     border-radius: 99em;
     position: relative;

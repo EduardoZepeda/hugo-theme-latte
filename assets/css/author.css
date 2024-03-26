@@ -7,7 +7,7 @@
 
 .author-container {
     max-width: 64ch;
-    padding: 4rem;
+    padding: 4rem var(--padding-2x);
 }
 
 .author-picture {
