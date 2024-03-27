@@ -1,7 +1,7 @@
 User-agent: *
-Disallow: /tags/
-Disallow: /categories/
-Disallow: /pages/
-Disallow: /search/
+Disallow: /*/tags/
+Disallow: /*/categories/
+Disallow: /*/pages/
+Disallow: /*/search/
 
 Sitemap: {{print .Site.BaseURL "sitemap.xml"}}

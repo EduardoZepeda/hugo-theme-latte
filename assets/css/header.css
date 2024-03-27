@@ -46,12 +46,13 @@ a.nav-link {
 .site-name {
     font-size: var(--text-3x);
     margin-bottom: 25px;
-    line-height: 1em;
+    line-height: 1;
 }
 
 .site-description {
-    font-size: var(--text-2x);
+    font-size: 1.4rem;
     color: var(--secondary-text);
+    line-height: 1.5;
 }
 
 #site-info {
