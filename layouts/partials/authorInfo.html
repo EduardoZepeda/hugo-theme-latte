@@ -4,11 +4,13 @@
         {{- range . }}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
         <figure>
-            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }} picture"/>
+            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }} picture" />
             <figcaption>
             </figcaption>
         </figure>
-        <a rel="author" href="{{ .Permalink }}"><h3>{{ .Params.name }}</h3></a>
+        <a rel="author" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink }}">
+            <h3>{{ .Params.name }}</h3>
+        </a>
         <div class="author-summary">{{ .Params.summary }}</div>
         <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
         {{ end }}

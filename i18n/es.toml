@@ -82,3 +82,6 @@ other = "Idiomas"
 
 [i18nTranslations]
 other = "Traducciones"
+
+[ariaLabelAuthor]
+other = "página del autor"

@@ -8,11 +8,20 @@
         </div>
     </nav>
     <div id="site-info">
+        {{ if .IsHome }}
         <section aria-label="Site's info" class="site-info-container">
             <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
                     }}</a></p>
-            <h2 class="site-description">{{ $.Site.Params.description }}</h2>
+            <h1 class="site-description">{{ $.Site.Params.description }}</h1>
             {{ partial "socialIcons.html" . }}
         </section>
+        {{ else }}
+        <section aria-label="Site's info" class="site-info-container">
+            <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
+                    }}</a></p>
+            <p class="site-description">{{ $.Site.Params.description }}</p>
+            {{ partial "socialIcons.html" . }}
+        </section>
+        {{ end }}
     </div>
 </header>
