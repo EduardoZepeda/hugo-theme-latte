@@ -1,10 +1,11 @@
 <!-- This sizes are completely arbitrary -->
+{{ $image420 := .Resize "420x q90" }}
 {{ $image480 := .Resize "480x q90" }}
 {{ $image768 := .Resize "768x q90" }}
 {{ $image1200 := .Resize "1200x q90" }}
 <picture>
-    <source srcset="{{$image480.RelPermalink }}" media='(max-width: 480px)' />
-    <source srcset="{{$image480.RelPermalink }}" media='(max-width: 768px)' />
-    <source srcset="{{$image768.RelPermalink}}" media='(max-width: 1200px)' />
-    <img class="responsive-image" loading="lazy" src="{{ $image768.RelPermalink }}" alt="" />
+    <source srcset="{{$image420.RelPermalink }}" width={{$image420.Width}} height={{$image420.Height}} media='(max-width: 480px)' />
+    <source srcset="{{$image480.RelPermalink }}" width={{$image480.Width}} height={{$image480.Height}} media='(max-width: 768px)' />
+    <source srcset="{{$image768.RelPermalink}}" width={{$image768.Width}} height={{$image768.Height}} media='(max-width: 1200px)' />
+    <img class="responsive-image" loading="lazy" width={{$image1200.Width}} height={{$image1200.Height}} src="{{ $image768.RelPermalink }}" alt="" />
 </picture>
