@@ -85,3 +85,6 @@ other = "Translations"
 
 [ariaLabelAuthor]
 other = "author's page"
+
+[categoryList]
+other = "Category list"

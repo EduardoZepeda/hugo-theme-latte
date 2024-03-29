@@ -1,16 +1,22 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<section aria-label="category list" class="categoriesContainer">
-    {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
-    {{ range $paginator.Pages }}
-    {{ if eq .Type "posts" }}
-    {{ partial "post.html" . }}
-    {{ else }}
-    <div class="categoryContainer">
-        <a class="categoryItem" href="{{ .RelPermalink }}">{{ .Title }}</a>
+<div class="category-container"> 
+    <div>
+        <h1>{{ .Title }}</h1>
     </div>
-    {{ end }}
-    {{ end }}
-</section>
+    <section aria-label="{{ i18n "categoryList" }}">
+        <ul class="categoriesContainer">
+        {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
+        {{ range $paginator.Pages }}
+        {{ if eq .Type "posts" }}
+        {{ partial "post.html" . }}
+        {{ else }}
+        <li class="categoryContainer">
+            <a class="categoryItem" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+        </ul>
+    </section>
+</div>
 {{ template "_internal/pagination.html" . }}
 {{ end }}

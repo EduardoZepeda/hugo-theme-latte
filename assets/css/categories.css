@@ -3,18 +3,25 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--padding-2x);
-    padding: var(--padding-2x);
+    padding: 0;
     max-width: var(--max-char-width);
 }
 
 .categoryContainer {
     margin: var(--margin-1x);
+    list-style: none;
 }
 
 .categoryItem,
 .categoryItem:visited {
-    color: var(--main-text);
-    border: 1px solid var(--main-text);
-    padding: var(--padding-1x) var(--padding-1x);
-    border-radius: var(--border-radius);
+  color: var(--white);
+  padding: 1rem 3rem;
+  border-radius: 40px;
+  background-color: var(--blue);
+  letter-spacing: 1px;
+  text-wrap: nowrap;
+}
+
+.category-container {
+    margin: var(--margin-1x);
 }
