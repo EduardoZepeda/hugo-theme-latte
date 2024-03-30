@@ -68,3 +68,8 @@ a.nav-link {
     display: flex;
     gap: var(--margin-1x);
 }
+
+.search-icon {
+    /* This is just a temporary patch that aligns the search icon with the rest of icons */
+    transform: translateY(5px);
+}

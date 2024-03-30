@@ -4,7 +4,8 @@
             <div class="dropbtn">{{ partial "icon.html" "language-solid" }}{{ i18n "languageDropdown" }}</div>
             <div class="dropdown-content">
                 {{ range $.Site.Home.AllTranslations }}
-                <a class="dropdown-menu-item" aria-label="Language: {{ .Language.LanguageName }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                <a class="dropdown-menu-item" aria-label="Language: {{ .Language.LanguageName }}"
+                    href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
                 {{ end }}
             </div>
         </li>
@@ -20,7 +21,8 @@
         {{ end }}
         {{ if not .Site.Params.latte.disablesearch }}
         <li>
-            <a href="{{ relLangURL "search"}}" aria-label="search">{{ partial "icon.html" "search"}}</a>
+            <a href="{{ relLangURL "search"}}" class="search-icon" aria-label="search">{{ partial "icon.html"
+                "search"}}</a>
         </li>
         {{ end }}
     </ul>
