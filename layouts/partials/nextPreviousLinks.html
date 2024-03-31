@@ -1,5 +1,5 @@
 <section aria-label="Next and previous links" class="next-prev-links">
     <!-- we should check whether Next and Prev exist before hand, otherwise pagination could create an uncrawlable link -->
-    {{ if .NextInSection}}<a rel="next" href="{{with .NextInSection}}{{.Permalink}}{{end}}"><button class="next-prev">{{ i18n "next"}}</button></a>{{ end }}
-    {{ if .PrevInSection}}<a rel="prev" href="{{with .PrevInSection}}{{.Permalink}}{{end}}"><button class="next-prev">{{ i18n "previous"}}</button></a>{{ end }}
+    {{ if .NextInSection}}<a title="{{ i18n "nextEntry"}}" aria-label="{{ i18n "nextEntry"}}" class="next-prev" rel="next" href="{{with .NextInSection}}{{.Permalink}}{{end}}">{{ i18n "next"}}</a>{{ end }}
+    {{ if .PrevInSection}}<a title="{{ i18n "previousEntry"}}" aria-label="{{ i18n "nextEntry"}}" class="next-prev" rel="prev" href="{{with .PrevInSection}}{{.Permalink}}{{end}}">{{ i18n "previous"}}</a>{{ end }}
 </section>

@@ -4,7 +4,7 @@
     <ul class="i18n-posts">
         {{ range .Translations }}
         <li class="i18n-post">
-            <a href="{{ .RelPermalink }}">- {{ .Language.Lang }}: {{ .LinkTitle }}{{ if .IsPage }}{{ end }}</a>
+            <a title="{{.LinkTitle}}" aria-label="{{ i18n "translatedPost"}}{{.Language.LanguageName}}" href="{{ .RelPermalink }}">- {{ .Language.Lang }}: {{ .LinkTitle }}{{ if .IsPage }}{{ end }}</a>
         </li>
         {{ end }}
     </ul>

@@ -88,3 +88,12 @@ other = "página del autor"
 
 [categoryList]
 other = "Lista de categorias"
+
+[translatedPost]
+other = "Translated version: "
+
+[nextEntry]
+other = "Siguiente post"
+
+[previousEntry]
+other = "Post anterior"
