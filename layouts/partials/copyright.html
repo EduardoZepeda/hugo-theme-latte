@@ -1,7 +1,5 @@
-{{ if .Site.Copyright }}
-    <p><small>{{ .Site.Copyright }}</small></p>
+{{ if .Site.Params.copyright }}
+    <p><small>{{ .Site.Params.copyright }}</small></p>
 {{ else }}
-    {{ with $.Site.Params.author }}
-    <p><small>© {{ now.Format "2006"}}. All rights reserved. {{ $.Site.Params.author }}.</small></p>
-    {{ end }}
+    <p><small>© {{ now.Format "2006"}}. All rights reserved.</small></p>
 {{ end }}
