@@ -1,6 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{- partial "hreflang.html" . -}}
     {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
     <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
     <link href="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.GoogleTagManager}}" rel="preload"

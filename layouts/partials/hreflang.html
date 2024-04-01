@@ -1,0 +1,5 @@
+{{ if .IsTranslated }}
+    {{ range .Translations }}
+        <link rel=“alternate” href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" />
+    {{ end }}
+{{ end }}
