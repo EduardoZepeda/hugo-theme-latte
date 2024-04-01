@@ -8,13 +8,12 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02T15:04:05Z0700" }}
 {{ $lastMod := .Lastmod.Format "2006-01-02T15:04:05Z0700" }}
 
-
-{{ $author := .Params.author | default $.Site.Params.author }}
+{{ $authors := .Params.authors | default (slice $.Site.Params.author) }}
 {{ $canonical := .Params.canonical | default (.RelPermalink | absURL) }}
 
 <meta name="title" content="{{ .Title }}" />
 <meta name="description" content="{{ $description }}" />
-<meta name="author" content="{{ $author }}" />
+<meta name="author" content="{{ delimit $authors ", " }}" />
 
 <!-- Open Graph / Facebook -->
 
@@ -29,7 +28,7 @@
 
 <meta property="og:type" content="{{ $ogType }}" />
 {{ if eq $ogType "article" }}
-<meta property="article:author" content="{{ $author }}">
+<meta property="article:author" content="{{ delimit $authors ", " }}">
 <meta property="article:published_time" content="{{ $dateTime }}">
 <meta property="article:modified_time" content="{{ $lastMod }}">
 {{ end }}
