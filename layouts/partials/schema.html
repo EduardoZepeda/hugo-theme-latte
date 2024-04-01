@@ -1,11 +1,3 @@
-{{ $absImages := slice }}
-{{ with $images := .Resources.ByType "image" }}
-    {{ range $images }}
-        {{ $absURL := absURL . }}
-        {{ $absImages = $absImages | append $absURL }}
-    {{ end }}
-{{end}}
-
 {{ if .IsHome -}}
 <script type="application/ld+json">
 {
@@ -66,7 +58,17 @@
             "height":"32"
         }
     },
-    "image": {{ $absImages|jsonify }},
+    {{ with $images := .Resources.ByType "image" }}
+        {{ range $images }}
+            "image": {
+                "@type": "ImageObject",
+                "@id": "{{ .Permalink }}",
+                "url": "{{ .Permalink }}",
+                "height": "{{ .Height }}",
+                "width": "{{ .Width}}"
+                },
+        {{ end }}
+    {{end}}
     "url" : "{{ .Permalink }}",
     "wordCount" : "{{ .WordCount }}",
     "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}"{{ $categories }}" {{ end }}],
