@@ -6,9 +6,11 @@
             <img class="author-miniature" src="{{ .Params.photo }}" alt="" />
         </div>
         <div class="author-link">
-            <a rel="author" title="{{.Params.name}}" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>
+            <a rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" title="{{.Params.name}}" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink | absLangURL }}"><span itemprop="name">{{ .Params.name }}</span></a>
         </div>
     </div>
     {{ end }}
     {{ end }}
 </div>
+
+</cite>

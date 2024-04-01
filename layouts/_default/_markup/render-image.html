@@ -1,10 +1,10 @@
 <a href="{{ .Destination | safeURL }}" aria-label="{{ .Text }}">
 {{ if .Title }}
 <figure>
-    <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <img itemprop="image" loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
     <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
-<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+<img itemprop="image" loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
 {{ end }}
 </a>

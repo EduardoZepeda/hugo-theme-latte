@@ -1,5 +1,5 @@
 {{ if .Site.Params.copyright }}
-    <p><small>{{ .Site.Params.copyright }}</small></p>
+    <p itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><small>{{ .Site.Params.copyright }}</small></p>
 {{ else }}
-    <p><small>© {{ now.Format "2006"}}. All rights reserved.</small></p>
+    <p itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><small>© <span itemprop="copyrightYear">{{ now.Format "2006"}}</span>. All rights reserved.</small></p>
 {{ end }}
