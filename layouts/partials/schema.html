@@ -44,11 +44,11 @@
     "isFamilyFriendly": {{ or (.Params.isFamilyFriendly) ("true")}},
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{ .Permalink }}"
+        "@id": {{ .Permalink }}
     },
-    "author" : {{ $authors |jsonify }},
-    "creator" : {{ or (.Params.creator) ($authors |jsonify) }},
-    "accountablePerson" : {{ or (.Params.accountablePerson) ($authors |jsonify) }},
+    "author" : {{ $authors | jsonify | safeJS }},
+    "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},
+    "accountablePerson" : {{ or (.Params.accountablePerson) ($authors | jsonify | safeJS) }},
     "copyrightHolder" : "{{ $org_name }}",
     "copyrightYear" : "{{ .Date.Format "2006" }}",
     "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
@@ -57,16 +57,16 @@
     "publisher":{
         "@type":"Organization",
         "name": {{ $org_name }},
-        "url": {{ .Site.BaseURL }},
+        "url": {{ .Site.BaseURL| jsonify | safeJS }},
         "logo": {
             "@type": "ImageObject",
-            "url": "{{ .Site.Params.logo | absURL }}",
+            "url": {{ .Site.Params.logo | absURL | jsonify | safeJS }},
             "width":"32",
             "height":"32"
         }
     },
-    "image": {{ $images|jsonify }},
-    "url" : "{{ .Permalink }}",
+    "image": {{ $images | jsonify | safeJS }},
+    "url" : {{ .Permalink | jsonify | safeJS }},
     "wordCount" : "{{ .WordCount }}",
     "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}"{{ $categories }}" {{ end }}],
     "keywords" : [ {{ range $index, $keyword := .Params.keywords }}{{ if $index }}, {{ end }}"{{ $keyword }}" {{ end }}]
