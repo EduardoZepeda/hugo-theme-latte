@@ -3,6 +3,7 @@
 {{- partial "head.html" . -}}
 
 <body id="hamburger-grid">
+    {{ partial "schema.html" . }}
     {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
     {{- partial "googleTagManagerNoScript.html" . -}}
     {{ end }}
