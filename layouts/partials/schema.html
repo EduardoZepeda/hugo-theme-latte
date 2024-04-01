@@ -1,9 +1,19 @@
-{{ $absImages := slice }}
-{{ with $images := .Resources.ByType "image" }}
-    {{ range $images }}
+{{ $images := slice }}
+{{ with $postImages := .Resources.ByType "image" }}
+    {{ range $postImages }}
         {{ $absURL := absURL . }}
-        {{ $absImages = $absImages | append $absURL }}
+        {{ $images = $images | append $absURL }}
     {{ end }}
+{{end}}
+
+{{ $authors := slice }}
+{{- range .Params.authors }}
+        {{ $data := (dict "@type" "Person") }}
+        {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+        {{ $data = merge $data (dict "url" .Permalink) }}
+        {{end}}
+        {{ $data = merge $data (dict "name" .) }}
+        {{ $authors = $authors | append $data }}
 {{end}}
 
 {{ if .IsHome -}}
@@ -31,25 +41,14 @@
     "alternativeHeadline": "{{ .Params.lead }}",
     "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
     "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
-    "isFamilyFriendly": "true",
+    "isFamilyFriendly": {{ or (.Params.isFamilyFriendly) ("true")}},
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "{{ .Permalink }}"
     },
-    {{- range .Params.authors }}
-    "author" : {
-        "@type": "Person",
-        "name": "{{ . }}"
-    },
-    "creator" : {
-        "@type": "Person",
-        "name": "{{ . }}"
-    },
-    "accountablePerson" : {
-        "@type": "Person",
-        "name": "{{ . }}"
-    },
-    {{end}}
+    "author" : {{ $authors |jsonify }},
+    "creator" : {{ or (.Params.creator) ($authors |jsonify) }},
+    "accountablePerson" : {{ or (.Params.accountablePerson) ($authors |jsonify) }},
     "copyrightHolder" : "{{ $org_name }}",
     "copyrightYear" : "{{ .Date.Format "2006" }}",
     "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
@@ -66,7 +65,7 @@
             "height":"32"
         }
     },
-    "image": {{ $absImages|jsonify }},
+    "image": {{ $images|jsonify }},
     "url" : "{{ .Permalink }}",
     "wordCount" : "{{ .WordCount }}",
     "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}"{{ $categories }}" {{ end }}],
