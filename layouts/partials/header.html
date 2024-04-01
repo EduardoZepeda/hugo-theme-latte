@@ -1,4 +1,4 @@
-<header id="header" itemscope itemtype="http://schema.org/WPHeader">
+<header id="header">
     {{ partial "asideMenu.html" . }}
     {{ partial "scrollUpButton.html" . }}
     <nav id="nav" role="navigation" aria-label="Main menu">
@@ -10,16 +10,16 @@
     <div id="site-info">
         {{ if .IsHome }}
         <section aria-label="Site's info" class="site-info-container">
-            <p itemprop="name" class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
+            <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
                     }}</a></p>
             <h1 class="site-description">{{ $.Site.Params.description }}</h1>
             {{ partial "socialIcons.html" . }}
         </section>
         {{ else }}
         <section aria-label="Site's info" class="site-info-container">
-            <p itemprop="name" class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
+            <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
                     }}</a></p>
-            <p itemprop="description" class="site-description">{{ $.Site.Params.description }}</p>
+            <p class="site-description">{{ $.Site.Params.description }}</p>
             {{ partial "socialIcons.html" . }}
         </section>
         {{ end }}

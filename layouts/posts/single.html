@@ -4,11 +4,10 @@
         <section aria-label="table-of-contents" class="post-toc">
             {{ partial "toc.html" . }}
         </section>
-        <article role="article" itemid="{{ .Permalink }}" itemscope itemtype="http://schema.org/BlogPosting"
-            class="post">
-            <h1 itemprop="headline">{{ .Title }}</h1>
+        <article class="post">
+            <h1>{{ .Title }}</h1>
             {{ partial "metadata.html" . }}
-            <div itemprop="articleBody" class="content">{{ .Content }}</div>
+            <div class="content">{{ .Content }}</div>
         </article>
         <div class="next-previous-links">
             {{ partial "nextPreviousLinks.html" . }}

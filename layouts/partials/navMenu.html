@@ -1,27 +1,27 @@
 <section class="nav-menu" aria-label="navbar">
-    <ul role="navigation" itemscope itemtype="https://schema.org/ItemList" class="nav-menu-ul">
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/SiteNavigationElement" class="dropdown nav-link">
+    <ul class="nav-menu-ul">
+        <li class="dropdown nav-link">
             <div class="dropbtn">{{ partial "icon.html" "language-solid" }}{{ i18n "languageDropdown" }}</div>
             <div class="dropdown-content">
                 {{ range $.Site.Home.AllTranslations }}
                 <a class="dropdown-menu-item" aria-label="Language: {{ .Language.LanguageName }}"
-                    href="{{ .Permalink }}"><span itemprop="name">{{ .Language.LanguageName }}</span></a>
+                    href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
                 {{ end }}
             </div>
         </li>
         {{- $currentPage := . -}}
         {{ range .Site.Menus.main }}
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/SiteNavigationElement">
-            <a itemprop="url" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
+        <li>
+            <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
                 aria-label="{{ .Name }} menu">
                 {{ $text := print .Name | safeHTML }}
-                <span itemprop="name">{{ $text }}</span>
+                {{ $text }}
             </a>
         </li>
         {{ end }}
         {{ if not .Site.Params.latte.disablesearch }}
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/SiteNavigationElement">
-            <a itemprop="url" href="{{ relLangURL "search"}}" class="search-icon" aria-label="search">{{ partial "icon.html"
+        <li>
+            <a href="{{ relLangURL "search"}}" class="search-icon" aria-label="search">{{ partial "icon.html"
                 "search"}}</a>
         </li>
         {{ end }}
