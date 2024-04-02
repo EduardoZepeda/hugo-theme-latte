@@ -1,3 +1,5 @@
+{{/* Create a list of all images that use a post and retrieve its urls */}}
+
 {{ $images := slice }}
 {{ with $postImages := .Resources.ByType "image" }}
     {{ range $postImages }}
@@ -5,6 +7,8 @@
         {{ $images = $images | append $absURL }}
     {{ end }}
 {{end}}
+
+{{/* Iterate through all the authors in a page/post */}}
 
 {{ $authors := slice }}
 {{- range .Params.authors }}
@@ -22,9 +26,9 @@
     "@context": "http://schema.org",
     "@type": "WebSite",
     "name": "{{ .Site.Title }}",
-    "url": "{{ .Site.BaseURL }}",
+    "url": {{ .Site.BaseURL }},
     "description": "{{ .Site.Params.description }}",
-    "thumbnailUrl": "{{ .Site.Params.Logo | absURL }}",
+    "thumbnailUrl": {{ .Site.Params.Logo | absURL }},
     "license": "{{ or (.Site.Params.copyright) ("© All rights reserved")}}"
 }
 </script>
@@ -65,6 +69,7 @@
             "height":"32"
         }
     },
+    {{/* Removing the double quotes prevents Hugo escaping the diagonals with backslashes  */}}
     "image": {{ $images | jsonify | safeJS }},
     "url" : {{ .Permalink | jsonify | safeJS }},
     "wordCount" : "{{ .WordCount }}",

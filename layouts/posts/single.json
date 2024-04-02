@@ -1,0 +1,14 @@
+{
+    "title": {{ .Title | jsonify }},
+    "publishedDate": {{ .Date | jsonify }},
+    "coverImage": {{ .Params.coverImage | jsonify}},
+    "coverImageCredits": {{ .Params.coverImageCredits | jsonify}},
+    "description": {{ .Params.description | jsonify }},
+    "authors": {{ .Params.authors | jsonify }},
+    "content": {{ .Content | jsonify }},
+    "keywords": {{ .Params.keywords | jsonify }},
+    "slug": {{ .Params.slug | jsonify }},
+    "categories": {{.Params.categories | jsonify }},
+    "url": {{ .Permalink | jsonify }}
+}
+  
