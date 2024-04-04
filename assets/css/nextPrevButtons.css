@@ -2,7 +2,7 @@
     max-width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .next-prev {
@@ -13,10 +13,10 @@
 
 .previous-link {
     text-align: right;
-    max-width: 200px;
+    flex-grow: 1;
 }
 
 .next-link {
     text-align: left;
-    max-width: 200px;
+    flex-grow: 1;
 }

@@ -97,3 +97,6 @@ other = "Siguiente post"
 
 [previousEntry]
 other = "Post anterior"
+
+[nextAndPreviuosLinks]
+other = "Enlaces a la entrada previa y siguiente"
