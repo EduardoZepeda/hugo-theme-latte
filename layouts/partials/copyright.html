@@ -1,5 +1,5 @@
-{{ if .Site.Params.copyright }}
-    <p><small>{{ .Site.Params.copyright }}</small></p>
+{{ with .Site.Copyright }}
+    <p><small>{{ . }}</small></p>
 {{ else }}
     <p><small>© {{ now.Format "2006"}}. All rights reserved.</small></p>
 {{ end }}
