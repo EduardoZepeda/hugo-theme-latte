@@ -21,7 +21,7 @@ other = "Otros posts recomendados"
 other = "No se encontraron resultados"
 
 [searchInputPlaceholder]
-other = "Quiero leer sobre"
+other = "..."
 
 [loadingSearchPlaceholder]
 other = "Cargando"

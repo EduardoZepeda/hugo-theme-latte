@@ -21,7 +21,7 @@ other = "Related posts"
 other = "No results"
 
 [searchInputPlaceholder]
-other = "I want to read about..."
+other = "..."
 
 [loadingSearchPlaceholder]
 other = "Loading search"
@@ -97,3 +97,6 @@ other = "Next post"
 
 [previousEntry]
 other = "Previous post"
+
+[nextAndPreviuosLinks]
+other = "Next and previous links"
