@@ -4,7 +4,7 @@
     --dark: #111;
     --blue: #326DF5;
     --pale-blue: #3398FF;
-    --green: #007c63;
+    --green: #A8D547;
     --author-info: #f3f7ff;
     --yellow: #fac700;
     --background: var(--white);
@@ -43,6 +43,7 @@
     --blue: #2ebbcb;
     --author-info: #0b3049;
     --yellow: #fac700;
+    --green: #A8D547;
     --title: var(--white);
     --background: #07263b;
     --transparent-sidebar: rgba(0,0,0,0.8);
