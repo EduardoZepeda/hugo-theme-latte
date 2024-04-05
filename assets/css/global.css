@@ -110,11 +110,6 @@ article {
     word-break: break-word;
 }
 
-img {
-    object-fit: cover;
-    max-width: 100%;
-}
-
 pre {
     overflow-x: auto;
     padding: var(--padding-2x) 0 var(--padding-2x) var(--padding-2x);
@@ -204,8 +199,6 @@ table tbody tr:nth-of-type(odd) {
 table tbody tr:last-of-type {
     border-bottom: 2px solid var(--green);
 }
-
-
 
 #hamburger-grid {
     display: grid;
