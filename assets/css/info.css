@@ -8,14 +8,18 @@
 }
 
 .info {
-    background-color: var(--green);
+    background-color: var(--blue);
 }
 
 .error {
-    background-color: var(--green);
+    background-color: var(--red);
 }
 
 .success {
     background-color: var(--green);
+}
+
+.message > .markdown-link {
+    color: var(--white);
 }
 

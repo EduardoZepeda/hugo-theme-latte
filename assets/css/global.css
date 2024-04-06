@@ -4,9 +4,10 @@
     --dark: #111;
     --blue: #326DF5;
     --pale-blue: #3398FF;
-    --green: #A8D547;
+    --green: #1fc198;
+    --red: #e71a49;
     --author-info: #f3f7ff;
-    --yellow: #fac700;
+    --yellow: #f9f871;
     --background: var(--white);
     --transparent-sidebar: rgba(255,255,255,0.8);
     --i18n-button: var(--white);
@@ -42,8 +43,8 @@
     --dark: #111;
     --blue: #2ebbcb;
     --author-info: #0b3049;
-    --yellow: #fac700;
-    --green: #A8D547;
+    --yellow: #f9f871;
+    --green: #1dac85;
     --title: var(--white);
     --background: #07263b;
     --transparent-sidebar: rgba(0,0,0,0.8);
