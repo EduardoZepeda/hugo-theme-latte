@@ -22,3 +22,8 @@
     align-items: center;
     margin-right: 0.5rem;
 }
+
+.i18n-list {
+    display: flex;
+    gap: 0.3rem;
+}

@@ -1,6 +1,6 @@
 {{ if .IsTranslated }}    
 <div class="i18n-container">
-    <div><strong>{{ i18n "i18nTranslations" }}:</strong></div>
+    <div class="i18n-list">{{ partial "icon.html" "language-solid" }}<strong>{{ i18n "i18nTranslations" }}:</strong></div>
     <ul class="i18n-posts">
         {{ range .Translations }}
         <li class="i18n-post">
