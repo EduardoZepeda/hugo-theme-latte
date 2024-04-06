@@ -1,12 +1,16 @@
 <div class="author-list">
     {{- range .Params.authors }}
     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+    {{ $image := resources.GetRemote .Params.photo }}
+    {{ $image :=$image.Process "resize 25x" }}
     <div class="author-item">
         <div class="author-metadata-image">
-            <img class="author-miniature" src="{{ .Params.photo }}" alt="{{.Params.name}}" />
+            <img class="author-miniature" src="{{ $image.Permalink }}" width="{{ $image.Width }}"
+                height="{{ $image.Height }}" alt="{{.Params.name}}" />
         </div>
         <div class="author-link">
-            <a rel="author" title="{{.Params.name}}" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>
+            <a rel="author" title="{{.Params.name}}" aria-label="{{.Params.name}} {{ i18n " ariaLabelAuthor"}}"
+                href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>
         </div>
     </div>
     {{ end }}

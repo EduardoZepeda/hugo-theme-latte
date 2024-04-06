@@ -1,9 +1,12 @@
 {{ define "main" }}
 <div class="page-content-container">
+  {{ $image := resources.GetRemote .Params.photo }}
+  {{ $image :=$image.Process "resize 120x" }}
   <article>
     <div class="author-intro">
       <h1>{{ .Params.name }}</h1>
-      <img class="author-picture" src="{{ .Params.photo }}" alt="{{.Params.name}}" />
+      <img class="author-picture" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}"
+        alt="{{.Params.name}}" />
     </div>
     <div class="author-summary">
       <div>

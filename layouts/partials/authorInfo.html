@@ -3,8 +3,10 @@
     <div class="author-container">
         {{- range . }}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+        {{ $image := resources.GetRemote .Params.photo }}
+        {{ $image :=$image.Process "resize 120x" }}
         <figure>
-            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }}" />
+            <img class="author-picture" loading="lazy" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Params.name }}" />
             <figcaption>
             </figcaption>
         </figure>
