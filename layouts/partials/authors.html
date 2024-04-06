@@ -3,7 +3,7 @@
     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
     <div class="author-item">
         <div class="author-metadata-image">
-            <img class="author-miniature" src="{{ .Params.photo }}" alt="" />
+            <img class="author-miniature" src="{{ .Params.photo }}" alt="{{.Params.name}}" />
         </div>
         <div class="author-link">
             <a rel="author" title="{{.Params.name}}" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>

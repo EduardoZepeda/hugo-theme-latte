@@ -4,7 +4,7 @@
         {{- range . }}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
         <figure>
-            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }} picture" />
+            <img class="author-picture" loading="lazy" src="{{ .Params.photo }}" alt="{{ .Params.name }}" />
             <figcaption>
             </figcaption>
         </figure>

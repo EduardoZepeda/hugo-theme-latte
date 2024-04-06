@@ -100,3 +100,6 @@ other = "Post anterior"
 
 [nextAndPreviuosLinks]
 other = "Enlaces a la entrada previa y siguiente"
+
+[postImage]
+other = "Imagen principal del post"
