@@ -3,6 +3,7 @@
     border-radius: var(--border-radius);
     border: 1px solid var(--secondary-text);
     margin: var(--margin-2x) 0;
+    width: var(--max-char-width);
 }
 
 #search-input:focus {
@@ -24,7 +25,6 @@ a.search-item-title {
 }
 
 .search-results {
-    padding: var(--padding-1x);
     max-width: var(--max-char-width);
 }
 
