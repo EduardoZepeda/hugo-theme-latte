@@ -3,10 +3,10 @@
 <a href="{{ .Destination | safeURL }}" aria-label="{{ .Text }}">
 {{ if .Title }}
 <figure>
-    <img {{ with $image }} class="md-image" width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
+    <img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
     <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
-<img {{ with $image }} class="md-image" width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
+<img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
 {{ end }}
 </a>
