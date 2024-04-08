@@ -10,8 +10,8 @@
             <figcaption>
             </figcaption>
         </figure>
-        <a rel="author" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink }}">
-            <h3>{{ .Params.name }}</h3>
+        <a rel="author" class="author-name" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink }}">
+            {{ .Params.name }}
         </a>
         <div class="author-summary">{{ .Params.summary }}</div>
         <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>

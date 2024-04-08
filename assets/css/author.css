@@ -41,3 +41,7 @@
     padding: var(--padding-2x) 0;
     text-decoration: underline;
 }
+
+.author-name {
+    font-size: 1.5rem;
+}
