@@ -14,11 +14,9 @@
 
 .categoryItem,
 .categoryItem:visited {
-  color: var(--white);
-  padding: 1rem 3rem;
-  border-radius: 40px;
-  background-color: var(--blue);
-  letter-spacing: 1px;
+  color: var(--blue);
+  padding: 1rem;
+  letter-spacing: 3px;
   text-wrap: nowrap;
 }
 

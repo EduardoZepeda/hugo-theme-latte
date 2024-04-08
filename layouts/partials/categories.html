@@ -1,6 +1,8 @@
 <div class="post-categories">
     {{ range .Params.categories }}
-    <a class="post-category" title={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}}
+    <a class="post-category"
+        aria-label={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}} 
+        title={{i18n "categoryAriaLabel" }}{{replace . "-" " " | title}}
         href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
     {{ end }}
 </div>

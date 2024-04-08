@@ -11,7 +11,7 @@
         {{ partial "post.html" . }}
         {{ else }}
         <li class="categoryContainer">
-            <a class="categoryItem" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a class="categoryItem" title="{{ .Title }}" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{ end }}
         {{ end }}
