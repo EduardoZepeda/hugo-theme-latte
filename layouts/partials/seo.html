@@ -13,9 +13,9 @@
 
 <meta name="title" content="{{ .Title }}" />
 <meta name="description" content="{{ $description }}" />
-<meta name="author" content="{{ delimit $authors ", " }}" />
+<meta name="author" content="{{ delimit $authors " , " }}" />
 {{ if .Params.noindex }}
-<meta name="robots" content="noindex"/>
+<meta name="robots" content="noindex" />
 {{ end }}
 
 <!-- Open Graph / Facebook -->
@@ -26,12 +26,12 @@
 {{ if eq ($ogType | pluralize) "posts" }}
 {{ $ogType = "article" }}
 {{ else }}
-{{ $ogType = "website" }}
+{{ $ogType = "Blog" }}
 {{ end }}
 
 <meta property="og:type" content="{{ $ogType }}" />
 {{ if eq $ogType "article" }}
-<meta property="article:author" content="{{ delimit $authors ", " }}">
+<meta property="article:author" content="{{ delimit $authors " , " }}">
 <meta property="article:published_time" content="{{ $dateTime }}">
 <meta property="article:modified_time" content="{{ $lastMod }}">
 {{ end }}

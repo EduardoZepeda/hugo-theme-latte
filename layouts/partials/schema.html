@@ -2,29 +2,29 @@
 
 {{ $images := slice }}
 {{ with $postImages := .Resources.ByType "image" }}
-    {{ range $postImages }}
-        {{ $absURL := absURL . }}
-        {{ $images = $images | append $absURL }}
-    {{ end }}
+{{ range $postImages }}
+{{ $absURL := absURL . }}
+{{ $images = $images | append $absURL }}
+{{ end }}
 {{end}}
 
 {{/* Iterate through all the authors in a page/post */}}
 
 {{ $authors := slice }}
 {{- range .Params.authors }}
-        {{ $data := (dict "@type" "Person") }}
-        {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-        {{ $data = merge $data (dict "url" .Permalink) }}
-        {{end}}
-        {{ $data = merge $data (dict "name" .) }}
-        {{ $authors = $authors | append $data }}
+{{ $data := (dict "@type" "Person") }}
+{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+{{ $data = merge $data (dict "url" .Permalink) }}
+{{end}}
+{{ $data = merge $data (dict "name" .) }}
+{{ $authors = $authors | append $data }}
 {{end}}
 
 {{ if .IsHome -}}
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "@type": "WebSite",
+    "@type": "Blog",
     "name": "{{ .Site.Title }}",
     "url": {{ .Site.BaseURL }},
     "description": "{{ .Site.Params.description }}",
@@ -33,8 +33,8 @@
 }
 </script>
 {{ else }}
-{{ $author :=  or (.Params.author) (.Site.Author.name) }}
-{{ $org_name :=  .Site.Title }}
+{{ $author := or (.Params.author) (.Site.Author.name) }}
+{{ $org_name := .Site.Title }}
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
