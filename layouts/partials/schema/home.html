@@ -1,0 +1,11 @@
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Blog",
+        "name": "{{ .Site.Title }}",
+        "url": {{ .Site.BaseURL }},
+        "description": "{{ .Site.Params.description }}",
+        "thumbnailUrl": {{ .Site.Params.Logo | absURL }},
+        "license": "{{ or (.Site.Params.copyright) ("© All rights reserved")}}"
+    }
+</script>

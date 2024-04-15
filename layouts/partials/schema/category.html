@@ -1,0 +1,20 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "name": "Categories",
+  "itemListElement": [
+  {{ range $index, $category := site.Taxonomies.categories.Alphabetical }}
+    {
+      "@type": "ListItem",
+      "position": {{ add 1 $index }},
+      "item": {
+        "@type": "WebPage",
+        "@id": {{ .Page.Permalink }},
+        "name": {{ .Page.LinkTitle }}
+      }
+    }{{ if lt (add 1 $index) (site.Taxonomies.categories | len) }}, {{ end }}
+    {{ end }}
+  ]
+}
+</script>

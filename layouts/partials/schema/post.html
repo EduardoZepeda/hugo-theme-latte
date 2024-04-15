@@ -1,0 +1,66 @@
+{{/* Create a list of all images that use a post and retrieve its urls */}}
+
+{{ $images := slice }}
+{{ with $postImages := .Resources.ByType "image" }}
+{{ range $postImages }}
+{{ $absURL := absURL . }}
+{{ $images = $images | append $absURL }}
+{{ end }}
+{{end}}
+
+{{/* Iterate through all the authors in a page/post */}}
+
+{{ $authors := slice }}
+{{- range .Params.authors }}
+{{ $data := (dict "@type" "Person") }}
+{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+{{ $data = merge $data (dict "url" .Permalink) }}
+{{end}}
+{{ $data = merge $data (dict "name" .) }}
+{{ $authors = $authors | append $data }}
+{{end}}
+
+{{ $author := or (.Params.author) (.Site.Author.name) }}
+{{ $org_name := .Site.Title }}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "{{ .Section }}",
+    "name": "{{ .Title | safeJS }}",
+    "headline": "{{ .Title | safeJS }}",
+    "alternativeHeadline": "{{ .Params.lead }}",
+    "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
+    "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
+    "isFamilyFriendly": {{ or (.Params.isFamilyFriendly) ("true")}},
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": {{ .Permalink }}
+    },
+    "author" : {{ $authors | jsonify | safeJS }},
+    "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},
+    "accountablePerson" : {{ or (.Params.accountablePerson) ($authors | jsonify | safeJS) }},
+    "copyrightHolder" : "{{ $org_name }}",
+    "copyrightYear" : "{{ .Date.Format "2006" }}",
+    "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+    "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+    "publisher":{
+        "@type":"Organization",
+        "name": {{ $org_name }},
+        "url": {{ .Site.BaseURL| jsonify | safeJS }},
+        "logo": {
+            "@type": "ImageObject",
+            "url": {{ .Site.Params.logo | absURL | jsonify | safeJS }},
+            "width":"32",
+            "height":"32"
+        }
+    },
+    {{/* Removing the double quotes prevents Hugo escaping the diagonals with backslashes  */}}
+    "image": {{ $images | jsonify | safeJS }},
+    "url" : {{ .Permalink | jsonify | safeJS }},
+    "wordCount" : "{{ .WordCount }}",
+    "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}"{{ $categories }}" {{ end }}],
+    "keywords" : [ {{ range $index, $keyword := .Params.keywords }}{{ if $index }}, {{ end }}"{{ $keyword }}" {{ end }}]
+}
+</script>
