@@ -7,6 +7,6 @@
     <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
-<img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
+    <img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
 {{ end }}
 </a>
