@@ -1,9 +1,11 @@
 {{ if .IsHome -}}
     {{ partial "schema/home.html"}}
-{{ else if .IsNode }}
+{{ else if eq .Section "categories" }}
         {{ partial "schema/category.html" . }}
+{{ else if eq .Section "authors" }} 
+    {{ partial "schema/author.html" . }}
 {{ else }}
-    {{ partial "schema/post.html" .}}
+    {{ partial "schema/post.html" . }}
 {{ end }}
 
 

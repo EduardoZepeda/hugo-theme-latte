@@ -1,0 +1,46 @@
+{{ $image := resources.GetRemote .Params.photo }}
+
+<script type="application/ld+json">
+{{/* the sameAs section lacks a way to detect the last element and omit the corresponding comma */}}
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{.Params.name }},
+    "url": {{ .Permalink }},
+    "image": "{{ $image.Permalink }}",
+    "sameAs": [
+        {{ with .Params.twitter }}
+            "https://twitter.com/{{ . }}",
+        {{ end }}
+        {{ with .Params.facebook }}
+            "https://facebook.com/{{ . }}",
+        {{ end }}
+        {{ with .Params.linkedin }}
+            "https://linkedin.com/in/{{ . }}",
+        {{ end }}
+        {{ with .Params.tiktok }}
+            "https://tiktok.com/{{ . }}",
+        {{ end }}
+        {{ with .Params.codewars }}
+            "https://codewars.com/{{ . }}",
+        {{ end }}
+        {{ with .Params.instagram }}
+            "https://instagram.com/{{ . }}"
+        {{ end }}
+    ],
+    "jobTitle": "Author",
+    "worksFor": {
+      "@type": "Organization",
+      "name": {{.Site.Title}}
+    },
+    "description": {{ .Params.summary }},
+    "memberOf": {
+      "@type": "Organization",
+      "name": {{.Site.Title}}
+    },
+    "author": {
+      "@type": "Organization",
+      "name": {{ .Params.name }}
+    }
+  }
+</script>
