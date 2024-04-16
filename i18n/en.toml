@@ -103,3 +103,51 @@ other = "Next and previous links"
 
 [postImage]
 other = "Post main image"
+
+[search]
+other = "Search"
+
+[switchTheme]
+other = "Toggle theme"
+
+[navbar]
+other = "Navigation bar"
+
+[searchSite]
+other = "Search on website"
+
+[socialMediaLinks]
+other = "Social media links"
+
+[socialMediaLink]
+other = "{{.name}}'s link"
+
+[asideMenu]
+other = "Side menu"
+
+[closeSideMenu]
+other = "Close side menu"
+
+[footerLinks]
+other = "Footer's links"
+
+[postMetadata]
+other = "Post's metadata"
+
+[siteInfo]
+other = "Site's info"
+
+[searchResults]
+other = "Search results"
+
+[mainMenu]
+other = "Main menu"
+
+[languageName]
+other = "Language: {{.language}}"
+
+[scrollToTop]
+other = "Scroll to top"
+
+[closeSubscribeForm]
+other = "Close subscribe form"

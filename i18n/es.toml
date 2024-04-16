@@ -103,3 +103,51 @@ other = "Enlaces a la entrada previa y siguiente"
 
 [postImage]
 other = "Imagen principal del post"
+
+[search]
+other = "Buscar"
+
+[switchTheme]
+other = "Alternar el tema de la interfaz"
+
+[navbar]
+other = "Barra de navegación"
+
+[searchSite]
+other = "Buscar en el sitio web"
+
+[socialMediaLinks]
+other = "Enlaces a redes sociales"
+
+[socialMediaLink]
+other = "Enlace hacia: {{.name}}"
+
+[asideMenu]
+other = "Menu lateral"
+
+[closeSideMenu]
+other = "Cerrar menú lateral"
+
+[footerLinks]
+other = "Enlaces del footer"
+
+[postMetadata]
+other = "Metadata del post"
+
+[siteInfo]
+other = "Información del sitio"
+
+[searchResults]
+other = "Resultados de búsqueda"
+
+[mainMenu]
+other = "Menú principal"
+
+[languageName]
+other = "Idioma: {{.language}}"
+
+[scrollToTop]
+other = "Hacer scroll hasta la parte superior"
+
+[closeSubscribeForm]
+other = "Cerrar formulario de suscripción"

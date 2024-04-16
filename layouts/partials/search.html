@@ -2,11 +2,11 @@
     {{ .Content }}
     <div id="search-loader" class="loader">
         <search class="search">
-            <form role="search" aria-label="search site">
-                <input id="search-input" disabled type="text" placeholder="{{i18n " loadingSearchPlaceholder"}}" name="search">
+            <form role="search" aria-label="{{ i18n "searchSite"}}">
+                <input id="search-input" disabled type="text" placeholder="{{i18n "loadingSearchPlaceholder"}}" name="search">
             </form>
         </search>
     </div>
-    <section aria-label="search results" id="search-results" class="search-results"></section>
+    <section aria-label="{{i18n "searchResults"}}" id="search-results" class="search-results"></section>
 </div>
 

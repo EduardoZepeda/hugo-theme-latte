@@ -1,7 +1,7 @@
 <header id="header">
     {{ partial "asideMenu.html" . }}
     {{ partial "scrollUpButton.html" . }}
-    <nav id="nav" role="navigation" aria-label="Main menu">
+    <nav id="nav" role="navigation" aria-label="{{i18n "mainMenu"}}">
         {{ partial "burgerIcon.html" }}
         {{ partial "navMenu.html" . }}
         <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
@@ -9,14 +9,14 @@
     </nav>
     <div id="site-info">
         {{ if .IsHome }}
-        <section aria-label="Site's info" class="site-info-container">
+        <section aria-label="{{i18n "SiteInfo"}}" class="site-info-container">
             <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
                     }}</a></p>
             <h1 class="site-description">{{ $.Site.Params.description }}</h1>
             {{ partial "socialIcons.html" . }}
         </section>
         {{ else }}
-        <section aria-label="Site's info" class="site-info-container">
+        <section aria-label="{{i18n "SiteInfo"}}" class="site-info-container">
             <p class="site-name"><a href="{{"" | absLangURL}}" aria-label="{{ .Site.Title }}'s home">{{ .Site.Title
                     }}</a></p>
             <p class="site-description">{{ $.Site.Params.description }}</p>
