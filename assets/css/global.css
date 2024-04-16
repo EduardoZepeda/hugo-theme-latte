@@ -15,6 +15,7 @@
     --main-text: #3F424A;
     --secondary-text: #6a6a6a;
     --credits: #adadad;
+    --input-border: var(--credits);
     --footer: var(--background);
     --post-category: var(--blue);
     --button: var(--blue);
@@ -53,6 +54,7 @@
     --main-text: var(--white);
     --secondary-text: #c0c0c0;
     --credits: #adadad;
+    --input-border: var(--credits);
     --footer: var(--background);
     --post-category: var(--blue);
     --button: #2bcecf;
