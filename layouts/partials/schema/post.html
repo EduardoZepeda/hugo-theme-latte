@@ -4,7 +4,7 @@
 {{ with $postImages := .Resources.ByType "image" }}
 {{ range $postImages }}
 {{ $absURL := absURL . }}
-{{ $images = $images | append $absURL }}
+{{ $images = $images | append .Permalink }}
 {{ end }}
 {{end}}
 
