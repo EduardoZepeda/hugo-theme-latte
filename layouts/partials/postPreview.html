@@ -16,7 +16,7 @@
     <div class="post-info">
         <h2>
             <a class="post-info-link" aria-label="{{.Params.title}}" href="{{.RelPermalink }}">
-                {{ .Title }}
+                {{ .Title }}{{ partial "draft.html" . }}
             </a>
         </h2>
     </div>

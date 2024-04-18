@@ -5,7 +5,7 @@
             {{ partial "toc.html" . }}
         </section>
         <article class="post">
-            <h1>{{ .Title }}</h1>
+            <h1>{{ .Title }}{{ partial "draft.html" . }}</h1>
             {{ partial "metadata.html" . }}
             <div class="content">{{ .Content }}</div>
         </article>

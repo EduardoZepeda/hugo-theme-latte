@@ -1,0 +1,12 @@
+{{ if hugo.IsProduction }}
+.draft-message {
+  padding: 0 0.8rem;
+  background-color: var(--main-text);
+  color: var(--white);
+  font-size: 0.85rem;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+{{ end }}

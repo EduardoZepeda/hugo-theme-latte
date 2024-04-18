@@ -151,3 +151,6 @@ other = "Scroll to top"
 
 [closeSubscribeForm]
 other = "Close subscribe form"
+
+[draft]
+other = "Draft"
