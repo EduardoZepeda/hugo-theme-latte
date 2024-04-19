@@ -30,19 +30,15 @@
                 "https://instagram.com/{{ . }}"
             {{ end }}
         ],
+        "description": {{ .Params.summary }},
         "jobTitle": "Author",
         "worksFor": {
           "@type": "Organization",
           "name": {{.Site.Title}}
         },
-        "description": {{ .Params.summary }},
         "memberOf": {
           "@type": "Organization",
           "name": {{.Site.Title}}
-        },
-        "author": {
-          "@type": "Organization",
-          "name": {{ .Params.name }}
         }
     }
 }

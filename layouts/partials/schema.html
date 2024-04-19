@@ -1,5 +1,5 @@
 {{ if .IsHome -}}
-    {{ partial "schema/home.html"}}
+    {{ partial "schema/home.html" . }}
 {{ else if eq .Section "categories" }}
         {{ partial "schema/category.html" . }}
 {{ else if eq .Section "authors" }} 
