@@ -11,13 +11,13 @@
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": {{ printf "%s%s" (relLangURL "search" | absURL) "?q=search_term_string" }},
+              "urlTemplate": {{ printf "%s%s" (relLangURL "search" | absURL) "?q={q}" }},
               "actionPlatform": [
                 "http://schema.org/DesktopWebPlatform",
                 "http://schema.org/MobileWebPlatform"
               ]
             },
-            "query-input": "required name=search_term_string"
+            "query-input": "required name={q}"
           }
     }
 </script>

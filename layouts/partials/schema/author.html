@@ -9,7 +9,7 @@
         "@type": "Person",
         "name": {{.Params.name }},
         "url": {{ .Permalink }},
-        "image": "{{ .Params.photo }}",
+        "image": {{ .Params.photo }},
         "sameAs": [
             {{ with .Params.twitter }}
                 "https://twitter.com/{{ . }}",

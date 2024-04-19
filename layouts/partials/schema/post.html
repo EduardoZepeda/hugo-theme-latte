@@ -26,11 +26,11 @@
 {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "articleSection": "{{ .Section }}",
-    "name": "{{ .Title | safeJS }}",
-    "headline": "{{ .Title | safeJS }}",
-    "alternativeHeadline": "{{ .Params.lead }}",
-    "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
+    "articleSection": {{ .Section }},
+    "name": {{ .Title }},
+    "headline": {{ .Title }},
+    "alternativeHeadline": {{ .Params.lead }},
+    "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
     "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
     "isFamilyFriendly": {{ or (.Params.isFamilyFriendly) ("true")}},
     "mainEntityOfPage": {
@@ -40,11 +40,11 @@
     "author" : {{ $authors | jsonify | safeJS }},
     "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},
     "accountablePerson" : {{ or (.Params.accountablePerson) ($authors | jsonify | safeJS) }},
-    "copyrightHolder" : "{{ $org_name }}",
-    "copyrightYear" : "{{ .Date.Format "2006" }}",
-    "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
-    "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
-    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+    "copyrightHolder" : {{ $org_name }},
+    "copyrightYear" : {{ .Date.Format "2006" }},
+    "dateCreated": {{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
+    "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
+    "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
     "publisher":{
         "@type":"Organization",
         "name": {{ $org_name }},
@@ -59,8 +59,8 @@
     {{/* Removing the double quotes prevents Hugo escaping the diagonals with backslashes  */}}
     "image": {{ $images | jsonify | safeJS }},
     "url" : {{ .Permalink | jsonify | safeJS }},
-    "wordCount" : "{{ .WordCount }}",
-    "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}"{{ $categories }}" {{ end }}],
+    "wordCount" : {{ .WordCount }},
+    "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}{{ $categories }} {{ end }}],
     "keywords" : [ {{ range $index, $keyword := .Params.keywords }}{{ if $index }}, {{ end }}"{{ $keyword }}" {{ end }}]
 }
 </script>
