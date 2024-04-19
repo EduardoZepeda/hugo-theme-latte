@@ -38,6 +38,7 @@ function initializeLunrSearch(event) {
 			// when data is registered, handle register
 			registerSearchHandler(searchInput);
 			searchInput.focus();
+			checkForUrlQuery();
 		})
 		.catch((err) => {
 			// if couldn't fetch show error
@@ -45,6 +46,16 @@ function initializeLunrSearch(event) {
 			error.appendChild(document.createTextNode(`${err}`));
 			searchResults.appendChild(error);
 		});
+
+	function checkForUrlQuery() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const searchTerm = urlParams.get("q");
+
+		if (searchTerm) {
+			const results = idx.search(`${searchTerm}~1`);
+			renderSearchResults(results);
+		}
+	}
 
 	function registerSearchHandler() {
 		// register on input event
@@ -63,7 +74,7 @@ function initializeLunrSearch(event) {
 			// get input value
 			const searchTerm = event.target.value;
 			// fuzzy search
-			const results = idx.search(`${searchTerm}*`);
+			const results = idx.search(`${searchTerm}~1`);
 			// render results
 			renderSearchResults(results);
 		}
