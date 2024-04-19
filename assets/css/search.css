@@ -16,6 +16,7 @@
 }
 
 .search-content {
+    width: 100%;
     max-width: var(--max-char-width);
     padding: var(--padding-1x);
 }
