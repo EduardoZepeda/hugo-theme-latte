@@ -154,3 +154,12 @@ other = "Cerrar formulario de suscripción"
 
 [draft]
 other = "Borrador"
+
+[categories]
+other = "Categorias"
+
+[categoryLinkAria]
+other = "Enlace a la categoria de {{.category}}"
+
+[categoryListAria]
+other = "Enlace a la lista de categorias"

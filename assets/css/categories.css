@@ -23,3 +23,14 @@
 .category-container {
     margin: var(--margin-1x);
 }
+
+.dropdown-categories {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.dropdown-category-item {
+    list-style: none;
+    margin: 0;
+}
+

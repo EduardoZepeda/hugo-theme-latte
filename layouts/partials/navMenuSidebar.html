@@ -7,6 +7,12 @@
             {{ end }}
         </div>
     </li>
+    <li class="dropdown nav-link">
+        <div><a aria-label="{{ i18n "categoryListAria"}}" href="{{ "/categories/" | relLangURL }}">{{ i18n "categories" }}</a></div>
+        <div class="dropdown-content dropdown-categories">
+            {{ partial "categoryMenu.html" . }}
+        </div>
+    </li>
     {{- $currentPage := . -}}
     {{ range .Site.Menus.main }}
     <li class="nav-link">

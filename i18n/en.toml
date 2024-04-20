@@ -154,3 +154,12 @@ other = "Close subscribe form"
 
 [draft]
 other = "Draft"
+
+[categories]
+other = "Categories"
+
+[categoryLinkAria]
+other = "Link to {{.category}} category"
+
+[categoryListAria]
+other = "Link to category list"

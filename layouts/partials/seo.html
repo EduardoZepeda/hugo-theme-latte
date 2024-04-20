@@ -30,6 +30,7 @@
 {{ end }}
 
 <meta property="og:type" content="{{ $ogType }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
 {{ if eq $ogType "article" }}
 <meta property="article:author" content="{{ delimit $authors " , " }}">
 <meta property="article:published_time" content="{{ $dateTime }}">
