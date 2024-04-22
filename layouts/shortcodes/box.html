@@ -1,0 +1,4 @@
+{{ $type := .Get "type" | default "info" }}
+<div class="message {{$type}}">
+    <div>{{ if .Get "link" }}<a target="_blank" href="{{.Get "link"}}">{{end}}{{ if .Get "message" }}{{ .Get "message" }}{{ end }}{{ if .Get "link" }}</a>{{ end }}</div>
+</div>

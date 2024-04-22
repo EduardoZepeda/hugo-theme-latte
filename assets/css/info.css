@@ -5,6 +5,10 @@
     border-radius: 6px; 
     font-size: 0.95rem;
     color: var(--white);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .info {
