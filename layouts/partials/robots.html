@@ -1,0 +1,12 @@
+{{ $robots := slice }}
+{{ if .Params.noindex }}
+    {{ $robots = $robots | append "noindex" }}
+{{ else }}
+    {{ $robots = $robots | append "index" }}
+{{ end }}
+{{ if .Params.nofollow }}
+    {{ $robots = $robots | append "nofollow" }}
+{{ else }}
+    {{ $robots = $robots | append "follow" }}
+{{ end }}
+<meta name="robots" content="{{ delimit $robots ", " }}" />
