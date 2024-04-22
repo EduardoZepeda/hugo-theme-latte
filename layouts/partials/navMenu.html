@@ -10,6 +10,7 @@
             </div>
         </li>
         {{/* Site categories from taxonomies */}}
+        {{/* Probably a good idea would be to check if taxonomy exists first */}}
         <li class="dropdown nav-link">
             <div><a aria-label={{i18n "categoryListAria"}} href="{{ "/categories/" | relLangURL }}">{{ i18n "categories" }}</a></div>
             <div class="dropdown-content dropdown-categories">
