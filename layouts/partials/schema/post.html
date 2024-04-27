@@ -32,7 +32,6 @@
     "alternativeHeadline": {{ .Params.lead }},
     "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
     "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
-    "isFamilyFriendly": {{ or (.Params.isFamilyFriendly) ("true")}},
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": {{ .Permalink }}
@@ -61,6 +60,19 @@
     "url" : {{ .Permalink | jsonify | safeJS }},
     "wordCount" : {{ .WordCount }},
     "genre" : [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}{{ $categories }} {{ end }}],
-    "keywords" : [ {{ range $index, $keyword := .Params.keywords }}{{ if $index }}, {{ end }}"{{ $keyword }}" {{ end }}]
-}
+    "keywords" : [ {{ range $index, $keyword := .Params.keywords }}{{ if $index }}, {{ end }}"{{ $keyword }}" {{ end }}],
+    "isAccessibleForFree": {{ .Params.isAccessibleForFree | default true }},{{/* Check if audience exists in post, then in config or if not do nothing */}}
+    "isFamilyFriendly": {{ .Params.isFamilyFriendly | default true }}{{ if .Params.audience }},
+        "audience": {
+            "@type": "Audience",
+            "name": {{.Params.audience}}
+        }
+    {{ else if .Site.Params.Audience | default false }},
+        "audience": {
+            "@type": "Audience",
+            "name": {{.Site.Params.Audience}}
+        }
+    {{ else }}
+    {{ end }}
+    }
 </script>
