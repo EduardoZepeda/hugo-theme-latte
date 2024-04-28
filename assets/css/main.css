@@ -158,6 +158,7 @@ a.post-category {
 .md-image {
     object-fit: contain;
     max-width: 100%;
+    height: auto;
 }
 
 .cover-image-container {
