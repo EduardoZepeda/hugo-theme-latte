@@ -1,8 +1,8 @@
-{{ if hugo.IsProduction }}
+{{ if not (hugo.IsProduction) }}
 .draft-message {
   padding: 0 0.8rem;
   background-color: var(--main-text);
-  color: var(--white);
+  color: var(--background);
   font-size: 0.85rem;
   border-radius: 15px;
   display: inline-block;
