@@ -1,4 +1,5 @@
 {{ $type := .Get "type" | default "info" }}
+{{ $rel := .Get "rel" | default "nofollow" }}
 <div class="message {{$type}}">
-    <div>{{ if .Get "link" }}<a target="_blank" href="{{.Get "link"}}">{{end}}{{ if .Get "message" }}{{ .Get "message" }}{{ end }}{{ if .Get "link" }}</a>{{ end }}</div>
+    <div>{{ if .Get "link" }}<a target="_blank" rel=”nofollow” href="{{.Get "link"}}">{{end}}{{ if .Get "message" }}{{ .Get "message" }}{{ end }}{{ if .Get "link" }}</a>{{ end }}</div>
 </div>
