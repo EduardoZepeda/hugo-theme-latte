@@ -54,7 +54,11 @@
     font-size: var(--small-text);
     position: sticky;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
     z-index: 9;
     color: var(--white);
     backdrop-filter: blur(10px);
