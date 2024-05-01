@@ -1,0 +1,8 @@
+{{ $affiliateLink := .Site.Params.latte.prePostAffiliateLink }}
+{{ $affiliateText := .Site.Params.latte.prePostAffiliateText }}
+
+{{ with $affiliateLink }}
+<div class="prePostAffiliate">
+    <a target="_blank" aria-label={{i18n "affiliateLink"}} rel="nofollow" href={{ $affiliateLink }}>{{ $affiliateText }}</a>
+</div>
+{{ end }}

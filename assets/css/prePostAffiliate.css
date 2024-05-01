@@ -1,0 +1,9 @@
+.prePostAffiliate {
+    color: var(--white);
+    padding: 0.2rem var(--margin-1x);
+    font-size: 0.9rem;
+    display: inline-block;
+    border-radius: 0px 20px 20px 0px;
+    margin: var(--margin-1x) 0;
+    background: radial-gradient(circle at 10% 20%, rgb(120, 50, 255) 0%, rgb(50, 150, 250) 91%);
+}

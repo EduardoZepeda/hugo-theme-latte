@@ -163,3 +163,6 @@ other = "Enlace a la categoria de {{.category}}"
 
 [categoryListAria]
 other = "Enlace a la lista de categorias"
+
+[affiliateLink]
+other = "Enlace de afiliado"
