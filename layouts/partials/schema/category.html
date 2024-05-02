@@ -4,16 +4,17 @@
   "@type": "ItemList",
   "name": "Categories",
   "itemListElement": [
-  {{ range $index, $category := site.Taxonomies.categories.Alphabetical }}
+  {{ $noPages := .Pages | len }}
+  {{ range $index, $category := .Pages }}
     {
       "@type": "ListItem",
       "position": {{ add 1 $index }},
       "item": {
         "@type": "WebPage",
-        "@id": {{ .Page.Permalink }},
-        "name": {{ .Page.LinkTitle }}
+        "@id": {{ $category.Page.Permalink }},
+        "name": {{ $category.Page.LinkTitle }}
       }
-    }{{ if lt (add 1 $index) (site.Taxonomies.categories | len) }}, {{ end }}
+    }{{ if lt (add 1 $index) $noPages }}, {{ end }}
     {{ end }}
   ]
 }

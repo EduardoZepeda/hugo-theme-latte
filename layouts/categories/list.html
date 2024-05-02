@@ -1,11 +1,12 @@
 {{ define "main" }}
+{{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
+{{ partial "schema/category.html" $paginator }}
 <div class="category-container"> 
     <div>
         <h1>{{ .Title }}</h1>
     </div>
     <section aria-label="{{ i18n "categoryList" }}">
         <ul class="categoriesContainer">
-        {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
         {{ range $paginator.Pages }}
         {{ if eq .Type "posts" }}
         {{ partial "post.html" . }}

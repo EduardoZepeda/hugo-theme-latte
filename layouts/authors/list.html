@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ partial "schema/author.html" . }}
 <div class="page-content-container">
   {{ $image := resources.GetRemote .Params.photo }}
   {{ $image :=$image.Process "resize 120x" }}
