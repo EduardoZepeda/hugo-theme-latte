@@ -1,1 +1,18 @@
-<a class="markdown-link" rel="follow" href="{{ .Destination | safeURL | absURL }}" {{ with .Title }} aria-label={{.}} title="{{ . }}"{{ else }} aria-label={{.Text | safeHTML}} title="{{ .Text | safeHTML }}" {{ end }}>{{ .Text | safeHTML }}</a>
+{{/* Loosely based on https://johnmu.com/nofollow-hugo/ which is released under a MIT License */}}
+{{- $link := .Destination }}
+{{- $rel := ""}}
+{{- $target := ""}}
+{{- if strings.HasPrefix $link "http" }}
+    {{- $target = printf "%s %s"  $target "_blank" }}
+    {{- $rel = printf "%s %s" $rel "noopener" }}
+{{- end -}}
+{{- if strings.HasSuffix $link "#?" }} 
+    {{- $rel = printf "%s %s" $rel "nofollow" }}
+    {{- $urlparts := split $link "#" -}}
+    {{- $link = index $urlparts 0}}
+{{- end -}}
+<a class="markdown-link" href="{{ $link | safeURL | absURL }}"
+    {{- with .Title}} aria-label={{trim . " "}} title="{{ trim . " "}}"{{ end -}}
+    {{- with $rel}} rel="{{ trim . " "}}"{{ end -}}
+    {{- with $target}} target="{{ trim . " "}}"{{ end -}}
+>{{ .Text | safeHTML }}</a>
