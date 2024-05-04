@@ -29,6 +29,7 @@
         {{ partial "schema/webpage.html" . | safeJS }},
         {{ partial "schema/website.html" . | safeJS }},
         {{ partial "schema/organization.html" . | safeJS }},
+        {{ partial "schema/blog.html" . | safeJS }},
         {
             "@type": "BlogPosting",
             "articleSection": {{ .Section }},
@@ -40,6 +41,9 @@
             "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
             "mainEntityOfPage": {
                 "@id": {{ printf "%s#webpage" .Permalink}}
+            },
+            "isPartOf": {
+                "@id": {{ printf "%s#blog" .Site.BaseURL }}
             },
             "author" : {{ $authors | jsonify | safeJS }},
             "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},

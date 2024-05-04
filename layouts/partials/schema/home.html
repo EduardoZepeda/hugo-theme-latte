@@ -7,29 +7,7 @@
               {{ partial "schema/webpage.html" .context | safeJS }},
               {{ partial "schema/website.html" .context | safeJS }},
               {{ partial "schema/organization.html" .context | safeJS }},
-              {
-                  "@type": "Blog",
-                  "name": {{ .context.Site.Title }},
-                  "url": {{ .context.Site.BaseURL | absURL }},
-                  "description": {{ .context.Site.Params.description }},
-                  "thumbnailUrl": {{ .context.Site.Params.Logo | absURL }},
-                  "license": {{ or (.context.Site.Params.copyright) ("© All rights reserved")}},
-                  "mainEntityOfPage": {
-                      "@id": {{ printf "%s#webpage" .context.Permalink}}
-                  },
-                  "potentialAction": {
-                      "@type": "SearchAction",
-                      "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": {{ printf "%s%s" (relLangURL "search" | absURL) "?q={q}" }},
-                        "actionPlatform": [
-                          "http://schema.org/DesktopWebPlatform",
-                          "http://schema.org/MobileWebPlatform"
-                        ]
-                      },
-                      "query-input": "required name={q}"
-                  }
-              }
+              {{ partial "schema/blog.html" .context | safeJS }}
               {{/* {{ range $index, $post := .paginator.Pages }}
                   {{ $authors := slice }}
                   {{- range $post.Params.authors }}

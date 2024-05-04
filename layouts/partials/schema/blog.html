@@ -1,0 +1,24 @@
+{
+    "@type": "Blog",
+    "@id": "{{ printf "%s#blog" .Site.BaseURL | absURL }}",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL | absURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "thumbnailUrl": "{{ .Site.Params.Logo | absURL }}",
+    "license": "{{ or (.Site.Params.copyright) ("© All rights reserved")}}",
+    "mainEntityOfPage": {
+        "@id": "{{ printf "%s#webpage" .Permalink}}"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ printf "%s%s" (relLangURL "search" | absURL) "?q={q}" }}",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "query-input": "required name={q}"
+    }
+}
