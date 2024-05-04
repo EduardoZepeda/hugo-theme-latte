@@ -1,0 +1,31 @@
+{
+        "@type": "WebPage",
+        "@id": "{{ printf "%s#webpage" .Permalink }}",
+        "url": "{{.Permalink}}",
+        "name": "{{.Title}}",
+        "isPartOf": {
+            "@id": "{{printf "%s#website" .Site.BaseURL}}"
+        },
+        {{/* "primaryImageOfPage": {
+            "@id": "https://neilpatel.com/blog/tiktok-ban/#primaryimage"
+        },
+        "image": {
+            "@id": "https://neilpatel.com/blog/tiktok-ban/#primaryimage"
+        },
+        "thumbnailUrl": "https://neilpatel.com/wp-content/uploads/2024/04/TikTok-Ban-001-700x420.webp",
+        "datePublished": "2024-05-02T19:00:00+00:00",
+        "dateModified": "2024-04-25T13:50:48+00:00",
+        "description": description,
+        "breadcrumb": {
+            "@id": `${url}/#breadcrumbs`
+        }, */}}
+        "inLanguage": "{{.Site.Language}}",
+        "potentialAction": [
+            {
+                "@type": "ReadAction",
+                "target": [
+                    "{{.Permalink}}"
+                ]
+            }
+        ]
+}

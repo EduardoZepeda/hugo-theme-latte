@@ -3,51 +3,55 @@
 <script type="application/ld+json">
     {
         "@context": "http://schema.org",
-        "@type": "Blog",
-        "name": {{ .context.Site.Title }},
-        "url": {{ .context.Site.BaseURL | absURL }},
-        "description": {{ .context.Site.Params.description }},
-        "thumbnailUrl": {{ .context.Site.Params.Logo | absURL }},
-        "license": {{ or (.context.Site.Params.copyright) ("© All rights reserved")}},
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": {{ printf "%s%s" (relLangURL "search" | absURL) "?q={q}" }},
-              "actionPlatform": [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-              ]
-            },
-            "query-input": "required name={q}"
-        },
-        "blogPosts": {
-          "@type": "ItemList",
-          "name" : "Posts",
-          "itemListElement": [{{ range $index, $post := .paginator.Pages }}
-            {{ $authors := slice }}
-            {{- range $post.Params.authors }}
-            {{ $data := (dict "@type" "Person") }}
-            {{- with $.context.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-            {{ $data = merge $data (dict "url" .Permalink) }}
-            {{end}}
-            {{ $data = merge $data (dict "name" .) }}
-            {{ $authors = $authors | append $data }}
-            {{end}}
-            {{ with $post }}
-            {
-              "@type": "BlogPosting",
-              "headline": {{ .Title }},
-              "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
-              "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
-              "author": {{ $authors | jsonify | safeJS }},
-              "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
-              "url": {{.Permalink}}
-            {{ end }}
-            }{{ if lt (add 1 $index) $noPages }}, {{ end }}
-            {{ end }}]
-            /* Additional recent posts go here */
-          
-        }
+        "@graph": [
+              {{ partial "schema/webpage.html" .context | safeJS }},
+              {{ partial "schema/website.html" .context | safeJS }},
+              {{ partial "schema/organization.html" .context | safeJS }},
+              {
+                  "@type": "Blog",
+                  "name": {{ .context.Site.Title }},
+                  "url": {{ .context.Site.BaseURL | absURL }},
+                  "description": {{ .context.Site.Params.description }},
+                  "thumbnailUrl": {{ .context.Site.Params.Logo | absURL }},
+                  "license": {{ or (.context.Site.Params.copyright) ("© All rights reserved")}},
+                  "mainEntityOfPage": {
+                      "@id": {{ printf "%s#webpage" .context.Permalink}}
+                  },
+                  "potentialAction": {
+                      "@type": "SearchAction",
+                      "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": {{ printf "%s%s" (relLangURL "search" | absURL) "?q={q}" }},
+                        "actionPlatform": [
+                          "http://schema.org/DesktopWebPlatform",
+                          "http://schema.org/MobileWebPlatform"
+                        ]
+                      },
+                      "query-input": "required name={q}"
+                  }
+              }
+              {{/* {{ range $index, $post := .paginator.Pages }}
+                  {{ $authors := slice }}
+                  {{- range $post.Params.authors }}
+                  {{ $data := (dict "@type" "Person") }}
+                  {{- with $.context.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                  {{ $data = merge $data (dict "url" .Permalink) }}
+                  {{end}}
+                  {{ $data = merge $data (dict "name" .) }}
+                  {{ $authors = $authors | append $data }}
+                  {{end}}
+                  {{ with $post }}
+                  {
+                    "@type": "BlogPosting",
+                    "headline": {{ .Title }},
+                    "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
+                    "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
+                    "author": {{ $authors | jsonify | safeJS }},
+                    "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
+                    "url": {{.Permalink}}
+                  {{ end }}
+                  }{{ if lt (add 1 $index) $noPages }}, {{ end }}
+                  {{ end }} */}}
+        ]
     }
 </script>

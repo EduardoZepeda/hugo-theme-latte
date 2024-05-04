@@ -1,0 +1,11 @@
+{
+    "@type": "WebSite",
+    "@id": "{{printf "%s#website" .Site.BaseURL}}",
+    "url": "{{.Site.BaseURL}}",
+    "name": "{{.Site.Title}}",
+    "description": "",
+    "publisher": {
+        "@id": "{{printf "%s#organization" .Site.BaseURL}}"
+    },
+    "inLanguage": "{{.Site.Language}}"
+}

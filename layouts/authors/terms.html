@@ -1,8 +1,10 @@
 {{ define "main" }}
-<h1>{{ i18n "authors" }}</h1>
-<ul>
-{{ range .Data.Pages }}
-  <li><a href="{{ .Permalink }}">{{ .Params.name }}</a></li>
-{{ end }}
-</ul>
+<div>
+  <h1>{{ i18n "authors" }}</h1>
+  <ul>
+    {{ range .Data.Pages }}
+    <li><a href="{{ .Permalink }}">{{ .Params.name }}</a></li>
+    {{ end }}
+  </ul>
+</div>
 {{end}}

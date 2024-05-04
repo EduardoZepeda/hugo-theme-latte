@@ -2,44 +2,48 @@
 {{/* the sameAs section lacks a way to detect the last element and omit the corresponding comma */}}
     {
       "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "dateCreated": {{.Params.dateCreated}},
-      "dateModified": {{.Params.dateCreated}},
-      "mainEntity": {
-        "@type": "Person",
-        "name": {{.Params.name }},
-        "url": {{ .Permalink }},
-        "image": {{ .Params.photo }},
-        "sameAs": [
-            {{ with .Params.twitter }}
-                "https://twitter.com/{{ . }}",
-            {{ end }}
-            {{ with .Params.facebook }}
-                "https://facebook.com/{{ . }}",
-            {{ end }}
-            {{ with .Params.linkedin }}
-                "https://linkedin.com/in/{{ . }}",
-            {{ end }}
-            {{ with .Params.tiktok }}
-                "https://tiktok.com/{{ . }}",
-            {{ end }}
-            {{ with .Params.codewars }}
-                "https://codewars.com/users/{{ . }}",
-            {{ end }}
-            {{ with .Params.instagram }}
-                "https://instagram.com/{{ . }}"
-            {{ end }}
+      "@graph": [{
+        "@type": "ProfilePage",
+        "dateCreated": {{.Params.dateCreated}},
+        "dateModified": {{.Params.dateCreated}},
+        "mainEntity": {
+          "@type": "Person",
+          "name": {{.Params.name }},
+          "url": {{ .Permalink }},
+          "image": {{ .Params.photo }},
+          "sameAs": [
+              {{ with .Params.twitter }}
+                  "https://twitter.com/{{ . }}",
+              {{ end }}
+              {{ with .Params.facebook }}
+                  "https://facebook.com/{{ . }}",
+              {{ end }}
+              {{ with .Params.linkedin }}
+                  "https://linkedin.com/in/{{ . }}",
+              {{ end }}
+              {{ with .Params.tiktok }}
+                  "https://tiktok.com/{{ . }}",
+              {{ end }}
+              {{ with .Params.codewars }}
+                  "https://codewars.com/users/{{ . }}",
+              {{ end }}
+              {{ with .Params.instagram }}
+                  "https://instagram.com/{{ . }}"
+              {{ end }}
         ],
         "description": {{ .Params.summary }},
         "jobTitle": "Author",
         "worksFor": {
-          "@type": "Organization",
-          "name": {{.Site.Title}}
+            "@id": {{ printf "%s#organization" .Site.BaseURL }}
         },
         "memberOf": {
-          "@type": "Organization",
-          "name": {{.Site.Title}}
+            "@id": {{ printf "%s#organization" .Site.BaseURL }}
         }
-    }
+      }
+    },
+    {{ partial "schema/webpage.html" . | safeJS }},
+    {{ partial "schema/website.html" . | safeJS }},
+    {{ partial "schema/organization.html" . | safeJS }}
+    ]
 }
 </script>

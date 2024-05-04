@@ -1,21 +1,25 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "ItemList",
-  "name": "Categories",
-  "itemListElement": [
-  {{ $noPages := .Pages | len }}
-  {{ range $index, $category := .Pages }}
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": {{ add 1 $index }},
-      "item": {
-        "@type": "WebPage",
-        "@id": {{ $category.Page.Permalink }},
-        "name": {{ $category.Page.LinkTitle }}
-      }
-    }{{ if lt (add 1 $index) $noPages }}, {{ end }}
-    {{ end }}
+      "@type": "ItemList",
+      "name": "Categories",
+      "itemListElement": [
+      {{ $noPages := .Pages | len }}
+      {{ range $index, $category := .Pages }}
+        {
+          "@type": "ListItem",
+          "position": {{ add 1 $index }},
+          "item": {
+            "@type": "WebPage",
+            "@id": {{ $category.Page.Permalink }},
+            "name": {{ $category.Page.LinkTitle }}
+          }
+        }{{ if lt (add 1 $index) $noPages }}, {{ end }}
+        {{ end }}
+      ]
+    }
   ]
 }
 </script>
