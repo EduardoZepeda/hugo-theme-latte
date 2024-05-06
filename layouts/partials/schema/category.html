@@ -7,14 +7,14 @@
       "name": "Categories",
       "itemListElement": [
       {{ $noPages := .Pages | len }}
-      {{ range $index, $category := .Pages }}
+      {{ range $index, $post := .Pages }}
         {
           "@type": "ListItem",
           "position": {{ add 1 $index }},
           "item": {
             "@type": "WebPage",
-            "@id": {{ $category.Page.Permalink }},
-            "name": {{ $category.Page.LinkTitle }}
+            "@id": {{ printf "%s#post" $post.Page.Permalink }},
+            "name": {{ $post.Page.LinkTitle }}
           }
         }{{ if lt (add 1 $index) $noPages }}, {{ end }}
         {{ end }}
