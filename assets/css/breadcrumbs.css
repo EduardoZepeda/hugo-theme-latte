@@ -1,0 +1,12 @@
+#breadcrumbs {
+    font-size: 0.9rem;
+    display: flex;
+    width: 100%;
+    list-style: none;
+    gap: 1rem;
+}
+
+.breadcrumbs-item::before {
+    content: ">";
+    opacity: 0.4;
+}
