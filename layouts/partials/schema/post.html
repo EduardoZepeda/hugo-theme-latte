@@ -48,7 +48,7 @@
             "author" : {{ $authors | jsonify | safeJS }},
             "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},
             "accountablePerson" : {{ or (.Params.accountablePerson) ($authors | jsonify | safeJS) }},
-            "copyrightHolder" : {{ $org_name }},
+            "copyrightHolder" : {{ $authors | jsonify | safeJS }},
             "copyrightYear" : {{ .Date.Format "2006" }},
             "dateCreated": {{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
             "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
