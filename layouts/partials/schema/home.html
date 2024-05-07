@@ -4,32 +4,9 @@
     {
         "@context": "http://schema.org",
         "@graph": [
-              {{ partial "schema/webpage.html" .context | safeJS }},
               {{ partial "schema/website.html" .context | safeJS }},
               {{ partial "schema/organization.html" .context | safeJS }},
-              {{ partial "schema/blog.html" .context | safeJS }}
-              {{/* {{ range $index, $post := .paginator.Pages }}
-                  {{ $authors := slice }}
-                  {{- range $post.Params.authors }}
-                  {{ $data := (dict "@type" "Person") }}
-                  {{- with $.context.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-                  {{ $data = merge $data (dict "url" .Permalink) }}
-                  {{end}}
-                  {{ $data = merge $data (dict "name" .) }}
-                  {{ $authors = $authors | append $data }}
-                  {{end}}
-                  {{ with $post }}
-                  {
-                    "@type": "BlogPosting",
-                    "headline": {{ .Title }},
-                    "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
-                    "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
-                    "author": {{ $authors | jsonify | safeJS }},
-                    "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
-                    "url": {{.Permalink}}
-                  {{ end }}
-                  }{{ if lt (add 1 $index) $noPages }}, {{ end }}
-                  {{ end }} */}}
+              {{ partial "schema/blogWithBlogPost.html" (dict "context" .context "paginator" .paginator ) | safeJS }}
         ]
     }
 </script>
