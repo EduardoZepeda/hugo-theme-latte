@@ -2,20 +2,21 @@
 {
   "@context": "http://schema.org",
   "@graph": [
+    {{ partial "schema/website.html" .context | safeJS }},
     {
-      "@type": "ItemList",
+      "@type": "CollectionPage",
       "name": "Categories",
-      "itemListElement": [
-      {{ $noPages := .Pages | len }}
-      {{ range $index, $post := .Pages }}
+      "isPartOf": {
+        "@id": {{ (printf "%s#website" .context.Site.BaseURL) | jsonify | safeJS }}
+      },
+      "hasPart": [
+      {{ $noPages := .paginator.Pages | len }}
+      {{ range $index, $post := .paginator.Pages }}
         {
-          "@type": "ListItem",
-          "position": {{ add 1 $index }},
-          "item": {
-            "@type": "WebPage",
-            "@id": {{ printf "%s#post" $post.Page.Permalink }},
-            "name": {{ $post.Page.LinkTitle }}
-          }
+          "@type": "ItemPage",
+          "@id": {{ printf "%s#post" $post.Page.Permalink }},
+          "name": {{ $post.Page.LinkTitle }},
+          "url": {{$post.Page.Permalink}}
         }{{ if lt (add 1 $index) $noPages }}, {{ end }}
         {{ end }}
       ]
