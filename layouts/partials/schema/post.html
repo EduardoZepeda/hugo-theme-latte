@@ -15,9 +15,22 @@
 {{ $data := (dict "@type" "Person") }}
 {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
 {{ $data = merge $data (dict "url" .Permalink) }}
+{{ $data = merge $data (dict "@id" (printf "%s#author" .Permalink)) }}
 {{end}}
 {{ $data = merge $data (dict "name" .) }}
 {{ $authors = $authors | append $data }}
+{{end}}
+
+{{ $author := or (.Params.author) (.Site.Author.name) }}
+{{ $org_name := .Site.Title }}
+
+{{ $idAuthors := slice }}
+{{- range .Params.authors }}
+{{ $idData := dict }}
+{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+{{ $idData = merge $idData (dict "@id" (printf "%s#author" .Permalink)) }}
+{{end}}
+{{ $idAuthors = $idAuthors | append $idData }}
 {{end}}
 
 {{ $author := or (.Params.author) (.Site.Author.name) }}
@@ -30,6 +43,11 @@
         {{ partial "schema/website.html" . | safeJS }},
         {{ partial "schema/organization.html" . | safeJS }},
         {{ partial "schema/blog.html" . | safeJS }},
+        {{- range .Params.authors }}
+        {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            {{ (partial "schema/person.html" .) | safeJS }},
+        {{ end }}
+        {{ end }}
         {
             "@type": "BlogPosting",
             "articleSection": {{ .Section }},
@@ -45,10 +63,10 @@
             "isPartOf": {
                 "@id": {{ printf "%s#blog" .Site.BaseURL }}
             },
-            "author" : {{ $authors | jsonify | safeJS }},
-            "creator" : {{ or (.Params.creator) ($authors | jsonify | safeJS) }},
-            "accountablePerson" : {{ or (.Params.accountablePerson) ($authors | jsonify | safeJS) }},
-            "copyrightHolder" : {{ $authors | jsonify | safeJS }},
+            "author" : {{ $idAuthors | jsonify | safeJS }},
+            "creator" : {{ or (.Params.creator) ($idAuthors | jsonify | safeJS) }},
+            "accountablePerson" : {{ or (.Params.accountablePerson) ($idAuthors | jsonify | safeJS) }},
+            "copyrightHolder" : {{ $idAuthors | jsonify | safeJS }},
             "copyrightYear" : {{ .Date.Format "2006" }},
             "dateCreated": {{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
             "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }},
