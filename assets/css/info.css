@@ -1,4 +1,4 @@
-.message {
+.content > .message {
     padding: var(--padding-1x);
     margin: var(--margin-1x) 0;
     font-size: 0.95rem;
@@ -21,6 +21,10 @@
 
 .success {
     background-color: var(--green);
+}
+
+.warning {
+    background-color: var(--orange);
 }
 
 .message > .markdown-link {
