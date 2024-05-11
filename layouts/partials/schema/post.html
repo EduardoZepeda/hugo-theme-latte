@@ -51,7 +51,7 @@
         {
             "@type": "BlogPosting",
             "articleSection": {{ .Section }},
-            "articleBody": {{.Content}},
+            "articleBody": {{.Content | plainify}},
             "name": {{ .Title }},
             "headline": {{ .Title }},
             "alternativeHeadline": {{ .Params.lead }},
