@@ -1,0 +1,26 @@
+
+{{ $pages := .Pages.ByPublishDate.Reverse }}
+
+<!-- RSS feed by category -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Title | humanize }} | {{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ i18n "rssCategoryDesc" (dict "category" .Title "site" .Site.Title) }}</description>
+    <generator>Hugo {{ hugo.Version }}</generator>
+    <language>{{ site.Language.LanguageCode }}</language>{{ with .Site.Copyright }}
+    <copyright>{{ . }}</copyright>{{ end }}{{ if not .Date.IsZero }}
+    <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+    </item>
+    {{- end}}
+  </channel>
+</rss>

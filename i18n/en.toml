@@ -166,3 +166,6 @@ other = "Link to category list"
 
 [affiliateLink]
 other = "Affiliate link"
+
+[rssCategoryDesc]
+other = "Recent content about {{.category}} on {{.site}} RSS feed"
