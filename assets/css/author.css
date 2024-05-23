@@ -3,11 +3,11 @@
     background-color: var(--author-info);
     display: flex;
     justify-content: center;
+    padding: var(--container-margin);
 }
 
 .author-container {
-    max-width: 64ch;
-    padding: 4rem var(--padding-2x);
+    max-width: var(--max-char-width);
 }
 
 .author-picture {

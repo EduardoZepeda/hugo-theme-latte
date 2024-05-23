@@ -1,14 +1,25 @@
 .main {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: var(--padding-2x);
-    margin-bottom: var(--margin-3x);
+    gap: var(--padding-3x);
+    justify-content: center;
+    /* This needs margin x axis to zero in order for author container's background to work  */
 }
 
-.site-info-container{
-    max-width: 64ch;
+.cards-container, .cards-container-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--padding-3x);
+    margin: 0 var(--container-margin);
+    padding-left: 0;
+}
+
+.site-info-container {
+    max-width: var(--max-char-width);
 }
 
 a.markdown-link,
@@ -27,13 +38,15 @@ a.markdown-link:hover {
 .page-content-container {
     display: grid;
     place-content: center;
+    width: 100%;
+    padding: 0 var(--container-margin);
     max-width: var(--max-char-width);
-    margin: var(--padding-1-5rem);
 }
 
 
 .post-container {
     grid-area: post-container;
+    max-width: var(--max-char-width);
 }
 
 .left-panel {
@@ -51,22 +64,26 @@ a.markdown-link:hover {
     padding: var(--padding-1x);
 }
 
-.page-content-container h1, .post h1 {
+.page-content-container h1,
+.post h1 {
     font-size: 3rem;
     line-height: 1.35;
 }
 
-.page-content-container p, .post p {
+.page-content-container p,
+.post p {
     font-size: 1.25rem;
     line-height: 2.0;
 }
 
-.page-content-container h2, .post h2 {
+.page-content-container h2,
+.post h2 {
     font-size: 2.0rem;
     line-height: 1.6;
 }
 
-.page-content-container h3, .post h3 {
+.page-content-container h3,
+.post h3 {
     font-size: 1.7rem;
     line-height: 1.6;
 }
@@ -75,8 +92,7 @@ a.markdown-link:hover {
 .post-preview {
     display: flex;
     flex-direction: row;
-    max-width: 450px;
-    margin: var(--margin-1x);
+    max-width: 475px;
 }
 
 .post-card {
@@ -109,10 +125,10 @@ a.markdown-link:hover {
     padding: var(--padding-1x);
     background-color: var(--background);
     color: var(--secondary-text);
-    padding-bottom:0;
+    padding-bottom: 0;
 }
 
-.post-card-summary{
+.post-card-summary {
     font-size: 0.95rem;
     padding: var(--padding-1x);
     color: var(--secondary-text);
@@ -184,8 +200,7 @@ a.post-category {
 }
 
 .nav-menu-ul {
-    display:flex;
+    display: flex;
     gap: 1rem;
     list-style: none;
 }
-

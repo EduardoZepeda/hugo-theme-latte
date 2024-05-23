@@ -41,7 +41,29 @@
     .post-metadata {
         font-size: 0.95rem;
     }
+    #site-info {
+        margin: 0 1.5rem;
 
+    }
+
+    .page-content-container{
+        padding: 0 1.5rem;
+    }
+
+    .author-info {
+        padding: 5rem 1.5rem;
+    }
+
+    .main {
+        justify-content: flex-start;
+    }
+    #site-info {
+        align-content: flex-start;
+    }
+    .cards-container, .cards-container-title {
+        margin: 0 1.5rem;
+        align-items: flex-end;
+    }
 }
 }
 
@@ -57,6 +79,7 @@
     .post-summary {
         display: none;
     }
+
 }
 
 @media (max-width: 967px) {

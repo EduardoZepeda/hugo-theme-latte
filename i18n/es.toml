@@ -169,3 +169,9 @@ other = "Enlace de afiliado"
 
 [rssCategoryDesc]
 other = "RSS feed del contenido reciente sobre {{.category}} en {{.site}}"
+
+[rssSubscribe]
+other = "Suscríbete por RSS a posts acerca de {{.category}}"
+
+[rssFeedLink]
+other = "Enlace al feed RSS"

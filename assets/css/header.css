@@ -58,8 +58,7 @@ a.nav-link {
 #site-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 0 var(--padding-1-5rem);
+    margin: 0 var(--container-margin);
     margin-bottom: var(--margin-3x);
 }
 

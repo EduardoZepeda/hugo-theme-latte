@@ -21,3 +21,18 @@
 .message-icon {
     fill: #7eff9c;
 }
+
+.rss-icon {
+    fill: #E87D25;
+}
+
+.icon-container {
+    display: flex;
+    gap: var(--padding-1x);
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 4px;
+    color: #E87D25;
+    font-size: 1rem;
+}

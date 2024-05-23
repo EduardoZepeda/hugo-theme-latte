@@ -38,6 +38,7 @@
     --icon-size-sm: 1rem;
     --max-char-width: 64ch;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --container-margin: 8rem;
 }
 
 [data-theme="dark"] {
@@ -75,6 +76,7 @@
     --icon-size-sm: 1rem;
     --max-char-width: 64ch;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --container-margin: 8rem;
 }
 
 @font-face {
