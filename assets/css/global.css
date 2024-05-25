@@ -146,7 +146,7 @@ button {
 h1,
 h2,
 h3 {
-    font-family: "Athiti";
+    font-family: "Athiti", "Courier New", monospace, serif;
 }
 
 h1 {
