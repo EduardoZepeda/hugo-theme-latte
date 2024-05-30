@@ -2,6 +2,7 @@
 <div class="page-content-container">
     <article>
         <h1>{{ .Title }}</h1>
+        {{ partial "seo/index.html" . }}
         <div class="content">{{ .Content }}</div>
     </article>
 </div>

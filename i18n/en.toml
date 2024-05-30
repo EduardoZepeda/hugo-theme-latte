@@ -175,3 +175,33 @@ other = "Subscribe via RSS to {{.category}} posts"
 
 [rssFeedLink]
 other = "RSS feed link"
+
+[wordCount]
+other = "Word count: {{.number}}"
+
+[keyword]
+other = "Keyword count: {{.keyword}}"
+
+[ratioKeyword]
+other = "Keyword density: {{.ratio}} %"
+
+[noKeyword]
+other = "No keyword parameter was defined in the frontmatter, add a keyword property"
+
+[keywordInTitle]
+other = "Keyword present in title: {{.contains}}"
+
+[keywordInLink]
+other = "Keyword present in link: {{.contains}}"
+
+[keywordInSubtitles]
+other = "Keyword ocurrences in subtitles: {{.contains}}"
+
+[seoDataDisclaimer]
+other = "This data won't be shown in a production environment"
+
+[seoDescriptiption]
+other = "SEO description: {{.description}}"
+
+[noSeoDescription]
+other = "No SEO description was specified in the frontmatter, add a description property"

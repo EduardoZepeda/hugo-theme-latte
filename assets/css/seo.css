@@ -1,0 +1,13 @@
+{{ if not (hugo.IsProduction) }}
+.seo-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-size: 0.85rem;
+  margin: 2rem 0;
+  opacity: 0.8;
+}
+.seo-summary-disclaimer {
+  width: 100%;
+}
+{{ end }}

@@ -175,3 +175,33 @@ other = "Suscríbete por RSS a posts acerca de {{.category}}"
 
 [rssFeedLink]
 other = "Enlace al feed RSS"
+
+[wordCount]
+other = "Conteo de palabras: {{.number}}"
+
+[keyword]
+other = "Conteo de keyword: {{.keyword}}"
+
+[ratioKeyword]
+other = "Keyword density: {{.ratio}} %"
+
+[noKeyword]
+other = "No se definió ningún parámetro keyword en el frontmatter YAML"
+
+[keywordInTitle]
+other = "Keyword presente en el título: {{.contains}}"
+
+[keywordInLink]
+other = "Keyword presente en el enlace: {{.contains}}"
+
+[keywordInSubtitles]
+other = "Ocurrencias de la keyword en los subtitulos: {{.contains}}"
+
+[seoDataDisclaimer]
+other = "Esta información no se mostrará en un entorno de producción"
+
+[seoDescriptiption]
+other = "Descripción SEO: {{.description}}"
+
+[noSeoDescription]
+other = "No se especificó ninguna descripción SEO en el frontmatter, añade una propiedad description"

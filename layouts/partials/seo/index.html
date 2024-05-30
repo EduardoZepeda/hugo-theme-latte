@@ -1,0 +1,25 @@
+{{ if not (hugo.IsProduction) }}
+    {{/* It's important to transform keyword to lowercase as well es the content to match correctly the occurrences */}}
+    {{ $keywordCount := float ((lower .Content) | strings.Count .Params.keyword) }}
+    {{ $keyword := lower .Params.keyword }}
+    <aside class="seo-summary">
+        <div class="seo-summary-disclaimer">{{ i18n "seoDataDisclaimer"}}</div>
+        {{ with .Params.description }}
+        <div>{{ i18n "seoDescriptiption" (dict "description" . )}}</div>
+        {{ else }}
+        <div>{{ i18n "noSeoDescription" }}</div>
+        {{ end }}
+        <div>{{ i18n "wordCount" (dict "number" .WordCount)}}</div>
+        {{ with $keyword }}
+            <div>{{ i18n "keyword" (dict "keyword" $keywordCount) }}</div>
+            <div>{{ i18n "ratioKeyword" (dict "ratio" (math.Ceil ( mul 100 (div $keywordCount $.WordCount ) ))) }}</div>
+            <div>{{ i18n "keywordInTitle" (dict "contains" (strings.Contains (lower $.Title) .) ) }}</div>
+            <div>{{ i18n "keywordInLink" (dict "contains" (strings.Contains $.RelPermalink (. | urlize )) ) }}</div>
+            {{ $headings := delimit (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) "" }}
+            {{ $subtitles := replaceRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" "$1" $headings }}
+            <div>{{ i18n "keywordInSubtitles" (dict "contains" ((lower $.Content) | strings.Count . )) }}</div>
+        {{ else }}
+            <div>{{ i18n "noKeyword" }}</div>
+        {{ end }}
+    </aside>
+{{ end }}
