@@ -6,6 +6,7 @@ categories:
 - category
 coverImage: "images/<your-image>"
 description: ''
+keyword: ''
 keywords:
 - ''
 authors:
