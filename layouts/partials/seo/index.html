@@ -1,7 +1,7 @@
 {{ if not (hugo.IsProduction) }}
     {{/* It's important to transform keyword to lowercase as well es the content to match correctly the occurrences */}}
-    {{ $keywordCount := float ((lower .Content) | strings.Count .Params.keyword) }}
     {{ $keyword := lower .Params.keyword }}
+    {{ $keywordCount := float ((lower .Content) | strings.Count $keyword) }}
     <aside class="seo-summary">
         <div class="seo-summary-disclaimer">{{ i18n "seoDataDisclaimer"}}</div>
         {{ with .Params.description }}
@@ -13,7 +13,7 @@
         {{ with $keyword }}
             <div>{{ i18n "keyword" (dict "keyword" $keywordCount) }}</div>
             <div>{{ i18n "ratioKeyword" (dict "ratio" (math.Ceil ( mul 100 (div $keywordCount $.WordCount ) ))) }}</div>
-            <div>{{ i18n "keywordInTitle" (dict "contains" (strings.Contains (lower $.Title) .) ) }}</div>
+            <div>{{ i18n "keywordInTitle" (dict "contains" (strings.Contains ((lower $.Title)) (lower .) ) ) }}</div>
             <div>{{ i18n "keywordInLink" (dict "contains" (strings.Contains $.RelPermalink (. | urlize )) ) }}</div>
             {{ $headings := delimit (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) "" }}
             {{ $subtitles := replaceRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" "$1" $headings }}
