@@ -15,9 +15,10 @@
             <div>{{ i18n "ratioKeyword" (dict "ratio" (math.Ceil ( mul 100 (div $keywordCount $.WordCount ) ))) }}</div>
             <div>{{ i18n "keywordInTitle" (dict "contains" (strings.Contains ((lower $.Title)) (lower .) ) ) }}</div>
             <div>{{ i18n "keywordInLink" (dict "contains" (strings.Contains $.RelPermalink (. | urlize )) ) }}</div>
+            {{ $noHeadings := (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) | len }}
             {{ $headings := delimit (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) "" }}
             {{ $subtitles := replaceRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" "$1" $headings }}
-            <div>{{ i18n "keywordInSubtitles" (dict "contains" ((lower $.Content) | strings.Count . )) }}</div>
+            <div>{{ i18n "keywordInSubtitles" (dict "contains" ((lower $subtitles) | strings.Count . )) }}/{{$noHeadings}}</div>
         {{ else }}
             <div>{{ i18n "noKeyword" }}</div>
         {{ end }}
