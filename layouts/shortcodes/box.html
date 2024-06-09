@@ -1,3 +1,7 @@
 {{ $type := .Get "type" | default "info" }}
 {{ $rel := .Get "rel" | default "nofollow" }}
-<p class="message {{$type}}">{{ if .Get "link" }}<a target="_blank" rel=”nofollow” href="{{.Get "link"}}">{{end}}{{ if .Get "message" }}{{ .Get "message" }}{{ end }}{{ if .Get "link" }}</a>{{ end }}</p>
+<p class="message {{$type}}">
+    {{ if .Get "image" }}<span><img width="60" height="60" src="{{.Get "image"}}" alt=""></span>{{end}}
+    {{ if .Get "link" }}<a target="_blank" rel=”nofollow” href="{{.Get "link"}}">{{ end }}
+    {{ if .Get "message" }}{{ .Get "message" }}{{ end }}{{ if .Get "link" }}</a>{{ end }}
+</p>
