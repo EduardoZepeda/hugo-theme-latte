@@ -1,17 +1,25 @@
 {{/* Loosely based on https://johnmu.com/nofollow-hugo/ which is released under a MIT License */}}
-{{- $link := .Destination }}
+{{- $link := ""}}
 {{- $rel := ""}}
 {{- $target := ""}}
-{{- if strings.HasPrefix $link "http" }}
+{{/* If destination starts with a diagonal, leave it as is, otherwise it maybe an internal link, make it absolute */}}
+{{ if strings.HasPrefix .Destination "/" }}
+    {{- $link = .Destination | safeHTML | absLangURL }}
+{{- else }}
+    {{- $link = .Destination  }}
+{{- end -}}
+{{/* If destination starts with http, populate target and rel attributes */}}
+{{- if hasPrefix .Destination "http" }}
     {{- $target = printf "%s %s"  $target "_blank" }}
     {{- $rel = printf "%s %s" $rel "noopener" }}
 {{- end -}}
-{{- if strings.HasSuffix $link "#?" }} 
+{{/* Add nofollow rel for targets marked with the suffix "#?" */}}
+{{- if hasSuffix $link "#?" }} 
     {{- $rel = printf "%s %s" $rel "nofollow" }}
     {{- $urlparts := split $link "#" -}}
     {{- $link = index $urlparts 0}}
 {{- end -}}
-<a class="markdown-link" href="{{ $link | safeURL | absURL }}"
+<a class="markdown-link" href="{{ $link }}"
     {{- with .Title}} aria-label={{trim . " "}} title="{{ trim . " "}}"{{ end -}}
     {{- with $rel}} rel="{{ trim . " "}}"{{ end -}}
     {{- with $target}} target="{{ trim . " "}}"{{ end -}}

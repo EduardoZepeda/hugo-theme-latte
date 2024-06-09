@@ -1,0 +1,7 @@
+{{ with where .Site.Sites "Language.Lang" "eq" .Site.Language.Lang }}
+  {{ with index . 0 }}
+    {{ with .GetPage ($.Get 0) }}
+      {{ .Title }} 
+    {{ end }}
+  {{ end }}
+{{ end }}
