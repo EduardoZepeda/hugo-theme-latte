@@ -23,22 +23,23 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    margin: var(--spacing-8x) 0;
 }
 
 .author-summary {
-    margin: var(--margin-2x) 0;
+    margin: var(--spacing-4x) 0;
 }
 
 .author-social {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-bottom: var(--margin-2x);
-    gap: var(--margin-1x);
+    margin: var(--spacing-4x) 0;
+    gap: var(--spacing-4x);
 }
 
 .author-read-more {
-    padding: var(--padding-2x) 0;
+    padding: var(--spacing-8x) 0;
     text-decoration: underline;
 }
 

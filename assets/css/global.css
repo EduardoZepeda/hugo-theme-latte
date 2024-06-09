@@ -37,6 +37,11 @@
     --icon-size: 1.5rem;
     --icon-size-sm: 1rem;
     --max-char-width: 64ch;
+    --spacing-1x: 4px;
+    --spacing-2x: 8px;
+    --spacing-3x: 12px;
+    --spacing-4x: 16px;
+    --spacing-8x: 32px;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     --container-margin: 8rem;
 }
@@ -75,6 +80,11 @@
     --icon-size: 1.5rem;
     --icon-size-sm: 1rem;
     --max-char-width: 64ch;
+    --spacing-1x: 4px;
+    --spacing-2x: 8px;
+    --spacing-3x: 12px;
+    --spacing-4x: 16px;
+    --spacing-8x: 32px;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     --container-margin: 8rem;
 }
@@ -152,7 +162,7 @@ h3 {
 h1 {
     font-size: 2.25rem;
     line-height: 3rem;
-    margin: var(--margin-1x) 0;
+    margin: var(--spacing-4x) 0;
 }
 
 h2 {
@@ -170,6 +180,10 @@ h4 {
 
 figcaption {
     font-size: 0.9rem;
+}
+
+h2, h3, h4 {
+    margin: var(--spacing-3x) 0;
 }
 
 table {

@@ -45,7 +45,7 @@ a.nav-link {
 
 .site-name {
     font-size: var(--text-3x);
-    margin-bottom: 25px;
+    margin-bottom: var(--spacing-8x);
     line-height: 1;
 }
 
@@ -64,9 +64,9 @@ a.nav-link {
 }
 
 .social-links {
-    margin: var(--margin-2x) 0;
+    margin: var(--spacing-4x) 0;
     display: flex;
-    gap: var(--margin-1x);
+    gap: var(--spacing-8x);
 }
 
 .search-icon {
