@@ -10,7 +10,7 @@
     --author-info: #f3f7ff;
     --yellow: #f9f871;
     --background: var(--white);
-    --transparent-sidebar: rgba(255,255,255,0.8);
+    --transparent-sidebar: rgba(255,255,255,0.9);
     --i18n-button: var(--white);
     --post-preview-background: #FFFFFFbb;
     --main-text: #3F424A;
@@ -57,7 +57,7 @@
     --green: #1dac85;
     --title: var(--white);
     --background: #07263b;
-    --transparent-sidebar: rgba(0,0,0,0.8);
+    --transparent-sidebar: rgba(7,38,59,0.8);
     --i18n-button: var(--sidebar-transparent);
     --post-preview-background: #181818bb;
     --main-text: var(--white);

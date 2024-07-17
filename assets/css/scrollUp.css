@@ -7,7 +7,7 @@
     padding: var(--padding-1x);
     transform: translateY(0);
     transition: var(--transition);
-    z-index: 3;
+    z-index: 4;
     cursor: pointer;
 }
 

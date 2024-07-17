@@ -5,10 +5,14 @@
 
 #nav {
     display: flex;
-    margin: var(--margin-2x) var(--padding-1-5rem);
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    position: sticky;
+    top: 0;
+    background-color: var(--transparent-sidebar);
+    padding: var(--padding-1x);
+    z-index:2;
+    backdrop-filter: blur(10px);
 }
 
 .nav-menu {
@@ -36,10 +40,10 @@ a.nav-link {
 }
 
 .burger-line {
-    width: 2rem;
+    width: 32px;
     border-radius: var(--border-radius);
     background-color: var(--main-text);
-    height: 3px;
+    height: 2px;
     margin: var(--padding-xs);
 }
 

@@ -6,6 +6,7 @@
     {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
     {{- partial "googleTagManagerNoScript.html" . -}}
     {{ end }}
+    {{- partial "nav.html" . -}}
     {{- partial "header.html" . -}}
     <main id="main">
         <div class="main">

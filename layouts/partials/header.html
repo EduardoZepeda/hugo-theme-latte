@@ -1,12 +1,4 @@
 <header id="header">
-    {{ partial "asideMenu.html" . }}
-    {{ partial "scrollUpButton.html" . }}
-    <nav id="nav" role="navigation" aria-label="{{i18n "mainMenu"}}">
-        {{ partial "burgerIcon.html" }}
-        {{ partial "navMenu.html" . }}
-        <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
-        </div>
-    </nav>
     <div id="site-info">
         {{ if .IsHome }}
         <section aria-label="{{i18n "SiteInfo"}}" class="site-info-container">
