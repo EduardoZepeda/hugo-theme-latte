@@ -71,6 +71,7 @@ a.nav-link {
     margin: var(--spacing-4x) 0;
     display: flex;
     gap: var(--spacing-8x);
+    justify-content: center;
 }
 
 .search-icon {
