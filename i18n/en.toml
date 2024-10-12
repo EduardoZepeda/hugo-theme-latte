@@ -205,3 +205,6 @@ other = "SEO description: {{.description}}"
 
 [noSeoDescription]
 other = "No SEO description was specified in the frontmatter, add a description property"
+
+[sponsored]
+other = "Sponsored"

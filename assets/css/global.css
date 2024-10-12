@@ -157,17 +157,19 @@ button {
 
 h1,
 h2,
-h3 {
+h3,
+.h1,
+.h2 {
     font-family: "Athiti", "Courier New", monospace, serif;
 }
 
-h1 {
+h1, .h1 {
     font-size: 2.25rem;
     line-height: 3rem;
     margin: var(--spacing-4x) 0;
 }
 
-h2 {
+h2, .h2 {
     margin: 0;
     font-size: 1.5rem;
 }
