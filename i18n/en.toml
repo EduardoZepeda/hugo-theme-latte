@@ -208,3 +208,6 @@ other = "No SEO description was specified in the frontmatter, add a description 
 
 [sponsored]
 other = "Sponsored"
+
+[ad]
+other = "Ad"
