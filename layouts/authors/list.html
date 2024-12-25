@@ -15,23 +15,29 @@
       </div>
     </div>
     <div class="author-social">
+
+      {{ with .Params.linkedin }}
+      <a href="https://linkedin.com/in/{{ . }}">{{ partial "icon.html" "linkedin-in" }}</a>
+      {{ end }}
+
       {{ with .Params.twitter }}
       <a href="https://twitter.com/{{ . }}">{{ partial "icon.html" "twitter" }}</a>
       {{ end }}
-      {{ with .Params.codewars }}
-      <a href="https://codewars.com/users/{{ . }}">{{ partial "icon.html" "codewars" }}</a>
+
+      {{ with .Params.threads }}
+      <a href="https://threads.net/{{ . }}">{{ partial "icon.html" "threads" }}</a>
       {{ end }}
 
       {{ with .Params.instagram }}
       <a href="https://instagram.com/{{ . }}">{{ partial "icon.html" "instagram" }}</a>
       {{ end }}
 
-      {{ with .Params.linkedin }}
-      <a href="https://linkedin.com/in/{{ . }}">{{ partial "icon.html" "linkedin-in" }}</a>
-      {{ end }}
-
       {{ with .Params.website }}
       <a href="{{.}}">{{ partial "icon.html" "message" }}</a>
+      {{ end }}
+
+      {{ with .Params.codewars }}
+      <a href="https://codewars.com/users/{{ . }}">{{ partial "icon.html" "codewars" }}</a>
       {{ end }}
 
     </div>
