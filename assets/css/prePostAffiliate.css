@@ -12,12 +12,13 @@
   padding: var(--padding-1x);
   box-sizing: border-box;
   color: var(--text-main);
-  background: var(--background);
-  background-clip: padding-box;
-  border: solid 3px transparent;
+  background-color: transparent;
+  border: solid 3px var(--red);
   border-radius: 1em;
   font-weight: bold;
 }
+
+
 .prePostAffiliateButton:before {
   content: "";
   position: absolute;
@@ -28,9 +29,21 @@
   z-index: -1;
   margin: -3px;
   border-radius: inherit;
-  background: linear-gradient(to right, red, orange);
 }
 
 .prePostAffiliateButton:hover {
     cursor: pointer;
+}
+
+
+/* Shake animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+/* Add the shake animation to the button */
+.shake {
+  animation: shake 0.8s ease;
+  animation-delay: 1.1s;
 }
