@@ -3,5 +3,17 @@
     <!-- mermaid js needs to be initialized before using it init will render all the diagrams -->
     <!-- onload will make sure initialization occurs only after the library has been downloaded -->
     <!-- bind diagram parsing to turbolinks:load event -->
-    <script defer onload="mermaid.initialize({theme: 'neutral'});mermaid.init();document.addEventListener('turbolinks:load', function(){mermaid.initialize({theme: 'forest'});mermaid?.init();});" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"></script>
+    <script defer onload="mermaid.registerIconPacks([
+  {
+    name: 'logos',
+    loader: () =>
+      fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
+  },
+]);mermaid.initialize({theme: 'forest'});mermaid?.init();document.addEventListener('turbolinks:load', function(){mermaid.registerIconPacks([
+  {
+    name: 'logos',
+    loader: () =>
+      fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
+  },
+]);mermaid.initialize({theme: 'forest'});mermaid?.init();});" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js"></script>
 {{ end }}
