@@ -1,4 +1,5 @@
 <div class="author-list">
+    {{ if .Params.author }}
     {{- range .Params.authors }}
     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
     {{ $image := resources.GetRemote .Params.photo }}
@@ -13,6 +14,7 @@
                 href="{{ .Permalink | absLangURL }}">{{ .Params.name }}</a>
         </div>
     </div>
+    {{ end }}
     {{ end }}
     {{ end }}
 </div>

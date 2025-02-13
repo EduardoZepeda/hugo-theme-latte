@@ -3,6 +3,7 @@
     <div class="author-container">
         {{- range . }}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+        {{ if .Params.photo }}
         {{ $image := resources.GetRemote .Params.photo }}
         {{ $image :=$image.Process "resize 120x" }}
         <figure>
@@ -15,6 +16,7 @@
         </a>
         <div class="author-summary">{{ .Params.summary }}</div>
         <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
+        {{ end }}
         {{ end }}
         {{ end }}
     </div>
