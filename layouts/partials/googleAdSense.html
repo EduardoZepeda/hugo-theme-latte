@@ -1,0 +1,4 @@
+{{ if and (.Site.Params.GoogleAdSenseClient) (hugo.IsProduction) }}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{.Site.Params.GoogleAdSenseClient}}"
+     crossorigin="anonymous"></script>
+{{end}}
