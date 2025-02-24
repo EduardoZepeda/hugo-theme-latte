@@ -24,4 +24,5 @@
     {{ end }}
     {{ partial "shared/csp.html" . }}
     {{- partial "googleAdSense.html" . -}}
+    {{ block "head" . }}{{ end }}
 </head>
