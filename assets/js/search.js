@@ -52,7 +52,7 @@ function initializeLunrSearch(event) {
 		const searchTerm = urlParams.get("q");
 
 		if (searchTerm) {
-			const results = idx.search(`${searchTerm}~1`);
+			const results = idx.search(`${searchTerm}~2`);
 			renderSearchResults(results);
 		}
 	}
@@ -74,7 +74,7 @@ function initializeLunrSearch(event) {
 			// get input value
 			const searchTerm = event.target.value;
 			// fuzzy search
-			const results = idx.search(`${searchTerm}~1`);
+			const results = idx.search(`${searchTerm}~2`);
 			// render results
 			renderSearchResults(results);
 		}
