@@ -101,25 +101,31 @@ function addScrolltoTopListener(event) {
 }
 
 function addSubscribeFormListener(event) {
-	const subscribeForm = document.getElementById("subscribe-form-modal");
-	const subscribeFormBody = document.getElementById("subscribe-form-body");
-	const close = document.getElementById("subscribe-form-close-icon");
-	const showFormButton = document.getElementById("show-subscribe-form");
-	const closeButton = document.getElementById("subscribe-close-button");
-	function closeSubscribeForm() {
-		subscribeForm.classList.add("display-none");
-		setCookie("mail_chimp_subscribe_shown", true, 7);
-	}
-	function toggleSubscribeFormBody() {
-		if (subscribeFormBody.classList.contains("display-none")) {
-			subscribeFormBody.classList.remove("display-none");
-		} else {
-			subscribeFormBody.classList.add("display-none");
+	// If there is no subscribeBanner defined in config.toml at root queries will return null so we catch the error
+	try {
+		const subscribeForm = document.getElementById("subscribe-form-modal");
+		const subscribeFormBody = document.getElementById("subscribe-form-body");
+		const close = document.getElementById("subscribe-form-close-icon");
+		const showFormButton = document.getElementById("show-subscribe-form");
+		const closeButton = document.getElementById("subscribe-close-button");
+		function closeSubscribeForm() {
+			subscribeForm.classList.add("display-none");
+			// If user closes banner stop showing the banner for 7 days
+			setCookie("mail_chimp_subscribe_shown", true, 7);
 		}
+		function toggleSubscribeFormBody() {
+			if (subscribeFormBody.classList.contains("display-none")) {
+				subscribeFormBody.classList.remove("display-none");
+			} else {
+				subscribeFormBody.classList.add("display-none");
+			}
+		}
+		closeButton.onclick = closeSubscribeForm;
+		close.onclick = closeSubscribeForm;
+		showFormButton.onclick = toggleSubscribeFormBody;
+	} catch (e) {
+		return null
 	}
-	closeButton.onclick = closeSubscribeForm;
-	close.onclick = closeSubscribeForm;
-	showFormButton.onclick = toggleSubscribeFormBody;
 }
 
 function setSubscribeFormTimeout(event) {
@@ -141,8 +147,29 @@ function updateLangTag(event) {
 	// by default turbolinks doesn't change the html lang attribute
 	// so it must be done manually
 	const meta = document.querySelector("meta[name=language]");
+	const htmlTag = document.querySelector("html");
 	const language = meta.getAttribute("content");
+	htmlTag.setAttribute("lang", language);
 	document.documentElement.setAttribute("lang", language);
+}
+
+function addCopyButtonToCodeBlocks(event) {
+	document.querySelectorAll('pre code').forEach((block) => {
+		const button = document.createElement('button');
+		button.className = 'copy-button';
+		button.textContent = 'Copy';
+		button.addEventListener('click', () => {
+			const range = document.createRange();
+			range.selectNodeContents(block);
+			const selection = window.getSelection();
+			selection.removeAllRanges();
+			selection.addRange(range);
+			document.execCommand('copy');
+			button.textContent = 'Copied!';
+			setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+		});
+		block.parentNode.insertBefore(button, block);
+	});
 }
 
 function loadAllListeners(event) {
@@ -150,11 +177,15 @@ function loadAllListeners(event) {
 	addSwitchThemeListener(event);
 	addSideBarClickListener(event);
 	addScrolltoTopListener(event);
+	addCopyButtonToCodeBlocks(event);
 	addSubscribeFormListener(event);
 	updateLangTag(event);
 	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
 		setSubscribeFormTimeout(event);
 	}
 }
+
+
+
 
 document.addEventListener("turbolinks:load", loadAllListeners);
