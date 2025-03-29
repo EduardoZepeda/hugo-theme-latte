@@ -138,9 +138,13 @@ function setSubscribeFormTimeout(event) {
 
 function sendEventToGA(event) {
 	// Make sure google analytics send data on turbolinks load
-	if (typeof ga === "function") {
-		ga("set", "location", event.data.url);
-		ga("send", "pageview");
+	try {
+		if (typeof ga === "function") {
+			ga("set", "location", event?.data?.url);
+			ga("send", "pageview");
+		}
+	} catch (e) {
+		console.error(e)
 	}
 }
 
