@@ -78,7 +78,7 @@ function setGallery(el) {
     }
 }
 
-document.addEventListener("turbolinks:load", function () {
+["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, function () {
 
     //create lightbox div in the footer
     var newdiv = document.createElement("div");
@@ -140,4 +140,5 @@ document.addEventListener("turbolinks:load", function () {
         });
     });
 
-});
+}))
+

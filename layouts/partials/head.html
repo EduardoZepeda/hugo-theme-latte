@@ -22,7 +22,9 @@
     {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
     {{- partial "googleTagManager.html" . -}}
     {{ end }}
+    {{- partial "ahrefAnalytics.html" . -}}
     {{ partial "shared/csp.html" . }}
     {{- partial "googleAdSense.html" . -}}
     {{ block "head" . }}{{ end }}
+    {{ partial "cdn/libraries.html"}}
 </head>

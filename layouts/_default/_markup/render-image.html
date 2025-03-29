@@ -1,6 +1,6 @@
 {{- $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
 
-<a href="{{ .Destination | safeURL }}" aria-label="{{ .Text }}">
+<a hx-boost="false" href="{{ .Destination | safeURL }}" aria-label="{{ .Text }}">
 {{ if .Title }}
 <figure>
     <img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>

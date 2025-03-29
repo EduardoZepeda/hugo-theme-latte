@@ -2,7 +2,7 @@
 <html data-theme="dark" lang="{{ .Site.Language.Lang }}">
 {{- partial "head.html" . -}}
 
-<body id="hamburger-grid">
+<body id="hamburger-grid" hx-boost="true" hx-ext="head-support">
     {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
     {{- partial "googleTagManagerNoScript.html" . -}}
     {{ end }}

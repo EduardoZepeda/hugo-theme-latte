@@ -3,9 +3,8 @@
 import * as params from "@params";
 import "./lightbox";
 // Turbolinks needs to be imported and its start method be called for it to fire the listening events
-import Turbolinks from "./turbolinks.min";
 
-Turbolinks.start();
+let timeOutForm
 
 function setCookie(name, value, days) {
 	let expires = "";
@@ -129,10 +128,12 @@ function addSubscribeFormListener(event) {
 }
 
 function setSubscribeFormTimeout(event) {
-	setTimeout(() => {
-		const subscribeForm = document.getElementById("subscribe-form-modal");
-		subscribeForm.classList.remove("display-none");
-	}, params.modalcountdown);
+	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
+		return setTimeout(() => {
+			const subscribeForm = document.getElementById("subscribe-form-modal");
+			subscribeForm.classList.remove("display-none");
+		}, params.modalcountdown);
+	}
 }
 
 function sendEventToGA(event) {
@@ -172,6 +173,15 @@ function addCopyButtonToCodeBlocks(event) {
 	});
 }
 
+function showPopup(event) {
+	Swal.fire({
+		title: 'Error!',
+		text: 'Do you want to continue',
+		icon: 'error',
+		confirmButtonText: 'Cool'
+	})
+}
+
 function loadAllListeners(event) {
 	sendEventToGA(event);
 	addSwitchThemeListener(event);
@@ -180,12 +190,10 @@ function loadAllListeners(event) {
 	addCopyButtonToCodeBlocks(event);
 	addSubscribeFormListener(event);
 	updateLangTag(event);
-	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
-		setSubscribeFormTimeout(event);
-	}
+	timeOutForm = setSubscribeFormTimeout(event);
 }
 
 
+["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, loadAllListeners));
 
-
-document.addEventListener("turbolinks:load", loadAllListeners);
+document.addEventListener("htmx:afterRequest", () => clearTimeout(timeOutForm))

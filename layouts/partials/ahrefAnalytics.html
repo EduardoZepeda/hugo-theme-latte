@@ -1,0 +1,3 @@
+{{ if and (.Site.Params.AHREF_DATA_KEY) (hugo.IsProduction) }}
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="{{.Site.Params.AHREF_DATA_KEY}}" async></script>
+{{ end }}

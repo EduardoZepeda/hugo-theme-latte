@@ -17,7 +17,7 @@
     {{ range .Site.Menus.main }}
     <li class="nav-link">
     <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
-        aria-label="{{ .Name }} menu">
+        aria-label="{{ .Name }} menu" {{if hasSuffix (.URL | absLangURL) "xml" }} hx-boost="false" {{end}}>
         {{ $text := print .Name | safeHTML }}
         {{ $text }}
     </a>

@@ -142,4 +142,4 @@ function initializeLunrSearch(event) {
 	}
 }
 
-document.addEventListener("turbolinks:load", initializeLunrSearch);
+["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, initializeLunrSearch))
