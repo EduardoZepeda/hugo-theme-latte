@@ -1,10 +1,14 @@
 // Import Hugo params:
 // - modalcountdown
+// - followtitle
+// - followdescription
+// - followbutton
 import * as params from "@params";
 import "./lightbox";
 // Turbolinks needs to be imported and its start method be called for it to fire the listening events
 
-let timeOutForm
+let timeOutForm, connectRequestTimeOut
+const latteTheme = "latte-theme"
 
 function setCookie(name, value, days) {
 	let expires = "";
@@ -28,17 +32,17 @@ function getCookie(name) {
 
 function switchTheme(currentTheme) {
 	nextThemeState = currentTheme === "dark" ? "light" : "dark";
-	localStorage.setItem("coffee-byes-theme", nextThemeState);
+	localStorage.setItem(latteTheme, nextThemeState);
 	document.documentElement.setAttribute("data-theme", nextThemeState);
 }
 
 function getOrSetCurrentTheme() {
-	if (!localStorage.getItem("coffee-byes-theme")) {
-		localStorage.setItem("coffee-byes-theme", "dark");
+	if (!localStorage.getItem(latteTheme)) {
+		localStorage.setItem(latteTheme, "dark");
 		// default value for theme is dark
 		return "dark";
 	}
-	return localStorage.getItem("coffee-byes-theme");
+	return localStorage.getItem(latteTheme);
 }
 
 function addSwitchThemeListener(event) {
@@ -49,7 +53,7 @@ function addSwitchThemeListener(event) {
 	inputSwitch.checked = "dark" === currentTheme;
 	themeSwitcher.onclick = () => {
 		switchTheme(getOrSetCurrentTheme());
-		inputSwitch.checked = "light" === localStorage.getItem("coffee-byes-theme");
+		inputSwitch.checked = "light" === localStorage.getItem(latteTheme);
 	};
 }
 
@@ -131,7 +135,7 @@ function setSubscribeFormTimeout(event) {
 	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
 		return setTimeout(() => {
 			const subscribeForm = document.getElementById("subscribe-form-modal");
-			subscribeForm.classList.remove("display-none");
+			subscribeForm?.classList.remove("display-none");
 		}, params.modalcountdown);
 	}
 }
@@ -166,7 +170,7 @@ function addCopyButtonToCodeBlocks(event) {
 		button.addEventListener('click', () => {
 			const range = document.createRange();
 			range.selectNodeContents(block);
-			const selection = window.getSelection();
+			const selection = window?.getSelection();
 			selection.removeAllRanges();
 			selection.addRange(range);
 			document.execCommand('copy');
@@ -177,17 +181,24 @@ function addCopyButtonToCodeBlocks(event) {
 	});
 }
 
-function showPopup(event) {
-	Swal.fire({
-		title: 'Error!',
-		text: 'Do you want to continue',
-		icon: 'error',
-		confirmButtonText: 'Cool'
-	})
+function connectRequest(event) {
+	if (params?.followTitle && params?.followDescription && !getCookie("connect_request_shown") && params?.followRequestDelay > 0) {
+		return setTimeout(() => {
+			setCookie("connect_request_shown", true, 7)
+			Swal.fire({
+				title: params?.followTitle,
+				html: params?.followDescription,
+				icon: 'question',
+				showCloseButton: true,
+				showConfirmButton: false,
+			})
+		}, params?.followRequestDelay * 1000)
+	}
 }
 
 function loadAllListeners(event) {
 	sendEventToGA(event);
+	connectRequestTimeOut = connectRequest(event);
 	addSwitchThemeListener(event);
 	addSideBarClickListener(event);
 	addScrolltoTopListener(event);
@@ -198,6 +209,7 @@ function loadAllListeners(event) {
 }
 
 
-["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, loadAllListeners));
+["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => document.addEventListener(event, loadAllListeners));
 
-document.addEventListener("htmx:afterRequest", () => clearTimeout(timeOutForm))
+document.addEventListener("htmx:afterRequest", () => { clearTimeout(timeOutForm); clearTimeout(connectRequestTimeOut) })
+

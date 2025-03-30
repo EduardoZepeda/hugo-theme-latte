@@ -1,4 +1,9 @@
-<!-- Concat mainjs and turbolinks third-party js file, all in a bundle.js file, minify and fingerprint it -->
+<!-- Concat mainjs and others in a bundle.js file, minify and fingerprint it -->
 {{ $modalcountdown := default 0 .Site.Params.latte.modalcountdown }}
-{{- $bundleJs := resources.Get "js/main.js" | js.Build (dict "minify" true "params" (dict "modalcountdown" (mul $modalcountdown 1000) )) | fingerprint }}
+{{ $followTitle := default false .Site.Params.latte.followTitle }}
+{{ $followDescription := default false .Site.Params.latte.followDescription }}
+{{ $followRequestDelay := default 0 .Site.Params.latte.followRequestDelay }}
+
+{{- $bundleJs := resources.Get "js/main.js" | js.Build (dict "minify" true "params" (dict "modalcountdown" (mul $modalcountdown 1000)  "followTitle" $followTitle "followDescription" $followDescription "followRequestDelay" $followRequestDelay )) | fingerprint }}
 <script defer src="{{ $bundleJs.RelPermalink }}"></script>
+

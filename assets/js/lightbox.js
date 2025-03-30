@@ -78,7 +78,7 @@ function setGallery(el) {
     }
 }
 
-["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, function () {
+["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => document.addEventListener(event, function () {
 
     //create lightbox div in the footer
     var newdiv = document.createElement("div");

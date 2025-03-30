@@ -142,4 +142,4 @@ function initializeLunrSearch(event) {
 	}
 }
 
-["DOMContentLoaded", "htmx:afterSettle"].forEach(event => document.addEventListener(event, initializeLunrSearch))
+["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => document.addEventListener(event, initializeLunrSearch))
