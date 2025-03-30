@@ -191,6 +191,8 @@ function connectRequest(event) {
 				icon: 'question',
 				showCloseButton: true,
 				showConfirmButton: false,
+				background: window?.getComputedStyle(document.body).getPropertyValue('--background'),
+				color: window?.getComputedStyle(document.body).getPropertyValue('--main-text'),
 			})
 		}, params?.followRequestDelay * 1000)
 	}
