@@ -4,8 +4,7 @@
 // - followdescription
 // - followbutton
 import * as params from "@params";
-import "./lightbox";
-// Turbolinks needs to be imported and its start method be called for it to fire the listening events
+import './lightbox'
 
 let timeOutForm, connectRequestTimeOut
 const latteTheme = "latte-theme"
@@ -141,7 +140,6 @@ function setSubscribeFormTimeout(event) {
 }
 
 function sendEventToGA(event) {
-	// Make sure google analytics send data on turbolinks load
 	try {
 		if (typeof ga === "function") {
 			ga("set", "location", event?.data?.url);
@@ -153,8 +151,6 @@ function sendEventToGA(event) {
 }
 
 function updateLangTag(event) {
-	// by default turbolinks doesn't change the html lang attribute
-	// so it must be done manually
 	const meta = document.querySelector("meta[name=language]");
 	const htmlTag = document.querySelector("html");
 	const language = meta.getAttribute("content");
@@ -182,7 +178,7 @@ function addCopyButtonToCodeBlocks(event) {
 }
 
 function connectRequest(event) {
-	if (params?.followTitle && params?.followDescription && !getCookie("connect_request_shown") && params?.followRequestDelay > 0) {
+	if (params?.followTitle && params?.followDescription && !getCookie("connect_request_shown") && params?.followRequestDelay > 0 && !timeOutForm) {
 		return setTimeout(() => {
 			setCookie("connect_request_shown", true, 7)
 			Swal.fire({
@@ -200,18 +196,23 @@ function connectRequest(event) {
 
 function loadAllListeners(event) {
 	sendEventToGA(event);
-	connectRequestTimeOut = connectRequest(event);
 	addSwitchThemeListener(event);
 	addSideBarClickListener(event);
 	addScrolltoTopListener(event);
 	addCopyButtonToCodeBlocks(event);
 	addSubscribeFormListener(event);
 	updateLangTag(event);
+	connectRequestTimeOut = connectRequest(event);
 	timeOutForm = setSubscribeFormTimeout(event);
 }
 
+function clearTimers(events) {
+	clearTimeout(timeOutForm);
+	clearTimeout(connectRequestTimeOut);
+}
 
-["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => document.addEventListener(event, loadAllListeners));
-
-document.addEventListener("htmx:afterRequest", () => { clearTimeout(timeOutForm); clearTimeout(connectRequestTimeOut) })
-
+// Each time one of these events occur you can restart the timeout for popups and reload the listeners
+// if not loaded theme switch won't work on ajax requests, include changing pages
+["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => {
+	loadAllListeners(); document.addEventListener(event, clearTimers); document.addEventListener(event, loadAllListeners)
+});

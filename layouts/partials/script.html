@@ -3,7 +3,33 @@
 {{ $followTitle := default false .Site.Params.latte.followTitle }}
 {{ $followDescription := default false .Site.Params.latte.followDescription }}
 {{ $followRequestDelay := default 0 .Site.Params.latte.followRequestDelay }}
+  
+{{ $opts := dict
+  "lang" .Lang
+  "minify" hugo.IsProduction
+  "sourceMap" (cond hugo.IsProduction "" "external")
+  "targetPath" "js/bundle.js"
+  "params" (dict "modalcountdown" (mul $modalcountdown 1000)  "followTitle" $followTitle "followDescription" $followDescription "followRequestDelay" $followRequestDelay)
+}}
 
-{{- $bundleJs := resources.Get "js/main.js" | js.Build (dict "minify" true "params" (dict "modalcountdown" (mul $modalcountdown 1000)  "followTitle" $followTitle "followDescription" $followDescription "followRequestDelay" $followRequestDelay )) | fingerprint }}
-<script defer src="{{ $bundleJs.RelPermalink }}"></script>
+{{ $htmx := resources.GetRemote "https://unpkg.com/htmx.org@2.0.4" }}
+{{ $htmxHead := resources.GetRemote "https://unpkg.com/htmx-ext-head-support@2.0.2" }}
+{{ $lunr := resources.GetRemote "https://unpkg.com/lunr/lunr.js" }}
+{{ $sweetAlert := resources.GetRemote "https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js" }}
+{{ $main := resources.Get "js/main.js" }}
 
+{{ $localJS := $main | js.Build $opts }}
+
+{{ $finalJS := slice $htmx $htmxHead $lunr $sweetAlert $localJS | resources.Concat (printf "js/bundle.%s.js" .Lang) }}
+
+{{ with $finalJS }}
+  {{ if hugo.IsProduction }}
+    {{ with . | minify | fingerprint }}
+      <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+  {{ else }}
+    <script defer src="{{ .RelPermalink }}"></script>
+  {{ end }}
+{{ end }}
+
+<link async href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">

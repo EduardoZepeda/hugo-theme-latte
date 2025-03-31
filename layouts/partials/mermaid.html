@@ -9,7 +9,7 @@
     loader: () =>
       fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
   },
-]);mermaid.initialize({theme: 'forest'});mermaid?.init();document.addEventListener('turbolinks:load', function(){mermaid.registerIconPacks([
+]);mermaid.initialize({theme: 'forest'});mermaid?.init();document.addEventListener('htmx:historyRestore', function(){mermaid.registerIconPacks([
   {
     name: 'logos',
     loader: () =>
