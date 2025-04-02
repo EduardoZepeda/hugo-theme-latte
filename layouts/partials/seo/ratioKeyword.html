@@ -1,0 +1,9 @@
+<div class="ratio-keyword">
+    {{ if ge . 2 }}
+    <span class="pre-circle text-red">{{ i18n "ratioKeyword" (dict "ratio" .) }}</span>
+    {{ else if ge . 1 }}
+    <span class="pre-circle text-green">{{ i18n "ratioKeyword" (dict "ratio" .) }}</span>
+    {{ else  }}
+    <span class="pre-circle text-orange">{{ i18n "ratioKeyword" (dict "ratio" .) }}</span>
+    {{ end }}
+</div>

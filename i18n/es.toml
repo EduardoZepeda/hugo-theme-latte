@@ -211,3 +211,30 @@ other = "Patrocinado"
 
 [ad]
 other = "Patrocinado"
+
+[ReadibilityScore]
+other = "Score de Flesh Kincaid:"
+
+["VeryEasyToRead"]
+other = "Muy sencillo de leer"
+
+["EasyToRead"]
+other = "Fácil de leer"
+
+["FairlyEasyToRead"]
+other = "Relativamente fácil de leer"
+
+["StandardPlainEnglish"]
+other = "Dificultad de lectura estándar"
+
+["FairlyDifficultToRead"]
+other = "Relativamente difícil de leer"
+
+["DifficultToRead"]
+other = "Difícil de leer"
+
+["VeryDifficultToRead"]
+other = "Muy difícil de leer"
+
+["keywordTitle"]
+other = "Keyword: {{.keyword}}"

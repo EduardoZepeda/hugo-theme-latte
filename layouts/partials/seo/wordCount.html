@@ -1,0 +1,13 @@
+<div class="word-count">
+    {{ if le . 500 }}
+    <span class="pre-circle text-red">{{ i18n "wordCount" (dict "number" .)}}</span>
+    {{ else if le . 1000 }}
+    <span class="pre-circle text-orange">{{ i18n "wordCount" (dict "number" .)}}</span>
+    {{ else if le . 1500 }}
+    <span class="pre-circle text-blue">{{ i18n "wordCount" (dict "number" .)}}</span>
+    {{ else if le . 2000 }}
+    <span class="pre-circle text-green">{{ i18n "wordCount" (dict "number" .)}}</span>
+    {{ else }}
+    <span class="pre-circle text-green">{{ i18n "wordCount" (dict "number" .)}}</span>
+    {{ end }}
+</div>

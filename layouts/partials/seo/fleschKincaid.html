@@ -1,0 +1,82 @@
+<!-- Create a partial template called flesch-kincaid.html -->
+  {{ $content := .Content | plainify }}
+  
+  <!-- Count sentences -->
+  {{ $sentences := split (replaceRE `\.{2,}` "." (replaceRE `[!?]` "." $content)) "." }}
+  {{ $sentenceCount := sub (len $sentences) 1 }} <!-- Subtract 1 because split creates an empty item at the end -->
+  {{ if lt $sentenceCount 1 }}{{ $sentenceCount = 1 }}{{ end }}
+  
+  <!-- Count words -->
+  {{ $words := split (replaceRE `[\s\n\r\t]+` " " $content) " " }}
+  {{ $wordCount := len $words }}
+  {{ if lt $wordCount 1 }}{{ $wordCount = 1 }}{{ end }}
+  
+  <!-- Count syllables -->
+  {{ $syllableCount := 0 }}
+  {{ range $words }}
+    {{ $word := lower . }}
+    {{ $word = replaceRE `[^a-z]` "" $word }}
+    {{ if eq $word "" }}
+      {{ continue }}
+    {{ end }}
+    
+    <!-- Count syllables using vowel patterns -->
+    {{ $wordSyllables := 0 }}
+    
+    <!-- Count vowel groups -->
+    {{ $vowelGroups := findRE "[aeiouy]+" $word }}
+    {{ $wordSyllables = len $vowelGroups }}
+    
+    <!-- Adjust for common patterns -->
+    <!-- Silent 'e' at the end -->
+    {{ if and (gt (len $word) 2) (eq (substr $word (sub (len $word) 1) 1) "e") }}
+      {{ $wordSyllables = sub $wordSyllables 1 }}
+    {{ end }}
+    
+    <!-- Handle edge cases -->
+    <!-- Words ending with 'le' where 'l' is preceded by a consonant -->
+    {{ if and (gt (len $word) 3) (eq (substr $word (sub (len $word) 2) 2) "le") (not (in "aeiouy" (substr $word (sub (len $word) 3) 1))) }}
+      {{ $wordSyllables = add $wordSyllables 1 }}
+    {{ end }}
+    
+    <!-- Ensure at least one syllable per word -->
+    {{ if lt $wordSyllables 1 }}
+      {{ $wordSyllables = 1 }}
+    {{ end }}
+    
+    {{ $syllableCount = add $syllableCount $wordSyllables }}
+  {{ end }}
+  
+  <!-- Calculate Flesch-Kincaid Reading Ease score -->
+  {{ $avgWordsPerSentence := div (float $wordCount) (float $sentenceCount) }}
+  {{ $avgSyllablesPerWord := div (float $syllableCount) (float $wordCount) }}
+  
+  {{ $fleschScore := sub 206.835 (add (mul 1.015 $avgWordsPerSentence) (mul 84.6 $avgSyllablesPerWord)) }}
+  
+  <!-- Normalize score to 0-100 range -->
+  {{ if lt $fleschScore 0 }}
+    {{ $fleschScore = 0 }}
+  {{ else if gt $fleschScore 100 }}
+    {{ $fleschScore = 100 }}
+  {{ end }}
+
+   <!-- Output formatted score -->
+   <div class="readability-score">
+    <span class="score-description">
+      {{ if ge $fleschScore 90 }}
+        <span class="pre-circle text-green">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "VeryEasyToRead"}}</span>
+      {{ else if ge $fleschScore 80 }}
+        <span class="pre-circle text-green">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "EasyToRead"}}</span>
+      {{ else if ge $fleschScore 70 }}
+        <span class="pre-circle text-blue">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "FairlyEasyToRead"}}</span>
+      {{ else if ge $fleschScore 60 }}
+        <span class="pre-circle text-orange">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "StandardPlainEnglish"}}</span>
+      {{ else if ge $fleschScore 50 }}
+        <span class="pre-circle text-orange">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "FairlyDifficultToRead"}}</span>
+      {{ else if ge $fleschScore 30 }}
+        <span class="pre-circle text-red">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "DifficultToRead"}}</span>
+      {{ else }}
+        <span class="pre-circle text-red">{{ i18n "ReadibilityScore"}} {{ math.Round $fleschScore }} {{i18n "VeryDifficultToRead"}}</span>
+      {{ end }}
+    </span>
+  </div>

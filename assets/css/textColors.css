@@ -1,0 +1,29 @@
+.pre-circle::before {
+    border-radius: 100%;
+    content: '';
+    margin: 0 4px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.text-red::before {
+    background-color: var(--red);
+}
+
+.text-yellow::before {
+    background-color: var(--yellow);
+}
+
+.text-blue::before {
+    background-color: var(--blue);
+}
+
+.text-green::before {
+    background-color: var(--green);
+}
+
+.text-orange::before {
+    background-color: var(--orange);
+}
+

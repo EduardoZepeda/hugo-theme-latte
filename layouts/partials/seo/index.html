@@ -3,24 +3,31 @@
     {{ $keyword := lower .Params.keyword }}
     {{ $keywordCount := float ((lower .Content) | strings.Count $keyword) }}
     <aside class="seo-summary">
-        <div class="seo-summary-disclaimer">{{ i18n "seoDataDisclaimer"}}</div>
-        {{ with .Params.description }}
-        <div>{{ i18n "seoDescriptiption" (dict "description" . )}}</div>
-        {{ else }}
-        <div>{{ i18n "noSeoDescription" }}</div>
-        {{ end }}
-        <div>{{ i18n "wordCount" (dict "number" .WordCount)}}</div>
         {{ with $keyword }}
-            <div>{{ i18n "keyword" (dict "keyword" $keywordCount) }}</div>
-            <div>{{ i18n "ratioKeyword" (dict "ratio" (math.Ceil ( mul 100 (div $keywordCount $.WordCount ) ))) }}</div>
-            <div>{{ i18n "keywordInTitle" (dict "contains" (strings.Contains ((lower $.Title)) (lower .) ) ) }}</div>
-            <div>{{ i18n "keywordInLink" (dict "contains" (strings.Contains $.RelPermalink (. | urlize )) ) }}</div>
+            <h2>{{i18n "keywordTitle" (dict "keyword" . )}}</h2>
+        {{ end }}
+        <div class="seo-summary-disclaimer pre-circle text-blue"><strong>{{ i18n "seoDataDisclaimer"}}</strong></div>
+        {{ with .Params.description }}
+        <div class="pre-circle text-green">{{ i18n "seoDescriptiption" (dict "description" . )}}</div>
+        {{ else }}
+        <div class="pre-circle text-red">{{ i18n "noSeoDescription" }}</div>
+        {{ end }}
+        {{- partial "seo/fleschKincaid.html" . -}}
+        {{- partial "seo/wordCount.html" .WordCount -}}
+        {{ with $keyword }}
+            <div><span class="pre-circle text-green">{{ i18n "keyword" (dict "keyword" $keywordCount) }}</span></div>
+            {{- partial "seo/ratioKeyword.html" (math.Ceil ( mul 100 (div $keywordCount $.WordCount ))) -}}
+            {{ $keywordInTitle := strings.Contains ((lower $.Title)) (lower . ) }}
+            <div><span class="{{if $keywordInTitle}}pre-circle text-green{{else}}pre-circle text-red{{end}}">{{ i18n "keywordInTitle" (dict "contains" $keywordInTitle ) }}</span></div>
+            {{ $keywordInLink := (strings.Contains $.RelPermalink (. | urlize ))}}
+            <div><span class="{{if $keywordInLink}}pre-circle text-green{{else}}pre-circle text-red{{end}}">{{ i18n "keywordInLink" (dict "contains" $keywordInLink ) }}</span></div>
             {{ $noHeadings := (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) | len }}
             {{ $headings := delimit (findRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" $.Content) "" }}
             {{ $subtitles := replaceRE "(?i)<h[2-6](?:[^>]+)?>(.+?)</h[2-6]>" "$1" $headings }}
-            <div>{{ i18n "keywordInSubtitles" (dict "contains" ((lower $subtitles) | strings.Count . )) }}/{{$noHeadings}}</div>
+            {{ $keywordInSubtitles := ((lower $subtitles) | strings.Count . ) }}
+            <div><span class="{{ if ge $keywordInSubtitles 4}}pre-circle text-red{{else if le $keywordInSubtitles 1 }}pre-circle text-orange{{else}}pre-circle text-green{{end}}">{{ i18n "keywordInSubtitles" (dict "contains" $keywordInSubtitles) }}/{{$noHeadings}}</span></div>
         {{ else }}
-            <div>{{ i18n "noKeyword" }}</div>
+            <div><span class="pre-circle text-red">{{ i18n "noKeyword" }}</span></div>
         {{ end }}
     </aside>
 {{ end }}
