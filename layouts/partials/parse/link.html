@@ -1,0 +1,13 @@
+{{/* 
+  detectLinks: Finds URLs in text and converts them to HTML links
+  Parameters:
+    - text: the input string containing potential URLs
+  Returns: string with URLs wrapped in <a> tags
+*/}}
+{{- $regex := `(https?://[^\s]+|www\.[^\s]+\.[^\s]+)` -}}
+{{- $replace := `<a href="$1" target="_blank" rel="noopener nofollow">$1</a>` -}}
+
+{{- $text := . | safeHTML -}}
+{{- $text := replaceRE $regex $replace $text -}}
+{{- $text := replaceRE `href="www\.` `href="https://www.` $text -}}
+{{- return $text -}}

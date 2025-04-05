@@ -8,6 +8,10 @@
             {{ partial "responsiveImage.html" $image }}
         </a>
     </div>
+    {{ if .Params.coverImageCredits}}
+    {{ $linkedContent := partial "parse/link" .Params.coverImageCredits }}
+        <span class="credits-text">{{ $linkedContent | safeHTML }}</span>
+    {{ end }}
     {{ end }}
     <section class="post-card-metadata">
         {{ partial "authors.html" . }}
