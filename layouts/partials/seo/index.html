@@ -13,8 +13,8 @@
         <div class="pre-circle text-red">{{ i18n "noSeoDescription" }}</div>
         {{ end }}
         {{- partial "seo/fleschKincaid.html" . -}}
-        {{- partial "seo/titleLength.html" (.Title|len) -}}
-        {{- partial "seo/descriptionLength.html" (.Params.description|len) -}}
+        {{ with .Title }}{{- partial "seo/titleLength.html" (.|len) -}}{{end}}
+        {{ with .Params.description }}{{- partial "seo/descriptionLength.html" (.|len) -}}{{end}}
         {{- partial "seo/wordCount.html" .WordCount -}}
         {{ with $keyword }}
             <div><span class="pre-circle text-green">{{ i18n "keyword" (dict "keyword" $keywordCount) }}</span></div>
