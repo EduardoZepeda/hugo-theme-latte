@@ -1,0 +1,13 @@
+<div class="title-length">
+    {{ if le . 0 }}
+    <span class="pre-circle text-red">{{ i18n "descriptionLength" (dict "number" .)}}</span>
+    {{ else if le . 30 }}
+    <span class="pre-circle text-orange">{{ i18n "descriptionLength" (dict "number" .)}}</span>
+    {{ else if le . 150 }}
+    <span class="pre-circle text-orange">{{ i18n "descriptionLength" (dict "number" .)}}</span>
+    {{ else if le . 160 }}
+    <span class="pre-circle text-green">{{ i18n "descriptionLength" (dict "number" .)}}</span>
+    {{ else }}
+    <span class="pre-circle text-red">{{ i18n "descriptionLength" (dict "number" .)}}</span>
+    {{ end }}
+</div>

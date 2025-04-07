@@ -238,3 +238,9 @@ other = "Very difficult to read"
 
 ["keywordTitle"]
 other = "Keyword: {{.keyword}}"
+
+["titleLength"]
+other = "Title length: {{.number}}"
+
+["descriptionLength"]
+other = "Description length: {{.number}}"
