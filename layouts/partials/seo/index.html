@@ -12,6 +12,13 @@
         {{ else }}
         <div class="pre-circle text-red">{{ i18n "noSeoDescription" }}</div>
         {{ end }}
+        {{ if $keyword }}
+        {{- partial "seo/keywordDistribution.html" (dict 
+            "text" .Page.Content 
+            "keywords" (slice $keyword)
+            "sections" 5 
+        )}}{{end}}
+        {{- partial "seo/paragraphLength.html" .Content -}}
         {{- partial "seo/fleschKincaid.html" . -}}
         {{ with .Title }}{{- partial "seo/titleLength.html" (.|len) -}}{{end}}
         {{ with .Params.description }}{{- partial "seo/descriptionLength.html" (.|len) -}}{{end}}

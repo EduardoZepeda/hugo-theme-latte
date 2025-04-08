@@ -1,0 +1,40 @@
+{{/* Remove code blocks */}}
+{{ $withoutCode := replaceRE `(?s)<pre.*?>.*?<\/pre>` "" . }}
+{{ $withoutCode = replaceRE `(?s)<code.*?>.*?<\/code>` "" $withoutCode }}
+
+{{/* Remove diagrams */}}
+{{ $withoutCode = replaceRE `(?s)<div\sclass="mermaid".*?>.*?<\/div>` "" $withoutCode }}
+
+{{/* Remove images */}}
+{{ $withoutCode = replaceRE `(?s)<figure.*?>.*?<\/figure>` "" $withoutCode }}
+
+{{/* Remove ads */}}
+{{ $withoutCode = replaceRE `(?s)<aside.*?>.*?<\/aside>` "" $withoutCode }}
+
+{{/* Remove tables */}}
+{{ $cleanContent := replaceRE `(?s)<table.*?>.*?<\/table>` "" $withoutCode }}
+
+
+{{ $content :=  $cleanContent | plainify }}
+{{ $paragraphs := split $content "\n" }}
+
+{{ $hasLongParagraphs := false }}
+{{ $counter := 0 }}
+{{ $culprit := "" }}
+{{ range $paragraph := $paragraphs }}
+  {{ $wordCount := len (split $paragraph " ") }}
+  {{ if gt $wordCount 100 }}
+    {{ $counter = math.Sum $counter 1 }}
+    {{ $hasLongParagraphs = true }}
+    {{ $culprit = $paragraph | truncate 50 }}
+  {{ end }}
+{{ end }}
+
+  
+  {{ if $hasLongParagraphs }}
+    <span class="pre-circle text-red">
+      {{ i18n "longParagraphs" (dict "counter" $counter "paragraph" $culprit) }}
+    </span>
+  {{ else }}
+    <span class="pre-circle text-green">{{ i18n "goodLengthParagraph" }}</span>
+  {{ end }}

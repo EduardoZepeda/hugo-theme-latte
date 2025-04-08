@@ -240,7 +240,22 @@ other = "Muy difícil de leer"
 other = "Keyword: {{.keyword}}"
 
 ["titleLength"]
-other = "Longitud del título: {{.number}}"
+other = "Longitud del título: {{.number}} (Longitud ideal entre 50 y 60)"
 
 ["descriptionLength"]
 other = "Longitud de la descripción: {{.number}}"
+
+["keywordDistBad"]
+other = "Calificación de distribución de Keyword: {{.score}}%. Considera distribuir mejor las keywords a través del contenido"
+
+["keywordDistMedium"]
+other = "Calificación de distribución de Keyword: {{.score}}%. Añade las keywords a las secciones donde faltan"
+
+["keywordDistGood"]
+other = "Calificación de distribución de Keyword: {{.score}}%. Excelente distribución de keywords"
+
+["longParagraphs"]
+other = "Este contenido posee {{.counter}} párrafos largos (100+ palabras). Considera dividirlos para una mejor legibilidad. El párrafo es: {{ .paragraph  }}"
+
+["goodLengthParagraph"]
+other = "La longitud de los párrafos es buena para la legibilidad"

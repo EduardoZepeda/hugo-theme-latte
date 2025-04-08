@@ -1,0 +1,58 @@
+
+{{- $keywordDistribution := dict 
+    "score" 0
+    "sections_with_keyword" 0
+    "total_sections" 0
+    "recommendations" (slice)
+-}}
+
+    {{- $text := .text | lower | plainify -}}
+    {{- $keywords := .keywords -}}
+    {{- $sectionCount := default 4 .sections -}}
+    
+    {{/* Split text into roughly equal sections */}}
+    {{- $textLength := len $text -}}
+    {{- $sectionLength := div $textLength $sectionCount -}}
+    {{- $sections := slice -}}
+    
+    {{- range $i := seq $sectionCount -}}
+        {{- $start := sub (mul $i $sectionLength) $sectionLength -}}
+        {{- $end := mul $i $sectionLength -}}
+        {{- $section := slice $text $start $end -}}
+        {{- $sections = $sections | append $section -}}
+    {{- end -}}
+    
+    {{/* Check each section for keywords */}}
+    {{- $sectionsWithKeyword := 0 -}}
+    {{- range $section := $sections -}}
+        {{- $hasKeyword := false -}}
+        {{- range $keyword := $keywords -}}
+            {{- if strings.Contains $section ($keyword | lower) -}}
+                {{- $hasKeyword = true -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if $hasKeyword -}}
+            {{- $sectionsWithKeyword = add $sectionsWithKeyword 1 -}}
+        {{- end -}}
+    {{- end -}}
+    
+    {{/* Calculate score (0-100) */}}
+    {{- $score := math.Round (mul (div (float $sectionsWithKeyword) (float $sectionCount)) 100) -}}
+    
+    {{/* Return results */}}
+    {{- $result := dict 
+        "score" $score
+        "sections_with_keyword" $sectionsWithKeyword
+        "total_sections" $sectionCount
+    -}}
+    <div>
+        {{- if lt $score 75 -}}
+        <span class="pre-circle text-red">{{ i18n "keywordDistBad" (dict "score" $result.score "sectionsWithKeyword" $result.sections_with_keyword "totalSections" $result.total_sections) }}</span>
+        {{- else if lt $score 50 -}}
+        <span class="pre-circle text-orange">{{ i18n "keywordDistMedium" (dict "score" $result.score "sectionsWithKeyword" $result.sections_with_keyword "totalSections" $result.total_sections) }}</span>
+        {{- else -}}
+        <span class="pre-circle text-green">{{ i18n "keywordDistGood" (dict "score" $result.score "sectionsWithKeyword" $result.sections_with_keyword "totalSections" $result.total_sections) }}</span>
+        {{- end -}}
+    </div>
+
+
