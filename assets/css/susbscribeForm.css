@@ -54,8 +54,8 @@
     font-size: var(--small-text);
     position: sticky;
     bottom: 0;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(230,115,1,0.88) 21.4%, rgba(255,78,78,0.88) 80.3% );
-    z-index: 9;
+    background: #2A7B9B;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);    z-index: 9;
     color: var(--white);
     backdrop-filter: blur(10px);
 }
