@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ partial "schema/post.html" . }}
-<div class="page-content-container">
+<div class="post-content-container">
+    <div id="left-panel" class="left-panel"></div>
     <div class="post-container">
         {{ partial "affiliate/prePost.html" . }}
         <section aria-label="{{i18n " tableOfContents"}}" class="post-toc">
@@ -16,6 +17,8 @@
             {{ partial "nextPreviousLinks.html" . }}
             {{ partial "relatedContent.html" . }}
         </div>
+    </div>
+    <div id="right-panel" class="right-panel">
     </div>
 </div>
 {{ partial "authorInfo.html" . }}

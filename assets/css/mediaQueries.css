@@ -46,7 +46,7 @@
 
     }
 
-    .page-content-container{
+    .page-content-container, .post-content-container {
         padding: 0 1.5rem;
     }
 
