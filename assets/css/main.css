@@ -56,7 +56,7 @@ a.markdown-link:hover {
     max-width: var(--max-char-width);
 }
 
-.right-panel {
+.right-panel, .left-panel {
     position: relative;
     width: 100%;
 }
