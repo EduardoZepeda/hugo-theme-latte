@@ -1,11 +1,17 @@
 {{ define "main" }}
+<div>
 <h1>{{ .Title }}</h1>
 {{ range .Pages.ByPublishDate.Reverse }}
-<p>
-<h2><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-<a class="summary" href="{{ .RelPermalink }}">
-    <p>{{ .Summary }}</p>
-</a>
-</p>
+{{ if not .Params.noindex }}
+<div class="post-container">
+    <p>
+        <h2><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <a class="summary" href="{{ .RelPermalink }}">
+            <p>{{ .Summary| safeHTML | truncate 160 }}</p>
+        </a>
+    </p>
+</div>
 {{ end }}
+{{ end }}
+</div>
 {{ end }}
