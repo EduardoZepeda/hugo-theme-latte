@@ -184,7 +184,7 @@ function connectRequest(event) {
 			Swal.fire({
 				title: params?.followTitle,
 				html: params?.followDescription,
-				icon: 'question',
+				icon: 'success',
 				showCloseButton: true,
 				showConfirmButton: false,
 				background: window?.getComputedStyle(document.body).getPropertyValue('--background'),
