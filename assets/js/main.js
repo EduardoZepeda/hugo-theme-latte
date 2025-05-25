@@ -37,9 +37,9 @@ function switchTheme(currentTheme) {
 
 function getOrSetCurrentTheme() {
 	if (!localStorage.getItem(latteTheme)) {
-		localStorage.setItem(latteTheme, "dark");
-		// default value for theme is dark
-		return "dark";
+		localStorage.setItem(latteTheme, "light");
+		// default value for theme is light
+		return "light";
 	}
 	return localStorage.getItem(latteTheme);
 }
