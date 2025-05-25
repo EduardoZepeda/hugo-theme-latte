@@ -17,23 +17,27 @@
         padding: 4rem var(--padding-1-5rem);
     }
 
-    .page-content-container h1, .post h1 {
+    .page-content-container h1,
+    .post h1 {
         font-size: 2.25rem;
         line-height: 1.35;
     }
 
 
-    .page-content-container h2, .post h2 {
+    .page-content-container h2,
+    .post h2 {
         font-size: 1.6rem;
         line-height: 1.6;
     }
 
-    .page-content-container h3, .post h3 {
+    .page-content-container h3,
+    .post h3 {
         font-size: 1.4rem;
         line-height: 1.6;
     }
 
-    .page-content-container p, .post p {
+    .page-content-container p,
+    .post p {
         font-size: 1.1rem;
         line-height: 2;
     }
@@ -41,12 +45,21 @@
     .post-metadata {
         font-size: 0.95rem;
     }
+
     #site-info {
         margin: 0 1.5rem;
 
     }
 
-    .page-content-container, .post-content-container {
+    .md-image {
+        object-fit: contain;
+        width: 320px;
+        aspect-ratio: 9/7;
+        height: auto;
+    }
+
+    .page-content-container,
+    .post-content-container {
         padding: 0 1.5rem;
     }
 
@@ -57,16 +70,21 @@
     .main {
         justify-content: flex-start;
     }
+
     #site-info {
         align-content: flex-start;
     }
-    .cards-container, .cards-container-title {
+
+    .cards-container,
+    .cards-container-title {
         margin: 0 1.5rem;
         align-items: flex-end;
     }
+
     article {
-        margin:0;
+        margin: 0;
     }
+
     .post-categories {
         padding: 0;
     }
