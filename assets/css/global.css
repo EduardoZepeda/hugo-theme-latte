@@ -95,13 +95,13 @@
 @font-face {
     font-family: 'Nunito';
     src: url('/fonts/Nunito.woff2') format('woff2');
-    font-display: fallback;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Athiti';
     src: url('/fonts/Athiti-Regular.woff') format('woff');
-    font-display: fallback;
+    font-display: swap;
 }
 
 html,
