@@ -1,0 +1,53 @@
+{{- /*
+Image Shortcode with Width/Height Support
+Usage:
+  {{< img src="image.jpg" [alt="description"] [width=""] [height=""] 
+       [class=""] [loading="lazy"] [style=""] >}}
+*/ -}}
+
+{{- $src := .Get "src" | default "" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $width := .Get "width" | default "" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{- $style := .Get "style" | default "" -}}
+
+{{- if $src -}}
+  {{- $img := resources.Get $src -}}
+  {{- if $img -}}
+    {{- /* Process image if width/height specified */ -}}
+    {{- $processed := $img -}}
+    {{- if and (ne $width "") (ne $height "") -}}
+      {{- $processed = $img.Resize (printf "%sx%s" $width $height) -}}
+    {{- else if ne $width "" -}}
+      {{- $processed = $img.Resize (printf "%sx" $width) -}}
+    {{- else if ne $height "" -}}
+      {{- $processed = $img.Resize (printf "x%s" $height) -}}
+    {{- end -}}
+
+    <img src="{{ $processed.RelPermalink }}" 
+         {{ with $alt }}alt="{{ . }}"{{ end }}
+         {{ with $width }}width="{{ . }}"{{ end }}
+         {{ with $height }}height="{{ . }}"{{ end }}
+         {{ with $class }}class="{{ . }}"{{ end }}
+         loading="{{ $loading }}"
+         {{ with $style }}style="{{ . }}"{{ end }}
+         {{ if or (ne $width "") (ne $height "") -}}
+           {{- $ratio := div (float $img.Height) (float $img.Width) -}}
+           {{- $padding := mul $ratio 100 -}}
+           style="aspect-ratio: {{ $img.Width }}/{{ $img.Height }}; {{ $style }}"
+         {{- end -}}>
+  {{- else -}}
+    {{- /* Fallback for external images */ -}}
+    <img src="{{ $src }}" 
+         {{ with $alt }}alt="{{ . }}"{{ end }}
+         {{ with $width }}width="{{ . }}"{{ end }}
+         {{ with $height }}height="{{ . }}"{{ end }}
+         {{ with $class }}class="{{ . }}"{{ end }}
+         loading="{{ $loading }}"
+         {{ with $style }}style="{{ . }}"{{ end }}>
+  {{- end -}}
+{{- else -}}
+  {{- errorf "img shortcode: missing 'src' parameter" -}}
+{{- end -}}
