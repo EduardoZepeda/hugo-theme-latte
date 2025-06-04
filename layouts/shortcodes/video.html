@@ -1,0 +1,79 @@
+{{- /* 
+Enhanced Video Shortcode with Lazy Loading
+Usage: 
+  {{< video src="video.mp4" [poster="image.jpg"] [controls=true] [autoplay=false] 
+        [loop=false] [muted=false] [class="custom-class"] [width="100%"] >}}
+*/ -}}
+
+{{- $src := .Get "src" | default "" -}}
+{{- $poster := .Get "poster" | default "" -}}
+{{- $controls := .Get "controls" | default "true" -}}
+{{- $autoplay := .Get "autoplay" | default "true" -}}
+{{- $loop := .Get "loop" | default "true" -}}
+{{- $muted := .Get "muted" | default "true" -}}
+{{- $class := .Get "class" | default "video-embed" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $videoId := printf "video-%d" (now.UnixNano) -}}
+
+{{- if $src -}}
+<div class="{{ $class }}" style="width: {{ $width }}; margin: 1rem 0;">
+  <video 
+    id="{{ $videoId }}"
+    {{ with $poster }}poster="{{ . }}"{{ end }}
+    {{ if eq $controls "true" }}controls{{ end }}
+    {{ if eq $autoplay "true" }}data-autoplay{{ end }}
+    {{ if eq $loop "true" }}loop{{ end }}
+    {{ if eq $muted "true" }}muted{{ end }}
+    preload="none"
+    data-src="{{ $src }}"
+    style="width: 100%; height: auto; border-radius: 4px;"
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+  ["DOMContentLoaded", "htmx:afterSettle", "htmx:historyRestore"].forEach(event => document.addEventListener(event, function() {
+  // Initialize only once even if multiple videos
+  if (!window.videoObserver) {
+    const loadVideo = (video) => {
+      const source = document.createElement('source');
+      source.src = video.dataset.src;
+      source.type = video.dataset.src.endsWith('.webm') ? 'video/webm' 
+               : video.dataset.src.endsWith('.ogg') ? 'video/ogg' 
+               : 'video/mp4';
+      video.appendChild(source);
+      video.load();
+      
+      if (video.hasAttribute('data-autoplay')) {
+        video.setAttribute('autoplay', '');
+        video.play().catch(e => console.log('Autoplay prevented:', e));
+      }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          loadVideo(video);
+          observer.unobserve(video);
+        }
+      });
+    }, {
+      rootMargin: '200px',
+      threshold: 0.1
+    });
+
+    window.videoObserver = observer;
+  }
+
+  // Observe the current video
+  const video = document.getElementById('{{ $videoId }}');
+  if (video) {
+    window.videoObserver.observe(video);
+  }
+}))
+</script>
+{{- else -}}
+  {{- errorf "video shortcode: missing 'src' parameter" -}}
+{{- end -}}
