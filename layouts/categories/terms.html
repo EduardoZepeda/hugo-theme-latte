@@ -1,17 +1,17 @@
 {{ define "main" }}
 {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
 {{ partial "schema/category.html" (dict "paginator" $paginator "context" .) }}
-    <div class="cards-container-title">
+    <div class="category-container-title">
         <h1>{{.Title | humanize}}</h1>
     </div>
-    <ul class="cards-container">
+    <ul class="category-container">
         {{ range $paginator.Pages }}
         {{ if eq .Type "posts" }}
         {{ partial "post.html" . }}
         {{ else }}
         <li class="categoryContainer">
             <a class="categoryItem" title="{{ .Title }}" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{
-                .Title }}</a>
+                .Title | title }}</a>
         </li>
         {{ end }}
         {{ end }}

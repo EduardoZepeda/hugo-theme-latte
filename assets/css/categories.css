@@ -1,18 +1,19 @@
 .categoryContainer {
-    margin: var(--margin-1x);
+    margin: var(--margin-1x) 0;
     list-style: none;
 }
 
 .categoryItem,
 .categoryItem:visited {
-  color: var(--blue);
-  padding: 1rem;
-  letter-spacing: 3px;
-  text-wrap: nowrap;
+    color: var(--blue);
+    letter-spacing: 3px;
+    text-wrap: nowrap;
 }
 
 .category-container {
     margin: 0 var(--container-margin);
+    width: 100%;
+    padding: 0;
 }
 
 .dropdown-categories {
@@ -25,14 +26,14 @@
     margin: 0;
 }
 
-.category-list{
+.category-list {
     margin: 0;
     padding: 0;
 }
 
 .center {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     gap: var(--padding-2x);
 }

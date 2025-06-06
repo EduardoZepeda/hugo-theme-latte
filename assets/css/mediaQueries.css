@@ -75,6 +75,8 @@
         align-content: flex-start;
     }
 
+    .category-container-title,
+    .category-container,
     .cards-container,
     .cards-container-title {
         margin: 0 1.5rem;

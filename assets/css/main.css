@@ -7,12 +7,16 @@
     /* This needs margin x axis to zero in order for author container's background to work  */
 }
 
+.category-container-title {
+    margin: 0 var(--container-margin);
+    width: 100%;
+}
+
 .cards-container,
 .cards-container-title {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
     width: 100%;
     gap: var(--padding-3x);
     margin: 0 var(--container-margin);

@@ -29,8 +29,6 @@
 .icon-container {
     display: flex;
     gap: var(--padding-1x);
-    justify-content: center;
-    align-items: center;
     background-color: transparent;
     border-radius: 4px;
     color: #E87D25;
