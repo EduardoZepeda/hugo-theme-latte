@@ -22,6 +22,10 @@
     fill: #7eff9c;
 }
 
+.threads-icon {
+    fill: var(--main-text);
+}
+
 .rss-icon {
     fill: #E87D25;
 }
