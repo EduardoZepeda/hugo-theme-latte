@@ -1,0 +1,96 @@
+{{/*  <script>
+// Check user agent version
+const userAgentVersion = parseInt(navigator.userAgent.match(/Chrome\/(\d+)/)?.[1] || '0');
+
+const options = {
+    sharedContext: '{{ i18n "AISummarizeContext" }}',
+    type: 'tldr',
+    format: 'plain-text',
+    length: 'medium',
+};
+
+// Function to strip HTML tags
+function stripHtmlTags(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
+}
+
+// Summarize content and place before the article
+async function handleSummarization() {
+    try {
+        const contentDiv = document.querySelector('div.content');
+        if (!contentDiv) {
+            console.error('Content div not found');
+            return;
+        }
+        
+        const longText = stripHtmlTags(contentDiv.innerHTML);
+        
+
+        const summary = await summarizer.summarize(longText);
+
+        // Create summary element and insert before content div
+        const summaryElement = document.createElement('div');
+        summaryElement.className = 'ai-summary';
+        summaryElement.textContent = summary;
+        contentDiv.parentNode.insertBefore(summaryElement, contentDiv);
+
+        // Remove the button
+        const button = document.getElementById('summarize-ai-button');
+        if (button) {
+            button.remove();
+        }
+    } catch (error) {
+        console.error('Error during summarization:', error);
+    }
+}
+
+// Check summarizer availability and create button if available
+async function initSummarizer() {
+    const availability = await Summarizer.availability();
+    let summarizer;
+
+    if (availability === 'unavailable') {
+        return null;
+    }
+
+    if (availability === 'available') {
+        summarizer = await Summarizer.create(options);
+    } else {
+        summarizer = await Summarizer.create(options);
+        summarizer.addEventListener('downloadprogress', (e) => {
+            console.log(`Downloaded ${e.loaded * 100}%`);
+        });
+        await summarizer.ready;
+    }
+
+    // Insert the button before the content div
+    const contentDiv = document.querySelector('div.content');
+    if (contentDiv) {
+        contentDiv.parentNode.insertBefore(button, contentDiv);
+    } else {
+        console.error('Content div not found for button placement');
+    }
+
+    return summarizer;
+}
+
+function createAISummarizeButton() {
+    // Create the button
+    const button = document.createElement('button');
+    button.id = 'summarize-ai-button';
+    button.textContent = '{{ i18n "summarizeBtn"}}';
+    button.classList.add('ai-button')
+    button.addEventListener('click', handleSummarization);
+}
+
+// Initialize the summarizer
+let summarizer;
+if (userAgentVersion >= 138 && ('Summarizer' in self)) {
+    initSummarizer().then(result => {
+        summarizer = result;
+    });
+}
+</script>
+  */}}
+

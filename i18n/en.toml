@@ -259,3 +259,9 @@ other = " This content contains {{.counter}} long paragraphs (100+ words). Consi
 
 ["goodLengthParagraph"]
 other = "Paragraph length looks good for readability."
+
+[summarizeBtn]
+other = "Summarize with AI"
+
+[AISummarizeContext]
+other = "Summarize the following post to a single paragraph"

@@ -11,6 +11,7 @@
             <h1>{{ .Title }}{{ partial "draft.html" . }}</h1>
             {{ partial "metadata.html" . }}
             {{ partial "seo/index.html" . }}
+            {{ partial "ai/summarizeWithAI.html" . }}
             <div class="content">{{ .Content }}</div>
         </article>
         <div class="next-previous-links">

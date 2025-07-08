@@ -259,3 +259,9 @@ other = "Este contenido posee {{.counter}} párrafos largos (100+ palabras). Con
 
 ["goodLengthParagraph"]
 other = "La longitud de los párrafos es buena para la legibilidad"
+
+[summarizeBtn]
+other = "Resumir con AI"
+
+[AISummarizeContext]
+other = "Resume el siguiente contenido a un solo párrafo resaltando la idea general"
