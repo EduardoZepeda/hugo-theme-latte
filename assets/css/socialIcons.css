@@ -22,9 +22,11 @@
     fill: #7eff9c;
 }
 
-.threads-icon {
+.threads-icon,
+.github-alt-icon {
     fill: var(--main-text);
 }
+
 
 .rss-icon {
     fill: #E87D25;

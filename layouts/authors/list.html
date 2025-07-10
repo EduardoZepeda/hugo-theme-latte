@@ -36,6 +36,10 @@
       <a href="{{.}}">{{ partial "icon.html" "message" }}</a>
       {{ end }}
 
+      {{ with .Params.github }}
+      <a href="https://github.com/{{.}}">{{ partial "icon.html" "github-alt" }}</a>
+      {{ end }}
+
       {{ with .Params.codewars }}
       <a href="https://codewars.com/users/{{ . }}">{{ partial "icon.html" "codewars" }}</a>
       {{ end }}
