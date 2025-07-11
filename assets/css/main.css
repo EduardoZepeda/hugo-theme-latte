@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     gap: var(--padding-3x);
     justify-content: center;
+    margin-top: var(--margin-3x);
     /* This needs margin x axis to zero in order for author container's background to work  */
 }
 
@@ -224,6 +225,7 @@ a.post-category {
     display: flex;
     gap: var(--spacing-8x);
     list-style: none;
+    margin: 0;
 }
 
 .mermaid {

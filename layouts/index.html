@@ -1,4 +1,5 @@
 {{ define "main" }}
+    {{- partial "header.html" . -}}
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
     {{ partial "schema/home.html" (dict "context" . "paginator" $paginator) }}
     <div class="cards-container">

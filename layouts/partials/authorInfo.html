@@ -11,11 +11,11 @@
             <figcaption>
             </figcaption>
         </figure>
-        <a rel="author" class="author-name" aria-label="{{.Params.name}} {{ i18n "ariaLabelAuthor"}}" href="{{ .Permalink }}">
+        <div class="author-name">
             {{ .Params.name }}
-        </a>
+        </div>
         <div class="author-summary">{{ .Params.summary }}</div>
-        <a class="author-read-more" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
+        <a rel="author" class="author-read-more" aria-label="{{.Params.name}}" href="{{ .Permalink }}">{{ i18n "readMore"}}</a>
         {{ end }}
         {{ end }}
         {{ end }}
