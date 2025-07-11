@@ -30,6 +30,7 @@
     --margin-2x: 2rem;
     --margin-3x: 3rem;
     --border-radius: 4px;
+    --border-radius-2x: 16px;
     --text-2x: 1.5rem;
     --text-3x: 3rem;
     --text-1x: 1rem;
@@ -76,6 +77,7 @@
     --margin-1x: 1rem;
     --margin-2x: 2rem;
     --border-radius: 4px;
+    --border-radius-2x: 16px;
     --text-2x: 1.5rem;
     --text-3x: 3rem;
     --small-text: 0.95rem;
@@ -140,8 +142,7 @@ pre {
     white-space: pre-wrap;
     /* For chrome */
     word-wrap: break-word;
-    border-top: 1px solid var(--post-category);
-    border-bottom: 1px solid var(--post-category);
+    border-radius: var(--border-radius-2x);
 }
 
 input:focus {
