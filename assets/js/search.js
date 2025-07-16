@@ -25,7 +25,7 @@ function initializeLunrSearch(event) {
 			idx = lunr(function () {
 				this.ref("url");
 				// More weight to title field
-				this.field("title");
+				this.field("title", { boost: 10 });
 				this.field("content");
 				res.forEach(function (doc) {
 					this.add(doc);
@@ -74,7 +74,7 @@ function initializeLunrSearch(event) {
 			// get input value
 			const searchTerm = event.target.value;
 			// fuzzy search
-			const results = idx.search(`${searchTerm}~2`);
+			const results = idx.search(`title:${searchTerm}~2 ${searchTerm}`);
 			// render results
 			renderSearchResults(results);
 		}
