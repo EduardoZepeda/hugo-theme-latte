@@ -51,6 +51,7 @@
 
     }
 
+    figure.md-local-image img,
     .md-image {
         object-fit: contain;
         width: 320px;
