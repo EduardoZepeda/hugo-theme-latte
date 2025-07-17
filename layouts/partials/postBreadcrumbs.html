@@ -1,0 +1,21 @@
+<nav class="breadcrumbs">
+  <ul id="breadcrumbs">
+    <li class="breadcrumbs-item breadcrumbs-first">
+      <a href="{{ site.BaseURL }}" class="text-blue-600 hover:underline">Home</a>
+    </li>
+    {{- $segments := split (trim .RelPermalink "/") "/" -}}
+    {{- $path := "/" -}}
+    {{- range $i, $seg := $segments -}}
+      {{- $path = print $path $seg "/" -}}
+      <li class="breadcrumbs-item">
+        {{- if lt (add $i 1) (len $segments) -}}
+          <a href="{{ $path | relURL }}" class="text-blue-600 hover:underline capitalize">
+            {{ replace $seg "-" " " | title }}
+          </a>
+        {{- else -}}
+          <span class="breadcrumbs-last">{{ replace $seg "-" " " | title | truncate 32 "..." }}</span>
+        {{- end -}}
+      </li>
+    {{- end -}}
+  </ul>
+</nav>

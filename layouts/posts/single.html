@@ -3,12 +3,13 @@
 <div class="post-content-container">
     <div id="left-panel" class="left-panel"></div>
     <div class="post-container">
+        {{ partial "postBreadcrumbs.html" . }}
         {{ partial "affiliate/prePost.html" . }}
-        <section aria-label="{{i18n " tableOfContents"}}" class="post-toc">
-            {{ partial "toc.html" . }}
-        </section>
         <article class="post">
             <h1>{{ .Title }}{{ partial "draft.html" . }}</h1>
+            <section aria-label="{{i18n " tableOfContents"}}" class="post-toc">
+                {{ partial "toc.html" . }}
+            </section>
             {{ partial "metadata.html" . }}
             {{ partial "seo/index.html" . }}
             {{ partial "ai/summarizeWithAI.html" . }}
