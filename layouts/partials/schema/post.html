@@ -43,6 +43,7 @@
         {{ partial "schema/website.html" . | safeJS }},
         {{ partial "schema/organization.html" . | safeJS }},
         {{ partial "schema/blog.html" . | safeJS }},
+        {{ partial "schema/breadcrumbs.html" . | safeJS }},
         {{- range .Params.authors }}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
             {{ (partial "schema/person.html" .) | safeJS }},

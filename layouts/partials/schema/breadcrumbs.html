@@ -1,0 +1,34 @@
+{
+  "@type": "BreadcrumbList",
+  "@id": "{{ .Permalink }}#breadcrumbs",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.BaseURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Site.Language.LanguageName | title }}",
+      "item": "{{ site.BaseURL | relURL | absURL }}{{ .Lang }}/"
+    }
+    {{- $segments := split (trim .RelPermalink "/") "/" -}}
+    {{- $lang := .Lang | lower -}}
+    {{- $path := print "/" $lang "/" -}}
+    {{- $pos := 3 -}}
+    {{- range $i, $seg := $segments }}
+      {{- if and (ne $seg $lang) (ne $seg "") }}
+        {{- $path = print $path $seg "/" }}
+        ,{
+          "@type": "ListItem",
+          "position": {{ $pos }},
+          "name": "{{ replace $seg "-" " " | title }}",
+          "item": "{{ $path | relURL | absURL }}"
+        }
+        {{- $pos = add $pos 1 -}}
+      {{- end -}}
+    {{- end }}
+  ]
+}
