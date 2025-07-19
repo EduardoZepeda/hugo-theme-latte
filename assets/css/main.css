@@ -30,7 +30,6 @@
 
 a.markdown-link {
     position: relative;
-    font-weight: bold;
 }
 
 a.markdown-link::before {
