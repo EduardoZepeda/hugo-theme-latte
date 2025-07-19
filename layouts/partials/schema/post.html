@@ -56,7 +56,7 @@
             "name": {{ .Title }},
             "headline": {{ .Title }},
             "alternativeHeadline": {{ .Params.lead }},
-            "description": {{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }},
+            "description": {{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }},
             "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
             "mainEntityOfPage": {
                 "@id": {{ printf "%s#webpage" .Permalink}}

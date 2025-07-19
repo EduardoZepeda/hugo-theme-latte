@@ -40,7 +40,7 @@
           "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
           "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
           "author": {{ $authors | jsonify  }},
-          "description": "{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
+          "description": "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }}",
           "url": "{{.Permalink}}"
         {{ end }}
         }{{ if lt (add 1 $index) $noPages }}, {{ end }}
