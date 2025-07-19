@@ -94,18 +94,6 @@
     --container-margin: 8rem;
 }
 
-@font-face {
-    font-family: 'Nunito';
-    src: url('/fonts/Nunito.woff2') format('woff2');
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'Athiti';
-    src: url('/fonts/Athiti-Regular.woff') format('woff');
-    font-display: fallback;
-}
-
 html,
 body {
     margin: 0;
@@ -113,6 +101,7 @@ body {
     font-family: "Nunito", "Arimo", sans;
     line-height: 2.0;
     font-size: 1.1rem;
+    font-weight: 400;
     text-rendering: optimizeLegibility;
 }
 
@@ -162,7 +151,10 @@ h2,
 h3,
 .h1,
 .h2 {
-    font-family: "Athiti", "Courier New", monospace, serif;
+    font-family: "Patua One", serif;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 h1,
