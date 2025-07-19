@@ -1,16 +1,17 @@
  {{- $u := urls.Parse (.Get "src") -}}
  {{- $src := $u.String -}}
+ 
+{{- if not $u.IsAbs -}}
+  {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+    {{- $src = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
 <a hx-boost="false" href="{{$src}}">
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
   {{- if .Get "link" -}}
     <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
   {{- end -}}
-  {{- if not $u.IsAbs -}}
-    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
-      {{- $src = .RelPermalink -}}
-    {{- end -}}
-  {{- end -}}
-
   <img src="{{ $src }}"
     loading="lazy"
     {{- if or (.Get "alt") (.Get "caption") }}
