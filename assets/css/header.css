@@ -11,7 +11,7 @@
     top: 0;
     background-color: var(--transparent-sidebar);
     padding: var(--padding-1x);
-    z-index:2;
+    z-index: 2;
     backdrop-filter: blur(10px);
 }
 
@@ -54,6 +54,7 @@ a.nav-link {
 }
 
 .site-description {
+    font-family: "Nunito", "Arimo", sans;
     font-size: 1.4rem;
     color: var(--secondary-text);
     line-height: 1.5;
