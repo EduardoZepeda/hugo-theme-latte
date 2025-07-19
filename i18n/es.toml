@@ -207,10 +207,10 @@ other = "Descripción SEO: {{.description}}"
 other = "No se especificó ninguna descripción SEO en el frontmatter, añade una propiedad description"
 
 [sponsored]
-other = "Patrocinado"
+other = "Abajo hay un enlace de afiliado"
 
 [ad]
-other = "Patrocinado"
+other = "Abajo hay un enlace de afiliado"
 
 [ReadibilityScore]
 other = "Score de Flesh Kincaid:"
