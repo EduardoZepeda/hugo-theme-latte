@@ -24,5 +24,5 @@
             </a>
         </h2>
     </div>
-    <div class="post-card-summary flexible">{{.Summary | safeHTML | truncate 120}}</div>
+    <div class="post-card-summary flexible">{{.Summary | plainify | truncate 120}}</div>
 </div>
