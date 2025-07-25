@@ -37,7 +37,7 @@ a.markdown-link::before {
     background-color: var(--blue);
     position: absolute;
     left: 0.5rem;
-    bottom: 5px;
+    bottom: 1px;
     width: 100%;
     height: 3px;
     z-index: -1;
@@ -172,6 +172,7 @@ a.post-category {
     border-radius: var(--border-radius);
     margin-right: var(--padding-xs);
     letter-spacing: 1px;
+    display: block;
 }
 
 .page-name {

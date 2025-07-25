@@ -1,7 +1,7 @@
 #header {
     position: relative;
+    max-height: 180px;
 }
-
 
 #nav {
     display: flex;
@@ -13,6 +13,7 @@
     padding: var(--padding-1x);
     z-index: 2;
     backdrop-filter: blur(10px);
+    max-height: 75px;
 }
 
 .nav-menu {
@@ -30,14 +31,16 @@
     visibility: hidden;
 }
 
-div.nav-link {
-    padding: var(--padding-1x);
-    font-size: 1.1rem;
-}
-
+div.nav-link,
 a.nav-link {
     padding: var(--padding-1x);
 }
+
+a.nav-link {
+    font-size: 1.1rem;
+}
+
+
 
 .burger-line {
     width: 32px;

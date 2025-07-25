@@ -20,8 +20,8 @@
         {{/* end categories */}}
         {{- $currentPage := . -}}
         {{ range .Site.Menus.main }}
-        <li>
-            <a class="{{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
+        <li class="nav-link"> 
+            <a class="nav-a {{ if $currentPage.IsMenuCurrent " main" . }}active{{ end }}" href="{{ .URL | absLangURL }}"
                 aria-label="{{ .Name }}" {{if hasSuffix (.URL | absLangURL) "xml" }} hx-boost="false" {{end}}>
                 {{ $text := print .Name | safeHTML }}
                 {{ $text }}

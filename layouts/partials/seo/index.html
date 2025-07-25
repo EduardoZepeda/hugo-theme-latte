@@ -20,7 +20,8 @@
         )}}{{end}}
         {{- partial "seo/paragraphLength.html" .Content -}}
         {{- partial "seo/fleschKincaid.html" . -}}
-        {{ with .Title }}{{- partial "seo/titleLength.html" (.|len) -}}{{end}}
+        {{/*  Remember to consider the site title as part of the title's length  */}}
+        {{ with printf "%s|%s" .Title .Site.Title }}{{- partial "seo/titleLength.html" (.|len) -}}{{end}}
         {{ with .Params.description }}{{- partial "seo/descriptionLength.html" (.|len) -}}{{end}}
         {{- partial "seo/wordCount.html" .WordCount -}}
         {{ with $keyword }}

@@ -2,7 +2,7 @@
 {{ partial "scrollUpButton.html" . }}
 <nav id="nav" role="navigation" aria-label="{{i18n "mainMenu"}}">
     {{ partial "burgerIcon.html" }}
-    <div class=""><strong>{{ .Site.Title }}</strong></div>
+    <div class="site-name-nav"><strong>{{ .Site.Title }}</strong></div>
     {{ partial "navMenu.html" . }}
     <div class="theme-toggle"> {{ partial "themeSwitch.html" . }}
     </div>
