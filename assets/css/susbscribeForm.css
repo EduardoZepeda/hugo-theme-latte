@@ -55,7 +55,8 @@
     position: sticky;
     bottom: 0;
     background: #2A7B9B;
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);    z-index: 9;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    z-index: 9;
     color: var(--white);
     backdrop-filter: blur(10px);
 }
@@ -79,7 +80,6 @@
 .show-banner-text {
     padding: 0 var(--padding-2x);
     font-size: 1.2rem;
-    font-family: Nunito;
 }
 
 .subscribe-message-and-button {

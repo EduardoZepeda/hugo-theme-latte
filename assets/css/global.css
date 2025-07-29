@@ -97,11 +97,10 @@
 html,
 body {
     margin: 0;
-    padding: 0;
-    font-family: "Nunito", "Arimo", sans;
+    font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
     line-height: 2.0;
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: normal;
     text-rendering: optimizeLegibility;
 }
 
@@ -132,6 +131,7 @@ pre {
     /* For chrome */
     word-wrap: break-word;
     border-radius: var(--border-radius-2x);
+    margin-bottom: var(--margin-2x);
 }
 
 input:focus {
@@ -151,8 +151,8 @@ h2,
 h3,
 .h1,
 .h2 {
-    font-family: "Patua One", serif;
-    font-weight: 400;
+    font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+    font-weight: 700;
     font-style: normal;
 
 }

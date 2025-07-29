@@ -57,7 +57,7 @@ a.nav-link {
 }
 
 .site-description {
-    font-family: "Nunito", "Arimo", sans;
+    font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
     font-size: 1.4rem;
     color: var(--secondary-text);
     line-height: 1.5;
