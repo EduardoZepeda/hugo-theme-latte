@@ -10,8 +10,8 @@
     h3,
     .h1,
     .h2 {
-        font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-        font-weight: 400;
+        font-size: 1.5rem;
+        font-weight: bold;
         font-style: normal;
 
     }

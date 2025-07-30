@@ -151,8 +151,7 @@ h2,
 h3,
 .h1,
 .h2 {
-    font-family: 'Nimbus Mono PS', 'Courier New', monospace;
-    font-weight: 700;
+    font-weight: bold;
     font-style: normal;
 
 }
