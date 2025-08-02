@@ -23,7 +23,6 @@ tags = ["blog", "responsive", "light", "dark", "dark mode", "light mode", "mailc
 
 demosite = "https://coffeebytes.dev"
 min_version = "0.84.0"
-paginate = 9
 
 [author]
 homepage = "https://zeedu.dev"
