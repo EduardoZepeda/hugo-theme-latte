@@ -17,6 +17,9 @@
         </article>
         <div class="next-previous-links">
             {{ partial "nextPreviousLinks.html" . }}
+            {{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }}
+                {{ partial "subscribeForm.html" . }}
+            {{ end }}
             {{ partial "relatedContent.html" . }}
         </div>
     </div>

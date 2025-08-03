@@ -10,9 +10,6 @@
     <main id="main">
         <div class="main">
             {{- block "main" . -}}{{ end }}
-            {{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }}
-            {{ partial "subscribeBanner.html" . }}
-            {{ end }}
         </div>
     </main>
     {{- partial "footer.html" . -}}

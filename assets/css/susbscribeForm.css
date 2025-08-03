@@ -1,9 +1,8 @@
 #mc-embedded-subscribe-form {
-    color: var(--white);
-    padding: var(--padding-1x) var(--padding-2x);
-    border-radius: var(--border-radius);
     margin: var(--margin-1x) 0;
-    font-size: 1.2rem;
+    background-color: var(--author-info);
+    border-radius: var(--border-radius);
+    padding: var(--padding-3x);
 }
 
 .subscribe-input {
@@ -13,7 +12,7 @@
     margin: var(--padding-1x) 0;
     text-indent: var(--padding-1x);
     border-radius: var(--border-radius);
-    border: 0px;
+    border: 1px solid var(--main-text);
 }
 
 .subscribe-btn {
@@ -25,8 +24,8 @@
 }
 
 .subscribe-btn.send {
-    background-color: var(--yellow);
-    color: var(--dark);
+    background-color: var(--green);
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -48,39 +47,12 @@
     left: -5000px;
 }
 
-.subscribe-banner {
-    width: 100%;
-    padding: 2rem 0;
-    font-size: var(--small-text);
-    position: sticky;
-    bottom: 0;
-    background: #2A7B9B;
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    z-index: 9;
-    color: var(--white);
-    backdrop-filter: blur(10px);
-}
-
 .subscribe-input-group {
     display: inline-flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-#subscribe-form-close-icon {
-    float: right;
-}
-
-#subscribe-form-close-icon.close:after,
-#subscribe-form-close-icon.close:before {
-    /* overrides close icon background-color that changes with the theme */
-    background-color: var(--white);
-}
-
-.show-banner-text {
-    padding: 0 var(--padding-2x);
-    font-size: 1.2rem;
-}
 
 .subscribe-message-and-button {
     display: flex;
@@ -89,17 +61,7 @@
     flex-wrap: wrap;
 }
 
-.subscribe-banner-button {
-    padding: var(--padding-1x) var(--padding-2x);
-    border: 1px solid var(--white);
-    background-color: transparent;
-    color: var(--white);
-    border-radius: var(--border-radius);
-    margin: var(--margin-2x);
-}
 
-.clear {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+span.asterisk {
+    font-size: 0.95rem;
 }

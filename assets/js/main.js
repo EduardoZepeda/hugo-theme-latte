@@ -1,5 +1,4 @@
 // Import Hugo params:
-// - modalcountdown
 // - followtitle
 // - followdescription
 // - followbutton
@@ -102,42 +101,6 @@ function addScrolltoTopListener(event) {
 	scrollUp.onclick = scrollToTop;
 }
 
-function addSubscribeFormListener(event) {
-	// If there is no subscribeBanner defined in config.toml at root queries will return null so we catch the error
-	try {
-		const subscribeForm = document.getElementById("subscribe-form-modal");
-		const subscribeFormBody = document.getElementById("subscribe-form-body");
-		const close = document.getElementById("subscribe-form-close-icon");
-		const showFormButton = document.getElementById("show-subscribe-form");
-		const closeButton = document.getElementById("subscribe-close-button");
-		function closeSubscribeForm() {
-			subscribeForm.classList.add("display-none");
-			// If user closes banner stop showing the banner for 7 days
-			setCookie("mail_chimp_subscribe_shown", true, 7);
-		}
-		function toggleSubscribeFormBody() {
-			if (subscribeFormBody.classList.contains("display-none")) {
-				subscribeFormBody.classList.remove("display-none");
-			} else {
-				subscribeFormBody.classList.add("display-none");
-			}
-		}
-		closeButton.onclick = closeSubscribeForm;
-		close.onclick = closeSubscribeForm;
-		showFormButton.onclick = toggleSubscribeFormBody;
-	} catch (e) {
-		return null
-	}
-}
-
-function setSubscribeFormTimeout(event) {
-	if (!getCookie("mail_chimp_subscribe_shown") && params.modalcountdown > 0) {
-		return setTimeout(() => {
-			const subscribeForm = document.getElementById("subscribe-form-modal");
-			subscribeForm?.classList.remove("display-none");
-		}, params.modalcountdown);
-	}
-}
 
 function sendEventToGA(event) {
 	try {
@@ -200,10 +163,8 @@ function loadAllListeners(event) {
 	addSideBarClickListener(event);
 	addScrolltoTopListener(event);
 	addCopyButtonToCodeBlocks(event);
-	addSubscribeFormListener(event);
 	updateLangTag(event);
 	connectRequestTimeOut = connectRequest(event);
-	timeOutForm = setSubscribeFormTimeout(event);
 }
 
 function clearTimers(events) {
