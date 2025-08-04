@@ -3,16 +3,16 @@
     <h2>{{ .Site.Params.latte.subscribetitle | safeHTML }}</h2>
     <p>{{ .Site.Params.latte.subscribedescription | safeHTML }}
     </p>
-    <p><span class='asterisk'>*</span> {{ i18n "requiredField"}}</p>
+    <p class='asterisk'><span>*</span> {{ i18n "requiredField"}}</p>
     <div class="subscribe-input-group">
         <div class="subscribe-input-container">
-            <label htmlFor='mce-EMAIL'>{{ i18n "email"}} <span class='asterisk'>*</span>
+            <label class="subscribe-label" htmlFor='mce-EMAIL'>{{ i18n "email"}} <span class='asterisk'>*</span>
             </label>
             <input type='email' placeholder='{{ i18n "emailPlaceholder"}}' aria-label='Campo de email' value=""
                 name='EMAIL' class='required email subscribe-input' required id='mce-EMAIL' required />
         </div>
         <div class="subscribe-input-container">
-            <label htmlFor='mce-FNAME'>{{ i18n "name"}} <span class='asterisk'>*</span>
+            <label class="subscribe-label" htmlFor='mce-FNAME'>{{ i18n "name"}} <span class='asterisk'>*</span>
             </label>
             <input type='text' placeholder='{{ i18n "namePlaceholder"}}' aria-label='Campo de nombre' value=""
                 name='FNAME' class='required subscribe-input' id='mce-FNAME' required />

@@ -61,7 +61,7 @@
     flex-wrap: wrap;
 }
 
-
-span.asterisk {
-    font-size: 0.95rem;
+.subscribe-label,
+.asterisk {
+    font-size: 0.85rem;
 }
