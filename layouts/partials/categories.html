@@ -3,6 +3,6 @@
     <a class="post-category"
         aria-label={{i18n "categoryAriaLabel" }}{{ . | humanize }} 
         title={{i18n "categoryAriaLabel" }}{{. | humanize}}
-        href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . | humanize }}</a>
+        href="{{ . | urlize | absLangURL }}">{{ . | humanize }}</a>
     {{ end }}
 </div>
