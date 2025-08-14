@@ -29,26 +29,9 @@
 }
 
 a.markdown-link {
-    position: relative;
-}
-
-a.markdown-link::before {
-    content: "";
-    background-color: var(--blue);
-    position: absolute;
-    left: 0.5rem;
-    bottom: 1px;
-    width: 100%;
-    height: 3px;
-    z-index: -1;
-    transition: all 0.3s ease-in-out;
-}
-
-a.markdown-link:hover::before {
-    left: -5px;
-    bottom: 0;
-    height: 100%;
-    width: calc(100% + 10px);
+    text-decoration: underline solid var(--blue) 3px;
+    /* Applies an underline */
+    text-decoration-color: var(--blue);
 }
 
 
