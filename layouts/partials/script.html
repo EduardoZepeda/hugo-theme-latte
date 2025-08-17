@@ -15,12 +15,11 @@
 {{ $htmx := resources.GetRemote "https://unpkg.com/htmx.org@2.0.4" }}
 {{ $htmxHead := resources.GetRemote "https://unpkg.com/htmx-ext-head-support@2.0.2" }}
 {{ $lunr := resources.GetRemote "https://unpkg.com/lunr/lunr.js" }}
-{{ $sweetAlert := resources.GetRemote "https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js" }}
 {{ $main := resources.Get "js/main.js" }}
 
 {{ $localJS := $main | js.Build $opts }}
 
-{{ $finalJS := slice $htmx $htmxHead $lunr $sweetAlert $localJS | resources.Concat (printf "js/bundle.%s.js" .Lang) }}
+{{ $finalJS := slice $htmx $htmxHead $lunr $localJS | resources.Concat (printf "js/bundle.%s.js" .Lang) }}
 
 {{ with $finalJS }}
   {{ if hugo.IsProduction }}
@@ -32,5 +31,3 @@
   {{ end }}
 {{ end }}
 
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css"></noscript>
