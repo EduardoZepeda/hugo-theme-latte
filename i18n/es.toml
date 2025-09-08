@@ -75,7 +75,7 @@ other = "Cerrar"
 other = "Enlaces de afiliados"
 
 [categoryAriaLabel]
-other = "Enlace hacia la categoria: "
+other = "Enlace hacia la categoria: {{ .category }}"
 
 [languageDropdown]
 other = "Idiomas"

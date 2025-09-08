@@ -1,5 +1,5 @@
 <ul class="category-list">
     {{ range $name, $index := .Site.Taxonomies.categories }}
-    <li class="dropdown-category-item"><a title={{ $name }} aria-label="{{ i18n "categoryAriaLink" (dict "category" ($name | humanize)) }}" href="{{ .Page.Permalink }}">{{ $name | humanize }}</a></li>
+    <li class="dropdown-category-item"><a title={{ $name }} aria-label="{{ i18n "categoryAriaLabel" (dict "category" ($name | humanize)) }}" href="{{ .Page.Permalink }}">{{ $name | humanize }}</a></li>
     {{ end }}
 </ul>

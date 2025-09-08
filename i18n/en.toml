@@ -75,7 +75,7 @@ other = "Close"
 other = "Affiliate links"
 
 [categoryAriaLabel]
-other = "Category link to posts about: "
+other = "Category link to posts about: {{ .category }}"
 
 [languageDropdown]
 other = "Languages"
