@@ -236,3 +236,8 @@ table tbody tr:last-of-type {
     font-size: 0.97rem;
     opacity: 0.8;
 }
+
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+    display: none !important;
+  }
