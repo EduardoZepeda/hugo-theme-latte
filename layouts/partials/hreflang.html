@@ -1,4 +1,6 @@
 {{ if .IsTranslated }}
+    {{/*  Alternates should be self-referential according to: https://webmasters.stackexchange.com/questions/61534/should-i-include-the-current-language-code-in-link-rel-alternate-hreflang  */}}
+    <link rel="alternate" href="{{ .RelPermalink | absURL }}" hreflang="{{ .Site.Language.Lang }}" />
     {{ range .Translations }}
         <link rel="alternate" href="{{ .RelPermalink | absURL }}" hreflang="{{ .Language.Lang }}" />
     {{ end }}
