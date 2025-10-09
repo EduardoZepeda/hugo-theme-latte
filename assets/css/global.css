@@ -235,6 +235,7 @@ table tbody tr:last-of-type {
 .content blockquote p {
     font-size: 0.97rem;
     opacity: 0.8;
+    font-weight: bold;
 }
 
 
