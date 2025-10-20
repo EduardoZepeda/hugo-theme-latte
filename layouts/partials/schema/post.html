@@ -51,8 +51,8 @@
         {{ end }}
         {
             "@type": "BlogPosting",
-            "articleSection": {{ .Section }},
-            "articleBody": {{.Content | plainify}},
+            "articleSection": [ {{ range $index, $categories := .Params.categories }}{{ if $index }}, {{ end }}{{ $categories }} {{ end }}],
+            "articleBody": "{{ .Plain }}",
             "name": {{ .Title }},
             "headline": {{ .Title }},
             "alternativeHeadline": {{ .Params.lead }},
@@ -106,3 +106,6 @@
     ]
 }
 </script>
+
+
+
