@@ -6,6 +6,7 @@
     list-style: none;
     margin: var(--margin-1x) 0;
     width: 100%;
+    padding-left: 0;
 }
 
 .page-item {
@@ -38,4 +39,13 @@ a.page-link {
 
 .page-item.disabled {
     display: none;
+}
+
+
+@media (max-width: 768px) {
+    .page-item {
+        width: 15px;
+        height: 15px;
+    }
+
 }
