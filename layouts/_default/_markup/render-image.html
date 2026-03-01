@@ -3,10 +3,10 @@
 <a hx-boost="false" href="{{ .Destination | safeURL }}" aria-label="{{ .Text }}">
 {{ if .Title }}
 <figure>
-    <img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
+    <img class="md-image" {{ with .Attributes.width }} width="{{ . }}" {{ end }} {{ with .Attributes.height }} height="{{ . }}" {{ end }} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
     <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
-    <img class="md-image" {{ with $image }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
+    <img class="md-image" {{ with .Attributes.width }} width="{{ . }}" {{ end }} {{ with .Attributes.height }} height="{{ . }}" {{ end }} loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"/>
 {{ end }}
 </a>
