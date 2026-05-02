@@ -160,6 +160,7 @@ h1,
 .h1 {
     font-size: 2.25rem;
     line-height: 3rem;
+    font-weight: 200;
     margin: var(--spacing-4x) 0;
 }
 
