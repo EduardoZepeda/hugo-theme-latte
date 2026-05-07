@@ -270,7 +270,7 @@ other = "Resume el siguiente contenido a un solo párrafo resaltando la idea gen
 other = "¿Te gustó lo que leíste? Recibe nuevas entradas por Telegram"
 
 [subscribeToTelegramText]
-other = "Acabo de crear un grupo de Telegram, únete y te aviso cada vez que publique una nueva entrada (Lo cual no pasa muy seguido). También te compartiré artículos que lea en la semana y que considere interantes, siempre sobre programación y relacionados. Sé de los primeros, dale click al botón."
+other = "Acabo de crear un grupo de Telegram, únete y te aviso cada vez que publique una nueva entrada (Lo cual no pasa muy seguido). También te compartiré artículos que lea en la semana y que considere interantes, siempre sobre programación y relacionados. Manten presionado el botón para unirte, siento la molestia, es para evitar los nopor-bots en el grupo."
 
 [joinGroup]
 other = "Unirme al grupo de Telegram"

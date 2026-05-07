@@ -3,5 +3,75 @@
         {{i18n "subscribeToTelegram"}}
     </h2>
     <p>{{i18n "subscribeToTelegramText"}}</p>
-    <a rel="noopener noreferrer nofollow" href="{{ .Site.Params.TelegramGroupLink }}" style="display:inline-block;padding:8px 20px;background:#0088cc;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">{{i18n "joinGroup" }}</a>
+    <button
+        id="telegram-join-btn"
+        data-telegram-link="{{ .Site.Params.TelegramGroupLink }}"
+        class="telegram-join-btn"
+        style="display:inline-block;padding:8px 24px;background:#0088cc;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;border:none;cursor:pointer;position:relative;overflow:hidden;"
+    >
+        <span class="btn-text">{{i18n "holdToJoin"}}</span>
+        <span class="btn-progress" style="display:none;"></span>
+    </button>
 </div>
+
+<script>
+(function() {
+    const HOLD_DURATION = 3;
+    let holdTimer = null;
+    let progressInterval = null;
+    let secondsRemaining = HOLD_DURATION;
+
+    const btn = document.getElementById('telegram-join-btn');
+    const btnText = btn.querySelector('.btn-text');
+    const btnProgress = btn.querySelector('.btn-progress');
+
+    function updateProgress() {
+        btnProgress.textContent = '{{i18n "joinProgress"}}'.replace('%d', secondsRemaining);
+    }
+
+    function startHold() {
+        secondsRemaining = HOLD_DURATION;
+        updateProgress();
+        btnText.style.display = 'none';
+        btnProgress.style.display = 'inline';
+
+        progressInterval = setInterval(() => {
+            secondsRemaining--;
+            updateProgress();
+            if (secondsRemaining <= 0) {
+                completeHold();
+            }
+        }, 1000);
+    }
+
+    function cancelHold() {
+        clearInterval(progressInterval);
+        secondsRemaining = HOLD_DURATION;
+        btnText.style.display = 'inline';
+        btnProgress.style.display = 'none';
+        btnText.textContent = '{{i18n "holdToJoin"}}';
+    }
+
+    function completeHold() {
+        clearInterval(progressInterval);
+        const telegramLink = btn.getAttribute('data-telegram-link');
+        const fullUrl = 'https://t.me/' + telegramLink;
+
+        btn.outerHTML = '<a rel="noopener noreferrer nofollow" href="' + fullUrl + '" style="display:inline-block;padding:8px 24px;background:#0088cc;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;border:none;">{{i18n "joinNow"}}</a>';
+    }
+
+    btn.addEventListener('mousedown', function(e) {
+        if (e.button === 2) return; // Ignore right-click
+        startHold();
+    });
+    btn.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); // Block context menu
+    });
+    btn.addEventListener('touchstart', function(e) { e.preventDefault(); startHold(); });
+
+    btn.addEventListener('mouseup', cancelHold);
+    btn.addEventListener('mouseleave', cancelHold);
+    btn.addEventListener('touchend', cancelHold);
+    btn.addEventListener('touchcancel', cancelHold);
+})();
+</script>
