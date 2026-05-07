@@ -15,6 +15,10 @@
     border: 1px solid var(--main-text);
 }
 
+.telegram-banner {
+    margin: var(--margin-3x) 0;
+}
+
 .subscribe-btn {
     padding: var(--padding-1x);
     border-radius: var(--border-radius);

@@ -17,7 +17,10 @@
         </article>
         <div class="next-previous-links">
             {{ partial "nextPreviousLinks.html" . }}
-            {{if (and (isset .Site.Params.latte "mailchimpurl") (isset .Site.Params.latte "mailchimphiddenfield")) }}
+            {{ if .Site.Params.TelegramGroupLink }}
+                {{ partial "telegramSubscribe.html" . }}
+            {{ end }}
+            {{if (and (.Site.Params.MailerLiteAccount) (.Site.Params.MailerLiteDataForm)) }}
                 {{ partial "subscribeForm.html" . }}
             {{ end }}
             {{ partial "relatedContent.html" . }}
