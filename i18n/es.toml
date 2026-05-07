@@ -274,3 +274,12 @@ other = "Acabo de crear un grupo de Telegram, únete y te aviso cada vez que pub
 
 [joinGroup]
 other = "Unirme al grupo de Telegram"
+
+[holdToJoin]
+other = "Mantén presionado para unirte"
+
+[joinProgress]
+other = "Sostenlo %d segundos..."
+
+[joinNow]
+other = "Unirse ahora"

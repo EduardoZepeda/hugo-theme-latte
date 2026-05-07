@@ -265,3 +265,12 @@ other = "Summarize with AI"
 
 [AISummarizeContext]
 other = "Summarize the following post to a single paragraph"
+
+[holdToJoin]
+other = "Hold to join"
+
+[joinProgress]
+other = "Hold for %d seconds..."
+
+[joinNow]
+other = "Join now"
