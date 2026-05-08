@@ -1,3 +1,16 @@
 .telegram-banner {
     margin: var(--margin-3x) 0;
 }
+
+.telegram-join-btn {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 12px 20px;
+    background-color: #0088CC;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+a.telegram-join-btn {
+    color: var(--white);
+}
