@@ -1,36 +1,33 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{- partial "hreflang.html" . -}}
-    {{ if and (.Site.Params.GoogleAdSenseClient) (hugo.IsProduction) }}
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
-    {{ end }}
-    {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
-    <link href="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.GoogleTagManager}}" rel="preload"
-        as="script">
-    {{ end }}
-    {{ if and (.Site.Params.PostHogAnalytics ) (hugo.IsProduction) }}
-        {{- partial "analytics/posthog.html" . -}}
-    {{end}}
-    {{- partial "css.html" . -}}
-    {{ $title := print .Title " | " .Site.Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-    <title>{{ $title }}{{ if .IsHome }}{{ with .Site.Params.posTitle }} | {{.}}{{ end }}{{ end }}</title>
-    {{- partial "seo.html" . -}}
-    {{- partial "feed.html" . -}}
-    {{- partial "script.html" . -}}
-    {{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
-    {{ if hugo.IsProduction }}
-    {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
-    {{- partial "mermaid.html" . -}}
-    {{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
-    {{- partial "googleTagManager.html" . -}}
-    {{ end }}
-    {{- partial "analytics/ahrefAnalytics.html" . -}}
-    {{ partial "shared/csp.html" . }}
-    {{- partial "googleAdSense.html" . -}}
-    {{ block "head" . }}{{ end }}
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- partial "hreflang.html" . -}}
+{{ if and (.Site.Params.GoogleAdSenseClient) (hugo.IsProduction) }}
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+{{ end }}
+{{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+<link href="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.GoogleTagManager}}" rel="preload"
+    as="script">
+{{ end }}
+{{ if and (.Site.Params.PostHogAnalytics ) (hugo.IsProduction) }}
+    {{- partial "analytics/posthog.html" . -}}
+{{end}}
+{{- partial "css.html" . -}}
+{{ $title := print .Title " | " .Site.Title }}
+{{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+<title>{{ $title }}{{ if .IsHome }}{{ with .Site.Params.posTitle }} | {{.}}{{ end }}{{ end }}</title>
+{{- partial "seo.html" . -}}
+{{- partial "feed.html" . -}}
+{{- partial "script.html" . -}}
+{{ if not (.Site.Params.latte.disablesearch ) }}{{- partial "searchScript.html" . -}}{{ end }}
+{{ if hugo.IsProduction }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
+{{- partial "mermaid.html" . -}}
+{{ if and (.Site.Params.GoogleTagManager) (hugo.IsProduction) }}
+{{- partial "googleTagManager.html" . -}}
+{{ end }}
+{{- partial "analytics/ahrefAnalytics.html" . -}}
+{{ partial "shared/csp.html" . }}
+{{- partial "googleAdSense.html" . -}}

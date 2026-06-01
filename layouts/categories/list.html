@@ -1,3 +1,7 @@
+{{ define "head" }}
+    <meta name="robots" content="noindex">
+{{ end }}
+
 {{ define "main" }}
 {{ $paginator := .Paginate .Pages.ByPublishDate.Reverse }}
 {{ partial "schema/category.html" (dict "paginator" $paginator "context" .) }}

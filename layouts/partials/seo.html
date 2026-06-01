@@ -10,7 +10,6 @@
 
 {{ $authors := .Params.authors | default (slice $.Site.Params.author) }}
 {{ $canonical := .Params.canonical | default (.RelPermalink | absURL) }}
-{{ partial "robots.html" . }}
 <meta name="title" content="{{ .Title }}" />
 <meta name="description" content="{{ $description }}" />
 <meta name="author" content="{{ delimit $authors " , " }}" />
