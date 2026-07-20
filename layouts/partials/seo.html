@@ -62,3 +62,14 @@
 
 <!-- Canonic url -->
 <link rel="canonical" href="{{ $canonical }}" />
+
+
+<title>
+  {{- if .Params.seo_title -}}
+    {{ .Params.seo_title }}
+  {{- else if .IsHome -}}
+    {{ .Site.Title }}
+  {{- else -}}
+    {{ .Title }} | {{ .Site.Title }}
+  {{- end -}}
+</title>

@@ -15,8 +15,6 @@
 {{end}}
 {{- partial "css.html" . -}}
 {{ $title := print .Title " | " .Site.Title }}
-{{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-<title>{{ $title }}{{ if .IsHome }}{{ with .Site.Params.posTitle }} | {{.}}{{ end }}{{ end }}</title>
 {{- partial "seo.html" . -}}
 {{- partial "feed.html" . -}}
 {{- partial "script.html" . -}}
