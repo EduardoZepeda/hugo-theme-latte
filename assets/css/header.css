@@ -43,7 +43,7 @@ a.nav-link {
 
 
 .burger-line {
-    width: 32px;
+    width: 22px;
     border-radius: var(--border-radius);
     background-color: var(--main-text);
     height: 2px;
