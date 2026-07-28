@@ -20,12 +20,12 @@
 {{/*  title  */}}
 {{ $title := .Params.seo_title }}
 {{- if .Params.seo_title -}}
-  {{ $title := .Params.seo_title }}
-{{- else if .IsHome -}}
-  {{ $title := .Site.Title }}
-{{- else -}}
-  {{ $title := printf "%s | %s" .Title .Site.Title }}
-{{- end -}}
+  {{ $title = printf "%s | %s" .Params.seo_title .Site.Title }}
+{{ else if .IsHome }}
+  {{ $title = .Site.Title }}
+{{ else }}
+  {{ $title = printf "%s | %s" .Title .Site.Title }}
+{{ end }}
 
 
 {{ $authors := .Params.authors | default (slice $.Site.Params.author) }}
@@ -45,6 +45,7 @@
 {{ else }}
 {{ $ogType = "Blog" }}
 {{ end }}
+
 
 <meta property="og:type" content="{{ $ogType }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
@@ -76,5 +77,5 @@
 
 
 <title>
-  {{ $title }} {{ if $title }}|{{ end }} {{ .Site.Title }}
+  {{ $title }}
 </title>
