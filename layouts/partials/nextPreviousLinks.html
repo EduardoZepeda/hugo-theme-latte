@@ -1,15 +1,16 @@
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
 <section aria-label="{{ i18n "nextAndPreviuosLinks"}}" class="next-prev-links">
     <!-- we should check whether Next and Prev exist before hand, otherwise pagination could create an uncrawlable link -->
-    {{ if .NextInSection}}
+    {{ with $posts.Next . }}
         <div class="next-link">
             <p><strong>←{{ i18n "next"}}</strong></p>
-            <a title="{{.NextInSection.Title}}" aria-label="{{ i18n "nextEntry"}}" class="next-prev" rel="next" href="{{with .NextInSection}}{{.Permalink}}{{end}}">{{ .NextInSection.Title | truncate 50 "..."}}</a>
+            <a title="{{ .Title }}" aria-label="{{ i18n "nextEntry"}}" class="next-prev" rel="next" href="{{ .Permalink }}">{{ .Title | truncate 50 "..."}}</a>
         </div>
     {{ end }}
-    {{ if .PrevInSection}}
+    {{ with $posts.Prev . }}
         <div class="previous-link">
             <p><strong>{{ i18n "previous"}}→</strong></p>
-            <a title="{{ .PrevInSection.Title}}" aria-label="{{ i18n "previousEntry"}}" class="next-prev" rel="prev" href="{{with .PrevInSection}}{{.Permalink}}{{end}}">{{ .PrevInSection.Title | truncate 50 "..." }}</a>
+            <a title="{{ .Title }}" aria-label="{{ i18n "previousEntry"}}" class="next-prev" rel="prev" href="{{ .Permalink }}">{{ .Title | truncate 50 "..." }}</a>
         </div>
     {{ end }}
 </section>

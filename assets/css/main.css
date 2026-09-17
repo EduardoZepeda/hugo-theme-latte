@@ -213,6 +213,7 @@ figure.md-local-image img,
 
 .mermaid {
     background-color: var(--white);
+    margin: 2rem 0;
 }
 
 .credits-text {
