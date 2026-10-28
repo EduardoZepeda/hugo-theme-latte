@@ -13,6 +13,9 @@
 {{ if and (.Site.Params.PostHogAnalytics ) (hugo.IsProduction) }}
     {{- partial "analytics/posthog.html" . -}}
 {{end}}
+{{ if hugo.IsProduction }}
+    {{- partial "analytics/googleAnalytics.html" . -}}
+{{end}}
 {{- partial "css.html" . -}}
 {{ $title := print .Title " | " .Site.Title }}
 {{- partial "seo.html" . -}}
